@@ -87,13 +87,13 @@ paginate: 10
 
 markdown: kramdown
 
-#highlighter: rouge
+highlighter: rouge
 
 kramdown:
   input: GFM
-  #syntax_highlighter: rouge
- # syntax_highlighter_opts: # Rouge Options › https://github.com/jneen/rouge#full-options
- #   css_class: 'highlight'
+  syntax_highlighter: rouge
+  syntax_highlighter_opts: # Rouge Options › https://github.com/jneen/rouge#full-options
+    css_class: 'highlight'
     # default_lang: console
     span:
       line_numbers: false
