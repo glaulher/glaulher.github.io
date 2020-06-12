@@ -1,48 +1,36 @@
-![preview Long Haul](/preview.jpg)
+# Flexible-Jekyll is a simple and clean theme for Jekyll
 
-Long Haul is a minimal jekyll theme built with SASS / GULP / BROWSERSYNC / AUTOPREFIXER and focuses on long form blog posts. It is meant to be used as a starting point for a jekyll blog/website.
+![](https://github.com/artemsheludko/flexible-jekyll/blob/master/assets/img/promo-img.jpg?raw=true)
 
-If you really enjoy Long Haul and want to give me credit somewhere on the internet send or tweet out your experience with Long Haul and tag me [@brianmaierjr](https://twitter.com/brianmaierjr).
+## Demo
 
-#### [View Demo](http://brianmaierjr.com/long-haul)
+Check the theme in action [Demo](https://artemsheludko.github.io/flexible-jekyll/)
+
+The main page would look like this:
+
+![Main page preview](https://github.com/artemsheludko/flexible-jekyll/blob/master/assets/img/home-page.jpg?raw=true)
+
+The post page would look like this:
+
+![Post page preview](https://github.com/artemsheludko/flexible-jekyll/blob/master/assets/img/post-example.jpg?raw=true)
 
 ## Features
 
-- Minimal, Type Focused Design
-- Built with GULP + SASS + BROWSERSYNC + AUTOPREFIXER
-- SVG Social Icons
-- Responsive Nav Menu
-- XML Feed for RSS Readers
-- Contact Form via Formspree
-- 5 Post Loop with excerpt on Home Page
-- Previous / Next Post Navigation
-- Estimated Reading Time for posts
-- Stylish Drop Cap on posts
-- A Better Type Scale for all devices
+- [Google Fonts](https://fonts.google.com/)
+- [Font Awesome](http://fontawesome.io/)
+- [Disqus](https://disqus.com/)
+- [Analytics](https://analytics.google.com/analytics/web/)
+- Support Emoji
 
-## Setup
+## Installation:
 
-1. [Install Jekyll](http://jekyllrb.com)
-2. Fork the [Long Haul repo](http://github.com/brianmaierjr/long-haul)
-3. Clone it
-4. [Install Bundler](http://bundler.io/)
-5. Run `bundle install`
-6. Install gulp dependencies by running `npm install`
-7. Run Jekyll and watch files by running `bundle exec gulp`
-8. Customize and watch the magic happen!
-
-## Site Settings
-
-The main settings can be found inside the `_config.yml` file:
-
-- **title:** title of your site
-- **description:** description of your site
-- **url:** your url
-- **paginate:** the amount of posts displayed on homepage
-- **navigation:** these are the links in the main site navigation
-- **social** diverse social media usernames (optional)
-- **google_analytics** Google Analytics key (optional)
+Fork the ``master`` branch and follow the [Jekyll Installation Documentation](https://jekyllrb.com/docs/installation/).
 
 ## License
 
-This is [MIT](LICENSE) with no added caveats, so feel free to use this Jekyll theme on your site without linking back to me or using a disclaimer.
+GNU General Public License v3.0
+
+## Donate
+
+<p>If you like the themes that I create you can become my sponsor on <a href="https://www.patreon.com/artemsheludko" target="_blank">Patreon</a>.
+<p align="center"><b>Thank you for your support ❤️</b></p>
