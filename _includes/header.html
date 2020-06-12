@@ -1,13 +1,16 @@
-<div class="header-placeholder"></div>
-<header class="header">
-  <div class="wrapper">
-    <div id="sidebar-toggle">TOC</div>
-    <a class="site-title" href="{{ site.baseurl }}/">{{ site.title }}</a>
-    <nav class="site-nav">
-      {% for link in site.header.links %}{% assign url = link[1] %}
-        {% assign urlchk = url | split: "/" %}{% if urlchk[0] == '' and urlchk[1] != '' %}{% assign uprefix = site.baseurl %}{% else %}{% assign uprefix = ''%}{% endif %}
-        <a class="page-link" href="{{ url | prepend: uprefix }}">{{ link[0] }}</a>
-      {% endfor %}
-    </nav>
-  </div>
-</header>
+ <div class="header">
+     <div class="container">
+         <h1 class="logo"><a href="{{ site.baseurl }}/">{{ site.title }}</a></h1>
+         <nav class="nav-collapse">
+             <ul class="noList">
+                 {% for link in site.navigation %}{% assign current = nil %}{% if page.url contains link.url or forloop.first and page.url == '/' or page.url == 'index.html' %}{% assign current = 'current' %}{% endif %}
+                 <li class="element {% if forloop.first %}first{% endif %} {{ current }} {% if forloop.last %}last{% endif %}">
+                     <a href="{{ link.url | prepend: site.baseurl }}">{{ link.title }}</a>
+                 </li> 
+                 {% endfor %}
+                 <li> <a href="https://github.com/brianmaierjr/long-haul" target="_blank">GitHub</a></li>
+                 <li><a href="https://github.com/brianmaierjr/long-haul/archive/master.zip">Download Theme</a></li>
+             </ul>
+         </nav>
+     </div>
+ </div><!-- end .header -->

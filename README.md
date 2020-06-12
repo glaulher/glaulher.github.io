@@ -1,55 +1,48 @@
-# jekyll-theme-EasyBook
+![preview Long Haul](/preview.jpg)
 
-Another Jekyll Blog Theme "EasyBook"
+Long Haul is a minimal jekyll theme built with SASS / GULP / BROWSERSYNC / AUTOPREFIXER and focuses on long form blog posts. It is meant to be used as a starting point for a jekyll blog/website.
 
-Start blogging with a simple but powerful theme.
+If you really enjoy Long Haul and want to give me credit somewhere on the internet send or tweet out your experience with Long Haul and tag me [@brianmaierjr](https://twitter.com/brianmaierjr).
+
+#### [View Demo](http://brianmaierjr.com/long-haul)
 
 ## Features
 
-- Everything Basic Jekyll has.
-- **Pagination** is enabled.
-- **Comments** using Disqus or 多说.
-- **TOC** makes reading easier.
-- **Profile** including your links and avatar on the sidebar.
-- *And more...*
+- Minimal, Type Focused Design
+- Built with GULP + SASS + BROWSERSYNC + AUTOPREFIXER
+- SVG Social Icons
+- Responsive Nav Menu
+- XML Feed for RSS Readers
+- Contact Form via Formspree
+- 5 Post Loop with excerpt on Home Page
+- Previous / Next Post Navigation
+- Estimated Reading Time for posts
+- Stylish Drop Cap on posts
+- A Better Type Scale for all devices
 
-## Install
+## Setup
 
-Read [Quick Guide] to learn how to install and publish.
+1. [Install Jekyll](http://jekyllrb.com)
+2. Fork the [Long Haul repo](http://github.com/brianmaierjr/long-haul)
+3. Clone it
+4. [Install Bundler](http://bundler.io/)
+5. Run `bundle install`
+6. Install gulp dependencies by running `npm install`
+7. Run Jekyll and watch files by running `bundle exec gulp`
+8. Customize and watch the magic happen!
 
-Read [Welcome to Jekyll and EasyBook][helloPost] and [Jekyll][jekyll] for further information.
+## Site Settings
 
-**If need help, please:**
+The main settings can be found inside the `_config.yml` file:
 
- - [**Read Wiki pages**](https://github.com/laobubu/jekyll-theme-EasyBook/wiki)
- - **Google it**
- - [**Submit an issue**](https://github.com/laobubu/jekyll-theme-EasyBook/issues/new)
-
-## Donate
-
-Buy me a coffee if you find EasyBook useful for you :smiley:
-
-Visit <http://laobubu.net/donate.html>
-
-## Demo
-
-[laobubu's blog](http://blog.laobubu.net) | [empty site](http://laobubu.github.io/jekyll-theme-EasyBook)
-
-![Homepage](https://ooo.0o0.ooo/2016/02/11/56bc997c65daf.png)
+- **title:** title of your site
+- **description:** description of your site
+- **url:** your url
+- **paginate:** the amount of posts displayed on homepage
+- **navigation:** these are the links in the main site navigation
+- **social** diverse social media usernames (optional)
+- **google_analytics** Google Analytics key (optional)
 
 ## License
 
-```
-The MIT License (MIT)
-Copyright (c) 2016 laobubu
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-```
-
-[Quick Guide]: https://github.com/laobubu/jekyll-theme-EasyBook/wiki/Quick-Guide
-[helloPost]: http://laobubu.github.io/jekyll-theme-EasyBook/archivers/hello
-[jekyll]: http://jekyllrb.com/
+This is [MIT](LICENSE) with no added caveats, so feel free to use this Jekyll theme on your site without linking back to me or using a disclaimer.
