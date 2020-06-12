@@ -4,7 +4,7 @@ author: Cotes Chung
 date: 2019-08-09 20:55:00 +0800
 categories: [Blogging, Tutorial]
 tags: [getting started]
-pin: true
+pin: false
 ---
 
 ## Prerequisites
@@ -86,12 +86,12 @@ As mentioned above, some files or directories should be removed from your repo:
 Generally, go to `_config.yml` and configure the variables as needed. Some of them are typical options:
 
 * `url`
-    
+  
     Set to your website url and there should be no slash symbol at the tail. Format: `<protocol>://<domain>`.
 
 
 * `avatar`
-    
+  
     It defines the image file location of avatar. The sample image is `/assets/img/sample/avatar.jpg`, and should be replaced by your own one (a square image). Notice that a huge image file will increase the load time of your site, so keep your avatar image size as small as possible (may be *<https://tinypng.com/>* will help).
 
 * `timezone`
