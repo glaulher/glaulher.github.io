@@ -1,23 +1,38 @@
 ---
 layout: default
+# The page layout
+# v2.0
+# https://github.com/cotes2020/jekyll-theme-chirpy
+# © 2017-2019 Cotes Chung
+# MIT License
 ---
-<div class="container">
-	<div class="row">
-		<div class="col col-12">
-			<div class="page-image-box">
-				<div class="page-image" style="background-image: url({{"/img/" | prepend: site.baseurl | append : page.image}})"></div>
-			</div>
-		</div>
-		<article class="col col-12 col-t-10 push-t-1 page">
-			<div class="page-content">
-				<div class="page-head">
-					<h1 class="page-title">{{ page.title | escape }}</h1>
-				</div>
 
-				<div class="page-body">
-					{{ content }}
-				</div>
-			</div>
-		</article> <!-- /.page -->
-	</div>
+<div class="row">
+  <div class="col-12 col-lg-11 col-xl-8">
+    <div id="page" class="post pb-5 pl-1 pr-1 pl-sm-2 pr-sm-2 pl-md-4 pr-md-4 mb-md-4">
+    {% if page.dynamic_title %}
+      <h1 class="dynamic-title">{{ page.title }}</h1>
+      <div class="post-content">
+        {{ content }}
+      </div>
+    {% else %}
+      {{ content }}
+    {% endif %}
+    </div> <!-- #page -->
+  </div><!-- .col-12 -->
+
+  {% include panel.html %}
+
 </div>
+
+{% if site.disqus.comments and page.comments %}
+<div class="row">
+  <div class="col-12 col-lg-11 col-xl-8">
+    <div class="pl-1 pr-1 pl-sm-2 pr-sm-2 pl-md-4 pr-md-4">
+
+    {% include disqus.html %}
+
+    </div> <!-- .pl-1 pr-1 -->
+  </div> <!-- .col-12 -->
+</div> <!-- .row -->
+{% endif %}

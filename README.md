@@ -1,171 +1,264 @@
-Galada - Easy & Simple Theme for Personal Blog
-======
-Galada is an easy and simple theme for Jekyll. Dark colors, give it a special exquisite look. A careful approach to design and features make it an ideal solution for a personal blog.
+# Chirpy
 
-* * *
+🌏 English • [简体中文](docs/README_zh-CN.md)
 
-Table of Contents
------------------
-*   [Features](#features)
-*   [Demo](#demo)
-*   [Deployment](#deployment)
-*   [Posts](#posts)
-*   [Disqus Comments](#DisqusComments)
-*   [Instagram](#instagram)
-*   [Google Analytics](#GoogleAnalytics)
-*   [Update favicon](#UpdateFavicon)
-*   [Credits](#Credits)
-*   [Support](#Support)
+[![Build Status](https://github.com/cotes2020/jekyll-theme-chirpy/workflows/build/badge.svg?branch=master&event=push)](https://github.com/cotes2020/jekyll-theme-chirpy/actions?query=branch%3Amaster+event%3Apush)
+[![GitHub license](https://img.shields.io/github/license/cotes2020/jekyll-theme-chirpy.svg)](https://github.com/cotes2020/jekyll-theme-chirpy/blob/master/LICENSE)
+[![996.icu](https://img.shields.io/badge/link-996.icu-%23FF4D5B.svg)](https://996.icu)
 
-* * *
+A minimal, sidebar, responsive web design Jekyll theme, focusing on text presentation, aim to help you easily record and share your knowledge. [Live Demo »](https://chirpy.cotes.info)
 
-### Features
+[![Devices Mockup](https://raw.githubusercontent.com/cotes2020/jekyll-theme-chirpy/master/assets/img/sample/devices-mockup.png)](https://chirpy.cotes.info)
 
-* 100% responsive and clean theme
+## Table of Contents
 
-* Optimized for mobile devices
+* [Features](#features)
+* [Installing](#installing)
+* [Usage](#usage)
+* [Contributing](#contributing)
+* [Credits](#credits)
+* [Support](#support)
+* [License](#license)
 
-* Minimal design
+## Features
 
-* Valid HTML5 code
+* Pinned Posts
+* Configurable theme mode
+* Double-level Categories
+* Last modified date for posts
+* Table of Contents
+* Automatically recommend related posts
+* Syntax highlighting
+* Mathematical expressions
+* Search
+* Atom Feeds
+* Disqus Comments
+* Google Analytics
+* GA Pageviews reporting (Advanced)
+* SEO and Performance Optimization
 
-* Post sharing
+## Installing
 
-* Subscription form
+### Prerequisites
 
-* Supports Disqus Comments
+Follow the [Jekyll Docs](https://jekyllrb.com/docs/installation/) to complete the installation of basic environment (`Ruby`, `RubyGems` and `Bundler`). 
 
-* Instagram Feed
+To improve the writing experience, we need to use some script tools. If your machine is running Debian or macOS, make sure that [GNU coreutils](https://www.gnu.org/software/coreutils/) is installed. Otherwise, install by:
 
-* Ionicons Icons
+* Debian
 
-* Google Fonts
+```console
+$ sudo apt-get install coreutils
+```
 
+* macOS
 
-* * *
+```console
+$ brew install coreutils
+```
 
-### Demo
 
-Check the theme in action [Demo](https://artemsheludko.github.io/galada/)
+### Jekyll Plugins
 
-![Main page preview](https://github.com/artemsheludko/galada/blob/master/img/galada-main-page.jpg?raw=true)
+[Fork **Chirpy** from GitHub](https://github.com/cotes2020/jekyll-theme-chirpy/fork), then clone your forked repo to local:
 
-The post page would look like this:
+```console
+$ git clone git@github.com:USER/jekyll-theme-chirpy.git -b master
+```
 
-![Post page preview](https://github.com/artemsheludko/galada/blob/master/img/galada-post.jpg?raw=true)
+and replace the `USER` above to your GitHub username.
 
-* * *
+The first time you run or build the project on local machine, perform the installation of Jekyll plugins. Go to the root of repo and run:
 
-### Deployment
+```terminal
+$ bundle install
+```
 
-To run the theme locally, navigate to the theme directory and run `bundle install` to install the dependencies, then run `jekyll serve` or `bundle exec jekyll serve` to start the Jekyll server.
+`bundle` will automatically install all the dependent Jekyll Plugins that listed in the `Gemfile`.
 
-I would recommend checking the [Deployment Methods](https://jekyllrb.com/docs/deployment-methods/) page on Jekyll website.
 
-* * *
+## Usage
 
-### Posts
 
-To create a new post, you can create a new markdown file inside the \_posts directory by following the [recommended file structure](https://jekyllrb.com/docs/posts/#creating-post-files).
+### Directory Structure
 
-      ---
-      layout: post
-      title: Premiere on Broadway
-      date: 2018-08-23 16:04:00 +0300
-      image: 03.jpg
-      tags: [Rest]
-      ---
-          
+The main files and related brief introductions are listed below.
 
-You can set the tags and the post image.
+```sh
+jekyll-theme-chirpy/
+├── _data
+├── _includes      
+├── _layouts
+├── _posts          # posts stay here
+├── _scripts
+├── .travis.yml     # remove it
+├── .github         # remove this, too
+├── assets      
+├── tabs
+│   └── about.md    # the ABOUT page
+├── .gitignore
+├── 404.html
+├── Gemfile
+├── LICENSE
+├── README.md
+├── _config.yml     # configuration file
+├── tools           # script tools
+├── docs
+├── feed.xml
+├── index.html
+├── robots.txt
+└── sitemap.xml
+```
 
-Add post images to **/img/** directory.
 
-For tags, try to not add space between two words, for example, `Ruby on Rails`, could be something like (`ruby-on-rails`, `Ruby_on_Rails`, or `Ruby-on-Rails`).
+As mentioned above, some files or directories should be removed from your repo:
 
-* * *
+- .travis.yml
+- .github
 
-### Disqus Comments
 
-Galada Theme comes with Disqus comments enabled.
+### Configuration
 
-Open `_config.yml` file, and change the `mr-brown` value on line 26 with your [Disqus account shortname](https://help.disqus.com/customer/portal/articles/466208).
+Generally, go to `_config.yml` and configure the variables as needed. Some of them are typical options:
 
-      Comment Section (Disqus)
-      disqus-identifier: mr-brown \# Add your shortname for Disqus Comment. For example mr-brown
-          
+* `url`
+	
+	Set to your website url and there should be no slash symbol at the tail. Format: `<protocol>://<domain>`.
 
-That’s all you need to setup Disqus from the theme side. If you get any issue regarding that comments are unable to load. First, make sure you have [registered your website with Disqus (Step 1)](https://help.disqus.com/customer/portal/articles/466182-publisher-quick-start-guide).
 
-And also check [Disqus troubleshooting guide](https://help.disqus.com/customer/portal/articles/472007-i-m-receiving-the-message-%22we-were-unable-to-load-disqus-%22) if you still have issues.
+* `avatar`
+    
+    It defines the image file location of avatar. The sample image is `/assets/img/sample/avatar.jpg`, and should be replaced by your own one(a square image). Notice that a huge image file will increase the load time of your site, so keep your avatar image size as small as possible(may be *<https://tinypng.com/>* will help).
 
-* * *
+* `timezone`
 
-### Instagram
+    To ensure that the posts' release date matches the city you live in, please modify the field `timezone` correctly. A list of all available values can be found on [TimezoneConverter](http://www.timezoneconverter.com/cgi-bin/findzone/findzone) or [Wikipedia](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
 
-The Instagram feed is working using [Instafeed.js](http://instafeedjs.com/) to show the photos.
+* `theme_mode`
+  
+	There are three options for the theme color scheme:
+	
+	- **dual** 	- The default color scheme will follow the system settings, but if the system does not support dark mode, or the browser does not support `Media Queries Level 5`, the theme will be displayed as `light` mode by default. Anyway, the bottom left corner of the Sidebar will provide a button for users to switch color schemes.
 
-First, you will need to get your account `userId` and `accessToken` from the following URLs:
+	- **dark**	- Always show dark mode.
+	- **light**	- Always show light mode.
 
-*   userId: [smashballoon.com/instagram-feed/find-instagram-user-id](https://smashballoon.com/instagram-feed/find-instagram-user-id/)
-*   accessToken: [instagram.pixelunion.net](http://instagram.pixelunion.net/)
 
-Second, open the `js/common.js` file and replace the `userId` and `accessToken` values.
+###  Run Locally
 
-            var instagramFeed = new Instafeed({
-              get: 'user',
-              limit: 6,
-              resolution: 'standard_resolution',
-              userId: '8987997106',
-              accessToken: '8987997106.924f677.8555ecbd52584f41b9b22ec1a16dafb9',
-              template: ''
-            });
-          
+You may want to preview the site content before publishing, so just run the script tool:
 
-Third, open the `_config.yml` file and replace the `instafeed: false` on `instafeed: true` value.
+```terminal
+$ bash tools/run.sh
+```
 
-            \# Instagram Feed
-            instafeed: false \# To enable the instafeed, use the value true. To turn off use the value false.
-          
+Open a modern browser and visit at <http://localhost:4000>.
 
-* * *
+Few days later, you may find that the file modification(e.g. edits to a post) does not refresh in real time by using `run.sh`. Don't worry, the advanced option `-r` (or `--realtime`) will solve this problem, but it requires [**fswatch**](http://emcrisostomo.github.io/fswatch/) to be installed on your machine. Type `-h` for more information.
 
-### Google Analytics
+###  Deploying to GitHub Pages
 
-To integrate Google Analytics, open `_config.yml`, and add your Google Analytics identifier.
+Before the deployment begins, checkout the file `_config.yml` and make sure that the `url` has been configured. What's more, if you prefer the [Project site on GitHub](https://help.github.com/en/github/working-with-github-pages/about-github-pages#types-of-github-pages-sites) and also use the default domain `<username>.github.io`, remember to change the `baseurl` to your project name that starting with a slash. For example, `/project`.
 
-    \# Google Analytics
-    google-analytics: \# Add your identifier. For example UA-99631805-1
-          
+#### Option 1: Built by GitHub Pages
 
-* * *
+By deploying the site in this way, you're allowed to push the source code directly to the remote.
 
-### Update favicon
+> **Note**: If you want to use any third-party Jekyll plugins that not in [this list](https://pages.github.com/versions/), stop reading the current approach and go to [*Option 2: Build locally*](#option-2-build-locally).
 
-You can find the current favicon (favicon.ico) inside the theme root directory, just replace it with your new favicon.
+**1**. Rename the repository to:
 
-* * *
+|Site Type | Repo's Name|
+|:---|:---|
+|User or Organization | `<username>.github.io`|
+|Project| Any one except `<username>.github.io`, let's say `project`|
 
-### Credits
+**2**. Commit the changes of the repo first, then run the initialization script:
 
-I have used the following scripts, fonts or other files as listed.
+```terminal
+$ bash tools/init.sh
+```
 
-*   [Google Fonts](https://fonts.google.com/specimen/Nunito) (Nunito, Sans Serif).
-*   [Ionicons Icons](https://ionicons.com/)
-*   [FitVids.js](http://fitvidsjs.com/)
-*   [Instafeed.js](http://instafeedjs.com/)
-*   [jQuery.com](https://jquery.com/)
-*   [Wait For Images](https://github.com/alexanderdickson/waitForImages)
-*   Preview Images form [unsplash.com](https://unsplash.com/), [pexels.com](https://www.pexels.com/)
+>**Note**: The *Recent Update* requires the posts' latest git-log date, so make sure the changes in `_posts` have been committed before running this command.
 
-* * *
-### License
+it will automatically generates the *Latest Modified Date* and *Categories / Tags* page for the posts and submit a commit. Its output is similar to the following log:
 
-Mit License
+```terminal
+[INFO] Success to update lastmod for 4 post(s).
+[INFO] Succeed! 3 category-pages created.
+[INFO] Succeed! 4 tag-pages created.
+[Automation] Updated the Categories, Tags, Lastmod for post(s).
+ 11 files changed, 46 insertions(+), 3 deletions(-)
+ ...
+Updated the Categories, Tags, Lastmod for post(s).
+```
 
-* * *
+**3**. Push the changes to `origin/master` then go to GitHub website and enable GitHub Pages service for the repo.
 
-### Support
+**4**. Check it out:
 
-<p>If you like the themes that I create you can become my sponsor on <a href="https://www.patreon.com/artemsheludko" target="_blank">Patreon</a>.
-<p align="center"><b>Thank you for your support ❤️</b></p>
+|Site Type | Site URL |
+|:---|:---|
+|User or Organization | `https://<username>.github.io/`|
+|Project| `https://<username>.github.io/project/`|
+
+
+#### Option 2: Build Locally
+
+For security reasons, GitHub Pages runs on `safe` mode, which means the third-party Jekyll plugins or custom scripts won't work. If you want to use any another plugins that not in the [whitelist](https://pages.github.com/versions/), **you have to generate the site locally rather than on GitHub Pages**.
+
+**1**. Browse to GitHub website, create a brand new repo named: 
+
+|Site Type | Repo's Name|
+|:---|:---|
+|User or Organization | `<username>.github.io`|
+|Project| Any one except `<username>.github.io`, let's say `project`|
+
+and clone it.
+
+**2**. In the root of the source project, build your site by:
+
+```console
+$ bash tools/build.sh -d /path/to/local/project/
+```
+
+The generated static files will be placed in the root of `/path/to/local/project`. Commit and push the changes to the `master` branch on GitHub.
+
+**3**. Go to GitHub website and enable Pages service for the new repository.
+
+**4**. Visit at:
+
+|Site Type | Site URL |
+|:---|:---|
+|User or Organization | `https://<username>.github.io/`|
+|Project| `https://<username>.github.io/project/`|
+
+#### Finishing work
+
+No matter which way you choose to deploy the website on GitHub, please enforce the `HTTPS` for it. See official docs: [Securing your GitHub Pages site with HTTPS](https://help.github.com/en/github/working-with-github-pages/securing-your-github-pages-site-with-https).
+
+
+### Documentation
+
+For more details and the better reading experience, please check out the [tutorial in demo site](https://chirpy.cotes.info/categories/tutorial/). In the meanwhile, a copy of the tutorial is also available on the [Wiki](https://github.com/cotes2020/jekyll-theme-chirpy/wiki).
+
+## Contributing
+
+The old saying, "Two heads are better than one." Consequently, welcome to report bugs, improve code quality or submit a new feature. For more information, see [contributing guidelines](.github/CONTRIBUTING.md).
+
+
+## Credits
+
+This theme is mainly built with [Jekyll](https://jekyllrb.com/) ecosystem, [Bootstrap](https://getbootstrap.com/), [Font Awesome](https://fontawesome.com/) and some other wonderful tools(their copyright information can be found in the relevant files).
+
+:tada:Thanks to all the volunteers who contributed to this project, their GitHub IDs are on [this list](https://github.com/cotes2020/jekyll-theme-chirpy/graphs/contributors). Also, I won't forget those guys who submitted the issues or unmerged PR because they reported bugs, shared ideas or inspired me to write more readable documentation.
+
+
+## Support
+
+If you enjoy this theme or find it helpful, please consider becoming my sponsor, I'd really appreciate it! Click the button <kbd>:heart:Sponsor</kbd> at the top of the [Home Page](https://github.com/cotes2020/jekyll-theme-chirpy) and choose a link that suits you to donate; this will encourage and help me better maintain the project.
+
+
+## License
+
+This work is published under [MIT](https://github.com/cotes2020/jekyll-theme-chirpy/blob/master/LICENSE) License.

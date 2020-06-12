@@ -1,38 +1,33 @@
-<footer class="footer">
-  <div class="container">
-    <div class="row">
-      <div class="col col-12">
-        <div class="footer-top">
-          <h2 class="logo-title">
-            <a href="{{site.baseurl}}/" class="logo-text">Galada</a>
-          </h2>
-          <div class="top"><i class="ion ion-ios-arrow-up"></i></div>
-        </div>
-        <div class="footer-bottom">
-          <div class="copyright">
-            <p>&copy; {{site.time | date: '%Y'}} Crafted & Designed by <a href="https://github.com/artemsheludko">Artem Sheludko</a></p>
-          </div>
-          <div class="footer-social">
-            <ul class="list-reset">
-              {% if site.facebook %}
-              <li><a href="{{ site.facebook }}">Facebook</a></li>
-              {% else %} {% endif %}
+<!--
+  The Footer
+  v2.0
+  https://github.com/cotes2020/jekyll-theme-chirpy
+  © 2017-2019 Cotes Chung
+  MIT License
+-->
 
-              {% if site.twitter %}
-              <li><a href="{{ site.twitter }}">Twitter</a></li>
-              {% else %} {% endif %}
-
-              {% if site.instagram %}
-              <li><a href="{{ site.instagram }}">Instagram</a></li>
-              {% else %} {% endif %}
-
-              {% if site.pinterest %}
-              <li><a href="{{ site.pinterest }}">Pinterest</a></li>
-              {% else %} {% endif %}
-            </ul>
-          </div>
-        </div>
-      </div>
+<footer class="d-flex w-100 justify-content-center">
+  <div class="d-flex justify-content-between align-items-center">
+    <div class="footer-left">
+      <p class="mb-0">
+        © {{ 'now' | date: "%Y" }}
+        <a href="{{ site.social.links[0] }}">{{ site.social.name }}</a>.
+        {% if site.data.rights.brief %}
+        <span data-toggle="tooltip" data-placement="top"
+          title="{{ site.data.rights.verbose }}">{{ site.data.rights.brief }}</span>
+        {% endif %}
+      </p>
     </div>
-  </div>
-</footer> <!-- /.footer -->
+
+    <div class="footer-right">
+      <p class="mb-0">
+        Powered by
+        <a href="https://jekyllrb.com" target="_blank">Jekyll</a>
+        with
+        <a href="https://github.com/cotes2020/jekyll-theme-chirpy/">Chirpy</a>
+        theme.
+      </p>
+    </div>
+
+  </div> <!-- div.d-flex -->
+</footer>
