@@ -3,7 +3,6 @@ title: Customize the Favicon
 author: Cotes Chung
 date: 2019-06-12 16:33:00 -0300
 categories: [Blogging, Tutorial]
-tags: [favicon]
 pin: false
 toc: false
 ---
