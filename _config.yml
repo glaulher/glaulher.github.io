@@ -135,7 +135,7 @@ defaults:
           label: Home
           url: /
         -
-          label: Tags
+          label: Testando 
           url: /tabs/tags/
   -
     scope:
