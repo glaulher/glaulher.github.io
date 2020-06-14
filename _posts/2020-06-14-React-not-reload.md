@@ -36,8 +36,6 @@ Para verificar o número máximo de relógios inotify:
 cat /proc/sys/fs/inotify/max_user_watches
 ```
 
-
-
 No Debian esse valor padrão é 8192, para definir o número máximo de relógios inotify temporariamente:
 
 ```shell
