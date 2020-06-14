@@ -29,7 +29,7 @@ No Debian esse valor padrão é 8192, para definir o número máximo de relógio
  sudo sysctl fs.inotify.max_user_watches = com o seu valor preferido no final.
 ```
 
-Para definir o número máximo de relógios inotify definitivamente:
+**Para definir o número máximo de relógios inotify definitivamente:**
 
 ```shell
 sudo -i
@@ -50,7 +50,7 @@ Verifique se o número máximo de relógios inotify foi atingido:<br />
 
 Use tail com a opção -f (follow) em qualquer arquivo antigo, por exemplo tail -f / var / log / dmesg: - Se estiver tudo bem, mostrará as últimas 10 linhas e fará uma pausa; abortar com Ctrl-C - Se você estiver sem relógio, falhará com este erro um tanto enigmático:<br />
 </div>
-<br />
+
 
 ```shell
 tail: cannot watch '/var/log/dmsg': No space left on device
