@@ -48,7 +48,7 @@ Arch: coloque um novo arquivo em /etc/sysctl.d/, por exemplo /etc/sysctl.d/40-ma
 Você pode recarregar as configurações do sysctl para evitar uma reinicialização: sysctl -p (Debian / RedHat) ou sysctl --system (Arch)<br />
 Verifique se o número máximo de relógios inotify foi atingido:<br />
 
-Use tail com a opção -f (follow) em qualquer arquivo antigo, por exemplo tail -f / var / log / dmesg: - Se estiver tudo bem, mostrará as últimas 10 linhas e fará uma pausa; abortar com Ctrl-C - Se você estiver sem relógio, falhará com este erro um tanto enigmático:<br />
+Use tail com a opção -f (follow) em qualquer arquivo antigo, por exemplo tail -f / var / log / dmesg: - Se estiver tudo bem, mostrará as últimas 10 linhas e fará uma pausa; abortar com Ctrl-C - Se você estiver sem relógio, falhará com este erro um tanto enigmático:
 </div><br />
 
 ```shell
