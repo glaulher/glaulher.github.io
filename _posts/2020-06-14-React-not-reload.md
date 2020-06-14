@@ -31,6 +31,7 @@ Observe que seu aplicativo também utilizará memória adicional para acompanhar
 Para verificar o número máximo de relógios inotify:
 </p>
 
+
 ```shell
 cat /proc/sys/fs/inotify/max_user_watches
 ```
