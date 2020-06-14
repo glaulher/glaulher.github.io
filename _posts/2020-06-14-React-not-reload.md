@@ -12,21 +12,24 @@ comments: true
 ![image]({{ "/assets/img/sample/react-reload/reload.png" | relative_url }})
 
 <div style="text-align: justify">  
-	<p>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Para resover esse problema é preciso alterar o valor  de max_user_watches em inotify, cada relógio inotify usado ocupa 540 bytes (sistema de 32 bits) ou 1 kB (duplo em 64 bits) Isso sai da memória do kernel, que não pode ser trocada.<br />
+	<p style=" margin: 0;text-indent: 3ch;">
+Para resover esse problema é preciso alterar o valor  de max_user_watches em inotify, cada relógio inotify usado ocupa 540 bytes (sistema de 32 bits) ou 1 kB (duplo em 64 bits) Isso sai da memória do kernel, que não pode ser trocada.<br />
 	</p>
 </div> 
 <div style="text-align: justify">  
-	<p>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Supondo que você definiu o máximo em 524288 e todos foram usados (improvável), você usaria aproximadamente 256 MB / 512 MB de memória do kernel de 32 bits / 64 bits.<br />
+	<p style=" margin: 0;text-indent: 3ch;">
+Supondo que você definiu o máximo em 524288 e todos foram usados (improvável), você usaria aproximadamente 256 MB / 512 MB de memória do kernel de 32 bits / 64 bits.<br />
 	</p>
 </div>  
 <div style="text-align: justify">  
-	<p>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Observe que seu aplicativo também utilizará memória adicional para acompanhar os identificadores inotify, os caminhos de arquivo / no diretório etc.<br /> 
+	<p style=" margin: 0;text-indent: 3ch;">
+Observe que seu aplicativo também utilizará memória adicional para acompanhar os identificadores inotify, os caminhos de arquivo / no diretório etc.<br /> 
 	</p>
-</div>        
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Para verificar o número máximo de relógios inotify:
+</div>  
+<div style="text-align: justify">  
+	<p style=" margin: 0;text-indent: 3ch;">
+Para verificar o número máximo de relógios inotify:
+</p>
 
 ```shell
 cat /proc/sys/fs/inotify/max_user_watches
