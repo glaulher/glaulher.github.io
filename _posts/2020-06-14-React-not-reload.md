@@ -61,11 +61,12 @@ encontre / proc / * / fd -lname anon_inode: inotify |
    sort -nr
 A primeira coluna indica o número de inotify fds (embora não seja o número de relógios) e a segunda mostra o PID desse processo.
 
-fonte: [askbuntu]( https://askubuntu.com/questions/716431/inotify-max-user-watches-value-resets-on-reboot-how-to-change-it-permanently)
+fontes: 
+[askbuntu]( https://askubuntu.com/questions/716431/inotify-max-user-watches-value-resets-on-reboot-how-to-change-it-permanently){:target="_blank" rel="noopener"}
 
-​         [dev.to](https://dev.to/rubiin/ubuntu-increase-inotify-watcher-file-watch-limit-kf4)
+[dev.to](https://dev.to/rubiin/ubuntu-increase-inotify-watcher-file-watch-limit-kf4){:target="_blank" rel="noopener"}
 
-​         [stackoverflow](https://stackoverflow.com/questions/42189575/create-react-app-reload-not-working)
+[stackoverflow](https://stackoverflow.com/questions/42189575/create-react-app-reload-not-working){:target="_blank" rel="noopener"}
 
 
 
