@@ -17,7 +17,7 @@ comments: true
 ​			Supondo que você definiu o máximo em 524288 e todos foram usados (improvável), você usaria aproximadamente 256 MB / 512 MB de memória do kernel de 32 bits / 64 bits.
 ​			Observe que seu aplicativo também utilizará memória adicional para acompanhar os identificadores inotify, os caminhos de arquivo / no diretório etc.  
 ​			Para verificar o número máximo de relógios inotify:
-</div>
+
 
 ```shell
 cat /proc/sys/fs/inotify/max_user_watches
