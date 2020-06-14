@@ -39,24 +39,32 @@ exit
 ```
 
 
+<div style="text-align: justify"> 
+Permanentemente (informações mais detalhadas):<br />
 
-Permanentemente (informações mais detalhadas):
+Coloque fs.inotify.max_user_watches = 524288 nas configurações do sysctl. Dependendo do seu sistema, eles podem estar em um dos seguintes locais:<br />
+Debian / RedHat: /etc/sysctl.conf<br />
+Arch: coloque um novo arquivo em /etc/sysctl.d/, por exemplo /etc/sysctl.d/40-max-user-watches.conf<br />
+Você pode recarregar as configurações do sysctl para evitar uma reinicialização: sysctl -p (Debian / RedHat) ou sysctl --system (Arch)<br />
+Verifique se o número máximo de relógios inotify foi atingido:<br />
 
-coloque fs.inotify.max_user_watches = 524288 nas configurações do sysctl. Dependendo do seu sistema, eles podem estar em um dos seguintes locais:
-Debian / RedHat: /etc/sysctl.conf
-Arch: coloque um novo arquivo em /etc/sysctl.d/, por exemplo /etc/sysctl.d/40-max-user-watches.conf
-você pode recarregar as configurações do sysctl para evitar uma reinicialização: sysctl -p (Debian / RedHat) ou sysctl --system (Arch)
-Verifique se o número máximo de relógios inotify foi atingido:
+Use tail com a opção -f (follow) em qualquer arquivo antigo, por exemplo tail -f / var / log / dmesg: - Se estiver tudo bem, mostrará as últimas 10 linhas e fará uma pausa; abortar com Ctrl-C - Se você estiver sem relógio, falhará com este erro um tanto enigmático:<br />
+</div>
+<br />
 
-Use tail com a opção -f (follow) em qualquer arquivo antigo, por exemplo tail -f / var / log / dmesg: - Se estiver tudo bem, mostrará as últimas 10 linhas e fará uma pausa; abortar com Ctrl-C - Se você estiver sem relógio, falhará com este erro um tanto enigmático:
-causa: não é possível assistir '/ var / log / dmsg': não há espaço no dispositivo
+```shell
+tail: cannot watch '/var/log/dmsg': No space left on device
+```
 Para ver o que está usando os relógios inotify:
 
-encontre / proc / * / fd -lname anon_inode: inotify |
-   corte -d / -f3 |
-   xargs -I '{}' - ps --no-headers -o '% p% U% c' -p '{}' |
+```shell
+find /proc/*/fd -lname anon_inode:inotify |
+   cut -d/ -f3 |
+   xargs -I '{}' -- ps --no-headers -o '%p %U %c' -p '{}' |
    uniq -c |
    sort -nr
+```
+
 A primeira coluna indica o número de inotify fds (embora não seja o número de relógios) e a segunda mostra o PID desse processo.
 
 fontes:
@@ -69,3 +77,7 @@ fontes:
 
 
 
+
+```
+
+```
