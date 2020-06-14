@@ -11,7 +11,7 @@ comments: true
 
 ![image]({{ "/assets/img/sample/react-reload/reload.png" | relative_url }})
 
-			##  Inotify
+
 
 ​			Cada relógio inotify usado ocupa 540 bytes (sistema de 32 bits) ou 1 kB (duplo em 64 bits)
 Isso sai da memória do kernel, que não pode ser trocada.
@@ -61,11 +61,11 @@ encontre / proc / * / fd -lname anon_inode: inotify |
    sort -nr
 A primeira coluna indica o número de inotify fds (embora não seja o número de relógios) e a segunda mostra o PID desse processo.
 
-fonte: ![askbuntu]( https://askubuntu.com/questions/716431/inotify-max-user-watches-value-resets-on-reboot-how-to-change-it-permanently)
+fonte: [askbuntu]( https://askubuntu.com/questions/716431/inotify-max-user-watches-value-resets-on-reboot-how-to-change-it-permanently)
 
- 		 ![dev.to](https://dev.to/rubiin/ubuntu-increase-inotify-watcher-file-watch-limit-kf4)
+​         [dev.to](https://dev.to/rubiin/ubuntu-increase-inotify-watcher-file-watch-limit-kf4)
 
-​		  ![stackoverflow](https://stackoverflow.com/questions/42189575/create-react-app-reload-not-working)
+​         [stackoverflow](https://stackoverflow.com/questions/42189575/create-react-app-reload-not-working)
 
 
 
