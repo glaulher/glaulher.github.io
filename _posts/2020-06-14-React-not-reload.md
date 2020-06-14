@@ -18,8 +18,8 @@ Para resolver esse problema é preciso alterar o valor  de max_user_watches em i
 Observe que seu aplicativo também utilizará memória adicional para acompanhar os identificadores inotify, os caminhos de arquivo / no diretório etc.<br /> 
 <br />
 Para verificar o número máximo de relógios inotify:
-<br />
 </div>
+<br />
 
 ```shell
 cat /proc/sys/fs/inotify/max_user_watches
