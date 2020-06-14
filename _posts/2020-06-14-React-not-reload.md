@@ -15,8 +15,8 @@ comments: true
 <p>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Para resover esse problema é preciso alterar o valor  de max_user_watches em inotify, cada relógio inotify usado ocupa 540 bytes (sistema de 32 bits) ou 1 kB (duplo em 64 bits) Isso sai da memória do kernel, que não pode ser trocada.<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Supondo que você definiu o máximo em 524288 e todos foram usados (improvável), você usaria aproximadamente 256 MB / 512 MB de memória do kernel de 32 bits / 64 bits.<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Observe que seu aplicativo também utilizará memória adicional para acompanhar os identificadores inotify, os caminhos de arquivo / no diretório etc.<br />  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Para verificar o número máximo de relógios inotify:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Observe que seu aplicativo também utilizará memória adicional para acompanhar os identificadores inotify, os caminhos de arquivo / no diretório etc.<br />  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Para verificar o número máximo de relógios inotify:
 </p>
 </div>
 
