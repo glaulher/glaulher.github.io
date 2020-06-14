@@ -13,12 +13,7 @@ comments: true
 
 <div style="text-align: justify">  
 	<p style=" margin: 0;text-indent: 3ch;">
-Para resover esse problema é preciso alterar o valor  de max_user_watches em inotify, cada relógio inotify usado ocupa 540 bytes (sistema de 32 bits) ou 1 kB (duplo em 64 bits) Isso sai da memória do kernel, que não pode ser trocada.<br />
-	</p>
-</div> 
-<div style="text-align: justify">  
-	<p style=" margin: 0;text-indent: 3ch;">
-Supondo que você definiu o máximo em 524288 e todos foram usados (improvável), você usaria aproximadamente 256 MB / 512 MB de memória do kernel de 32 bits / 64 bits.<br />
+Para resolver esse problema é preciso alterar o valor  de max_user_watches em inotify, cada relógio inotify usado ocupa 540 bytes (sistema de 32 bits) ou 1 kB (duplo em 64 bits) Isso sai da memória do kernel, que não pode ser trocada. Supondo que você definiu o máximo em 524288 e todos foram usados (improvável), você usaria aproximadamente 256 MB / 512 MB de memória do kernel de 32 bits / 64 bits.<br />
 	</p>
 </div>  
 <div style="text-align: justify">  
