@@ -23,10 +23,10 @@ comments: true
 </div>  
 <div style="text-align: justify">  
 	<p>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Observe que seu aplicativo também utilizará memória adicional para acompanhar os identificadores inotify, os caminhos de arquivo / no diretório etc.<br /> 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Observe que seu aplicativo também utilizará memória adicional para acompanhar os identificadores inotify, os caminhos de arquivo / no diretório etc.<br /> 
 	</p>
 </div>        
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Para verificar o número máximo de relógios inotify:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Para verificar o número máximo de relógios inotify:
 
 ```shell
 cat /proc/sys/fs/inotify/max_user_watches
