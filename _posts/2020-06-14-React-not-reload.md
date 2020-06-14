@@ -26,7 +26,7 @@ cat /proc/sys/fs/inotify/max_user_watches
 No Debian esse valor padrão é 8192, para definir o número máximo de relógios inotify temporariamente:
 
 ```shell
-$ sudo sysctl fs.inotify.max_user_watches = com o seu valor preferido no final.
+ sudo sysctl fs.inotify.max_user_watches = com o seu valor preferido no final.
 ```
 
 Para definir o número máximo de relógios inotify definitivamente:
