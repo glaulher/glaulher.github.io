@@ -1,5 +1,5 @@
 ---
-title: About
+title: Sobre
 
 # The About page
 # v2.0
@@ -8,4 +8,4 @@ title: About
 # MIT License
 ---
 
-> **Note**: Add Markdown syntax content to file `tabs/about.md` and it will show up on this page.
+> Graduado em Sistemas de informação em 2019, técnico em eletrônica e telecomunicações, estudante da stack javascript, entusiasta e utilizador das distros Debian e VoidLinux.
