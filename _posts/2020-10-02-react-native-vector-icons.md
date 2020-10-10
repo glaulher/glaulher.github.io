@@ -77,7 +77,7 @@ const styles = StyleSheet.create({
 export default App;
 
 ```
-Ficará com o icone do github conforme as imagens:
+Ficará com o icone do github conforme a imagem:
 
 ![image]({{ "/assets/img/sample/react-native/icon-vector.png" | relative_url }}){:target="_blank" rel="noopener"}
 
