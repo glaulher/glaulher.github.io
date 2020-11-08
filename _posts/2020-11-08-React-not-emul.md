@@ -3,7 +3,7 @@ title: React-native não carrega o app
 author: Glaulher Medeiros
 date: 2020-11-08 13:27:00 -0300
 categories: [Blogging, Tutorial]
-tags: [React, Linux]
+tags: [React, React-native, Linux]
 toc: true
 comments: true
 ---
