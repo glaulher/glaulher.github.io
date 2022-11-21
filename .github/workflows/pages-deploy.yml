@@ -1,24 +1,29 @@
+name: 'Automatic build'
 on:
   push:
     branches:
       - main
+    paths-ignore:
+      - .gitignore
+      - README.md
+      - LICENSE
 
 jobs:
-  deploy:
-   
+  continuous-delivery:
+
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
+      - name: Checkout
+        uses: actions/checkout@v2
         with:
-          node-version: '18.x'
-      - name: Build web-app
-        run: |
-          npm ci
-          npm run build
-      - name: Deploy to gh-pages
-        uses: peaceiris/actions-gh-pages@v3
+          fetch-depth: 0  # for posts's lastmod
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./build
+          ruby-version: 2.7
+          bundler-cache: true
+
+      - name: Deploy
+        run: bash tools/deploy.sh

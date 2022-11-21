@@ -1,50 +1,30 @@
 {
-  "name": "glaulher.github.io",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
-    "@types/jest": "^27.5.2",
-    "@types/node": "^16.18.3",
-    "@types/react": "^18.0.25",
-    "@types/react-dom": "^18.0.8",
-    "markdown-to-jsx": "^7.1.7",
-    "react": "^18.2.0",
-    "react-copy-to-clipboard": "^5.1.0",
-    "react-dom": "^18.2.0",
-    "react-scripts": "5.0.1",
-    "react-syntax-highlighter": "^15.5.0",
-    "typescript": "^4.8.4",
-    "web-vitals": "^2.1.4"
+  "name": "jekyll-theme-chirpy",
+  "version": "4.3.0",
+  "description": "A minimal, sidebar, responsive web design Jekyll theme that focuses on text presentation.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cotes2020/jekyll-theme-chirpy.git"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "author": "Cotes Chung",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cotes2020/jekyll-theme-chirpy/issues"
   },
-  "devDependencies": {
-    "@types/react-copy-to-clipboard": "^5.0.4",
-    "@types/react-syntax-highlighter": "^15.5.5"
+  "homepage": "https://github.com/cotes2020/jekyll-theme-chirpy#readme",
+  "dependencies": {
+    "gulp": "^4.0.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-insert": "^0.5.0",
+    "gulp-rename": "^2.0.0",
+    "gulp-uglify": "^3.0.2",
+    "uglify-js": "git+https://github.com/mishoo/UglifyJS2.git#harmony"
   }
 }
