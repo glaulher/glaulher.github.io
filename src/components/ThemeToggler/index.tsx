@@ -19,7 +19,9 @@ export default function ThemeToggler() {
         setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')
       }}
     >
-      <span className="material-symbols-outlined">{colorthemeBackground}</span>
+      <span className="hover:text-sky-700 material-symbols-outlined">
+        {colorthemeBackground}
+      </span>
     </button>
   )
 }
