@@ -1,6 +1,7 @@
 ---
 title: React não recarrega a página ao salvar no linux
 author: Glaulher Medeiros
+socialImage: images/22-09-2021.jpg
 date: 2020-06-14 12:27:00 -0300
 categories: [Blogging, Tutorial]
 tags: [React, Linux]
