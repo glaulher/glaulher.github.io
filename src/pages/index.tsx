@@ -79,7 +79,7 @@ export default function Home({ posts }: BlogPostsProps) {
                 width={750}
                 height={340}
                 alt={heroPost.frontmatter.title}
-                src={`../${heroPost.frontmatter.socialImage}`}
+                src={heroPost.frontmatter.socialImage}
               />
               <h1 className="p-4">{heroPost.frontmatter.title}</h1>
             </Link>
