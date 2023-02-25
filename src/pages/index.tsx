@@ -65,7 +65,7 @@ export async function getStaticProps() {
 export default function Home({ posts }: BlogPostsProps) {
   const heroPost = posts[0]
   const morePosts = posts.slice(1)
-  console.log(`/${heroPost.frontmatter.socialImage}`)
+
   return (
     <>
       <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-2 p-4 md:p-0">
@@ -79,7 +79,7 @@ export default function Home({ posts }: BlogPostsProps) {
                 width={750}
                 height={340}
                 alt={heroPost.frontmatter.title}
-                src={heroPost.frontmatter.socialImage}
+                src={`/${heroPost.frontmatter.socialImage}`}
               />
               <h1 className="p-4">{heroPost.frontmatter.title}</h1>
             </Link>
@@ -87,7 +87,7 @@ export default function Home({ posts }: BlogPostsProps) {
         )}
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 p-4 md:p-0">
+      {/* <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 p-4 md:p-0">
         {morePosts.length > 0 &&
           morePosts.map(({ slug, frontmatter }) => (
             <div
@@ -99,13 +99,13 @@ export default function Home({ posts }: BlogPostsProps) {
                   width={650}
                   height={340}
                   alt={frontmatter.title}
-                  src={`/${frontmatter.socialImage}`}
+                  src={frontmatter.socialImage}
                 />
                 <h1 className="p-4">{frontmatter.title}</h1>
               </Link>
             </div>
           ))}
-      </div>
+      </div> */}
     </>
 
     // <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 p-4 md:p-0">
