@@ -64,7 +64,7 @@ export async function getStaticProps() {
 
 export default function Home({ posts }: BlogPostsProps) {
   const heroPost = posts[0]
-  const morePosts = posts.slice(1)
+  // const morePosts = posts.slice(1)
 
   return (
     <>
