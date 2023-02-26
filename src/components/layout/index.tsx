@@ -14,12 +14,13 @@ export default function Layout({ children }: Props) {
         <div className="container mx-auto flex justify-center">
           <Link href="/">
             <Image
-              width={32}
-              height={32}
+              className=" -mb-2 -mt-4 "
+              width={60}
+              height={60}
               alt="Menu"
               src="/menuIcons/svgviewer-output.svg"
             />
-            <h1 className="ml-9 -mb-2 -mt-10 ">
+            <h1 className="ml-14 -mb-4 -mt-12 ">
               <p className="text-neutral-200  hover:text-sky-700">
                 Bem vindo ao
               </p>

@@ -64,8 +64,8 @@ export async function getStaticProps() {
 }
 
 export default function Home({ posts }: BlogPostsProps) {
-  const heroPost = posts[0]
-  const morePosts = posts.slice(1)
+  const heroPost = posts[posts.length - 1]
+  const morePosts = posts
 
   return (
     <>
@@ -90,43 +90,27 @@ export default function Home({ posts }: BlogPostsProps) {
 
       <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 p-4 md:p-0">
         {morePosts.length > 0 &&
-          morePosts.map(({ slug, frontmatter }) => (
-            <div
-              key={slug}
-              className="border border-gray-200 m-2 rounded-xl shadow-lg overflow-hidden flex flex-col"
-            >
-              <Link href={`/post/${slug}`}>
-                <Image
-                  width={650}
-                  height={340}
-                  alt={frontmatter.title}
-                  src={`/${frontmatter.socialImage}`}
-                />
-                <h1 className="p-4">{frontmatter.title}</h1>
-              </Link>
-            </div>
-          ))}
+          morePosts
+            .reverse()
+            .slice(1)
+            .map(({ slug, frontmatter }) => (
+              <div
+                key={slug}
+                className="border border-gray-200 m-2 rounded-xl shadow-lg overflow-hidden flex flex-col"
+              >
+                <Link href={`/post/${slug}`}>
+                  <Image
+                    width={650}
+                    height={340}
+                    alt={frontmatter.title}
+                    src={`/${frontmatter.socialImage}`}
+                  />
+                  <h1 className="p-4">{frontmatter.title}</h1>
+                </Link>
+              </div>
+            ))}
       </div>
       <Pagination />
     </>
-
-    // <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 p-4 md:p-0">
-    //   {posts.map(({ slug, frontmatter }) => (
-    //     <div
-    //       key={slug}
-    //       className="border border-gray-200 m-2 rounded-xl shadow-lg overflow-hidden flex flex-col"
-    //     >
-    //       <Link href={`/post/${slug}`}>
-    //         <Image
-    //           width={650}
-    //           height={340}
-    //           alt={frontmatter.title}
-    //           src={`/${frontmatter.socialImage}`}
-    //         />
-    //         <h1 className="p-4">{frontmatter.title}</h1>
-    //       </Link>
-    //     </div>
-    //   ))}
-    // </div>
   )
 }
