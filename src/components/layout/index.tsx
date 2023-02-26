@@ -10,8 +10,8 @@ type Props = {
 export default function Layout({ children }: Props) {
   return (
     <div className="flex flex-col min-h-screen">
-      <header className="bg-slate-600 mb-8 py-4">
-        <div className="container mx-auto flex justify-center">
+      <header className="bg-slate-600 mb-8 px-6 py-4 ">
+        <div className="container lg:mx-auto md:mx-auto flex justify-center">
           <Link href="/">
             <Image
               className=" -mb-2 -mt-4 "
@@ -20,19 +20,20 @@ export default function Layout({ children }: Props) {
               alt="Menu"
               src="/menuIcons/svgviewer-output.svg"
             />
-            <h1 className="ml-14 -mb-4 -mt-12 ">
-              <p className="text-neutral-200  hover:text-sky-700">
-                Bem vindo ao
-              </p>
-              <p className="ml-2   text-neutral-200  hover:text-sky-700">
-                Blog Post-it
-              </p>
-            </h1>
           </Link>
 
-          <span className=" ml-auto text-neutral-200">
+          <Link href="/">
+            <p className="text-lg ml-4 -mt-4 text-neutral-200  hover:text-sky-700">
+              Bem vindo ao
+            </p>
+            <p className="text-lg ml-8 -mb-4 text-neutral-200  hover:text-sky-700">
+              Blog Post-it
+            </p>
+          </Link>
+
+          <div className=" ml-auto  text-neutral-200">
             <ThemeToggler />
-          </span>
+          </div>
         </div>
       </header>
       <main className="container mx-auto flex-1">{children}</main>

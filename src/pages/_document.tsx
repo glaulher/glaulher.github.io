@@ -4,6 +4,7 @@ export default function Document() {
   return (
     <Html className="dark" lang="en">
       <Head>
+        <meta name="description" content="tips to Software engineer" />
         <link rel="shortcut icon" href="/icons/favicon.ico" />
         <link
           rel="stylesheet"
