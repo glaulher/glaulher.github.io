@@ -1,46 +1,81 @@
-export const Pagination = () => {
+import { DOTS, usePagination } from '@/hooks/usePagination'
+
+import React from 'react'
+
+type PaginationProps = {
+  onPageChange: (page: number) => void
+  totalCount: number
+  siblingCount?: number
+  currentPage: number
+  pageSize: number
+}
+
+export default function Pagination({
+  pageSize,
+  totalCount,
+  onPageChange,
+  currentPage,
+  siblingCount = 1,
+}: PaginationProps) {
+  const paginationRange = usePagination({
+    currentPage,
+    totalCount,
+    siblingCount,
+    pageSize,
+  })
+
+  if (currentPage === 0 || paginationRange!.length < 2) {
+    return null
+  }
+
+  const onNext = () => {
+    onPageChange(currentPage + 1)
+  }
+  const onPrevious = () => {
+    onPageChange(currentPage - 1)
+  }
+  const lastPage = paginationRange![paginationRange!.length - 1]
+
   return (
     <div className="flex justify-center">
       <nav aria-label="Page navigation example">
         <ul className="list-style-none flex">
           <li>
             <a
-              className="relative block rounded bg-transparent py-1.5 px-3 text-sm text-neutral-600 transition-all duration-300 hover:bg-neutral-100 dark:text-white dark:hover:bg-neutral-700 dark:hover:text-white"
+              onClick={() => {
+                currentPage > 1 && onPrevious()
+              }}
+              className="relative block rounded bg-transparent py-1.5 px-3 text-sm text-neutral-600 transition-all duration-300 hover:bg-neutral-300 dark:text-white dark:hover:bg-sky-700 dark:hover:text-white"
               href="#"
             >
-              Previous
+              Anterior
             </a>
           </li>
+
+          {paginationRange!.map((pageNumber) => {
+            if (pageNumber === DOTS) {
+              return <li key={pageNumber}>&#8230;</li>
+            }
+
+            return (
+              <li
+                className="relative block rounded bg-transparent py-1.5 px-3 text-sm text-neutral-600 transition-all duration-300 hover:bg-neutral-300 dark:text-white dark:hover:bg-sky-700 dark:hover:text-white"
+                onClick={() => onPageChange(Number(pageNumber))}
+                key={Number(pageNumber)}
+              >
+                {pageNumber}
+              </li>
+            )
+          })}
           <li>
             <a
-              className="relative block rounded bg-transparent py-1.5 px-3 text-sm text-neutral-600 transition-all duration-300 hover:bg-neutral-100 dark:text-white dark:hover:bg-neutral-700 dark:hover:text-white"
+              onClick={() => {
+                currentPage < Number(lastPage) && onNext()
+              }}
+              className="relative block rounded bg-transparent py-1.5 px-3 text-sm text-neutral-600 transition-all duration-300 hover:bg-neutral-300 dark:text-white dark:hover:bg-sky-700 dark:hover:text-white"
               href="#"
             >
-              1
-            </a>
-          </li>
-          <li aria-current="page">
-            <a
-              className="relative block rounded bg-transparent py-1.5 px-3 text-sm text-neutral-600 transition-all duration-300 hover:bg-neutral-100 dark:text-white dark:hover:bg-neutral-700 dark:hover:text-white"
-              href="#"
-            >
-              2
-            </a>
-          </li>
-          <li>
-            <a
-              className="relative block rounded bg-transparent py-1.5 px-3 text-sm text-neutral-600 transition-all duration-300 hover:bg-neutral-100 dark:text-white dark:hover:bg-neutral-700 dark:hover:text-white"
-              href="#"
-            >
-              3
-            </a>
-          </li>
-          <li>
-            <a
-              className="relative block rounded bg-transparent py-1.5 px-3 text-sm text-neutral-600 transition-all duration-300 hover:bg-neutral-100 dark:text-white dark:hover:bg-neutral-700 dark:hover:text-white"
-              href="#"
-            >
-              Next
+              Próximo
             </a>
           </li>
         </ul>
