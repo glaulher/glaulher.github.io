@@ -56,10 +56,15 @@ export default function Pagination({
             if (pageNumber === DOTS) {
               return <li key={pageNumber}>&#8230;</li>
             }
+            const isActive = currentPage === pageNumber
 
             return (
               <li
-                className="relative block rounded bg-transparent py-1.5 px-3 text-sm text-neutral-600 transition-all duration-300 hover:bg-neutral-300 dark:text-white dark:hover:bg-sky-700 dark:hover:text-white"
+                className={`relative block rounded py-1.5 px-3 text-sm text-neutral-600 transition-all duration-300 hover:bg-neutral-300 dark:text-white dark:hover:bg-sky-700 dark:hover:text-white ${
+                  isActive
+                    ? 'bg-sky-900 text-white font-bold'
+                    : 'bg-transparent'
+                }`}
                 onClick={() => onPageChange(Number(pageNumber))}
                 key={Number(pageNumber)}
               >
