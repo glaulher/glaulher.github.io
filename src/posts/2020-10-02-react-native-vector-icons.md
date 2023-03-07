@@ -1,7 +1,7 @@
 ---
 title: Ícones no react-native com o react-native-vector-icons
 author: Glaulher Medeiros
-socialImage: images/22-09-2021.jpg
+socialImage: images/banner/22-09-2021.jpg
 date: 2020-10-02 14:28:00 -0300
 categories: [Blogging, Tutorial]
 tags: [React, React-native, Linux]

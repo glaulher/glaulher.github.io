@@ -103,7 +103,16 @@ export default function Home({ posts }: BlogPostsProps) {
                     src={`/${draftPost.frontmatter.socialImage}`}
                     priority={true}
                   />
-                  <h1 className="p-4">{draftPost.frontmatter.title}</h1>
+                  <div className="flex justify-between ">
+                    <span className="pl-4 py-4 text-base">
+                      {draftPost.frontmatter.title}
+                    </span>
+                    {/* <span className="pr-4 pt-5 text-xs">
+                      {new Date(draftPost.frontmatter.date).toLocaleDateString(
+                        'pt-BR',
+                      )}
+                    </span> */}
+                  </div>
                 </Link>
               </div>
               <div
@@ -117,9 +126,14 @@ export default function Home({ posts }: BlogPostsProps) {
                   {`${draftPost.frontmatter.metaDesc}...`}
                 </span>
 
-                <div className="justify-items-end mt-auto ml-auto">
-                  <Link href={`/post/${draftPost.slug}`}>
-                    <span className="hover:text-sky-700 text-lg">
+                <div className="justify-items-end mt-auto flex justify-between">
+                  <span className="mr-4 text-lg">
+                    {new Date(draftPost.frontmatter.date).toLocaleDateString(
+                      'pt-BR',
+                    )}
+                  </span>
+                  <Link className="" href={`/post/${draftPost.slug}`}>
+                    <span className="hover:text-sky-700 ml-4 text-xl">
                       Continue &rarr;
                     </span>
                   </Link>
