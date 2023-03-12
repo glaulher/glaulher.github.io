@@ -7,7 +7,7 @@ import Layout from '../components/layout/index'
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
-      <ThemeProvider attribute="class">
+      <ThemeProvider enableSystem={true} attribute="class">
         <Layout>
           <Head>
             <title>Blog Post-it - tips software developer</title>

@@ -52,6 +52,7 @@ export async function getStaticProps() {
 
 export default function Home({ posts }: BlogPostsProps) {
   const [searchValue, setSearchValue] = useState<string>('')
+  const [effect, setEffect] = useState('')
 
   const draftPost = posts[0]
   const morePosts = posts
@@ -93,15 +94,24 @@ export default function Home({ posts }: BlogPostsProps) {
             <>
               <div
                 key={draftPost.slug}
-                className="border border-gray-200 m-2 rounded-xl shadow-lg overflow-hidden flex flex-col"
+                className={`border border-gray-200 m-2 rounded-xl shadow-lg overflow-hidden flex flex-col ${
+                  effect === draftPost.frontmatter.title && 'animate-ping'
+                }`}
               >
-                <Link href={`/post/${draftPost.slug}`}>
+                <Link
+                  onClick={() => {
+                    setEffect(draftPost.frontmatter.title)
+                  }}
+                  onAnimationEnd={() => setEffect('')}
+                  href={`/post/${draftPost.slug}`}
+                >
                   <Image
                     width={750}
                     height={340}
                     alt={draftPost.frontmatter.title}
                     src={`/${draftPost.frontmatter.socialImage}`}
                     priority={true}
+                    className="hover:animate-pulse transition-all duration-200 ease-out"
                   />
                   <div className="flex justify-between ">
                     <span className="pl-4 py-4 text-base">
@@ -117,7 +127,7 @@ export default function Home({ posts }: BlogPostsProps) {
               </div>
               <div
                 key={draftPost.frontmatter.date}
-                className="border border-gray-200 m-2 p-4 rounded-xl shadow-lg overflow-hidden flex flex-col"
+                className="border border-gray-200 m-2 p-4 rounded-xl shadow-lg overflow-hidden flex flex-col "
               >
                 <span className="font-bold xl:mt12 xl:mb-4 lg:mt-8  lg:mb-4 lg:text-2xl md:text-lg sm:text-base">
                   {draftPost.frontmatter.title}
@@ -133,7 +143,7 @@ export default function Home({ posts }: BlogPostsProps) {
                     )}
                   </span>
                   <Link className="" href={`/post/${draftPost.slug}`}>
-                    <span className="hover:text-sky-700 ml-4 text-xl">
+                    <span className="hover:text-sky-700 ml-4 text-xl hover:animate-pulse transition-all duration-200 ease-out">
                       Continue &rarr;
                     </span>
                   </Link>
@@ -148,14 +158,23 @@ export default function Home({ posts }: BlogPostsProps) {
             currentTableData.map(({ slug, frontmatter }) => (
               <div
                 key={slug}
-                className="border border-gray-200 m-2 rounded-xl shadow-lg overflow-hidden flex flex-col"
+                className={`border border-gray-200 m-2 rounded-xl shadow-lg overflow-hidden flex flex-col  ${
+                  effect === frontmatter.title && 'animate-ping'
+                }`}
               >
-                <Link href={`/post/${slug}`}>
+                <Link
+                  href={`/post/${slug}`}
+                  onClick={() => {
+                    setEffect(frontmatter.title)
+                  }}
+                  onAnimationEnd={() => setEffect('')}
+                >
                   <Image
                     width={650}
                     height={340}
                     alt={frontmatter.title}
                     src={`/${frontmatter.socialImage}`}
+                    className="hover:animate-pulse transition-all duration-200 ease-out"
                   />
                   <h1 className="p-4">{frontmatter.title}</h1>
                 </Link>
