@@ -359,6 +359,6 @@ No final, o hook retorna a lista de páginas calculada.
 
 
 
-![Nome da imagem caso ela não carregue](images/posts/paginate.gif)
+![Nome da imagem caso ela não carregue](./images/posts/paginate.gif)
 
 
