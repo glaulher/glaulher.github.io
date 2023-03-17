@@ -101,12 +101,12 @@ export default function Home({ posts }: BlogPostsProps) {
                 <Link
                   onClick={() => {
                     setEffect(draftPost.frontmatter.title)
-                    setTimeout(() => {
-                      window.location.href = `/post/${draftPost.slug}` // redireciona após um atraso de 1 segundo
-                    }, 350)
+                    //  setTimeout(() => {
+                    //     window.location.href = `/post/${draftPost.slug}` // redireciona após um atraso de 1 segundo
+                    //   }, 350)
                   }}
                   onAnimationEnd={() => setEffect('')}
-                  href="#"
+                  href={`/post/${draftPost.slug}`}
                 >
                   <Image
                     width={750}
@@ -166,12 +166,12 @@ export default function Home({ posts }: BlogPostsProps) {
                 }`}
               >
                 <Link
-                  href="#"
+                  href={`/post/${slug}`}
                   onClick={() => {
                     setEffect(frontmatter.title)
-                    setTimeout(() => {
-                      window.location.href = `/post/${slug}` // redireciona após um atraso de 1 segundo
-                    }, 350)
+                    // setTimeout(() => {
+                    //   window.location.href = `/post/${slug}` // redireciona após um atraso de 1 segundo
+                    // }, 350)
                   }}
                   onAnimationEnd={() => setEffect('')}
                 >
