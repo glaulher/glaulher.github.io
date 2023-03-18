@@ -108,7 +108,7 @@ export default function Home({ posts }: BlogPostsProps) {
                         return false
                       }, 300)
                       return false
-                    }, 100)
+                    }, 150)
                   }}
                   // onAnimationEnd={() => setEffect('')}
                   href={''}
@@ -181,7 +181,7 @@ export default function Home({ posts }: BlogPostsProps) {
                         return false
                       }, 300)
                       return false
-                    }, 100)
+                    }, 150)
                   }}
                   // onAnimationEnd={() => setEffect('')}
                 >
