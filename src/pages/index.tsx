@@ -4,6 +4,7 @@ import Link from 'next/link'
 
 import Pagination from '@/components/Pagination'
 import { getPosts } from '../lib/getPosts'
+import { useRouter } from 'next/router'
 
 export type BlogFrontMatter = {
   title: string
@@ -52,6 +53,7 @@ export async function getStaticProps() {
 
 export default function Home({ posts }: BlogPostsProps) {
   const [searchValue, setSearchValue] = useState<string>('')
+  const router = useRouter()
   const [effect, setEffect] = useState('')
 
   const draftPost = posts[0]
@@ -102,11 +104,10 @@ export default function Home({ posts }: BlogPostsProps) {
                   onClick={() => {
                     setEffect(draftPost.frontmatter.title)
                     setTimeout(() => {
-                      window.location.href = `/post/${draftPost.slug}` // redireciona após um atraso de 1 segundo
-                      setTimeout(() => {
+                      // window.location.href = `/post/${draftPost.slug}` // redireciona após um atraso de 1 segundo
+                      router.push(`/post/${draftPost.slug}`).then(() => {
                         setEffect('')
-                        return false
-                      }, 300)
+                      })
                       return false
                     }, 150)
                   }}
@@ -175,11 +176,9 @@ export default function Home({ posts }: BlogPostsProps) {
                   onClick={() => {
                     setEffect(frontmatter.title)
                     setTimeout(() => {
-                      window.location.href = `/post/${slug}` // redireciona após um atraso
-                      setTimeout(() => {
+                      router.push(`/post/${slug}`).then(() => {
                         setEffect('')
-                        return false
-                      }, 300)
+                      })
                       return false
                     }, 150)
                   }}
