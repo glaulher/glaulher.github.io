@@ -170,7 +170,10 @@ export default function Home({ posts }: BlogPostsProps) {
                   onClick={() => {
                     setEffect(frontmatter.title)
                     setTimeout(() => {
-                      window.location.href = `/post/${slug}` // redireciona após um atraso de 1 segundo
+                      window.location.href = `/post/${slug}` // redireciona após um atraso
+                      setTimeout(() => {
+                        setEffect('')
+                      }, 300)
                     }, 100)
                   }}
                   onAnimationEnd={() => setEffect('')}
