@@ -103,9 +103,14 @@ export default function Home({ posts }: BlogPostsProps) {
                     setEffect(draftPost.frontmatter.title)
                     setTimeout(() => {
                       window.location.href = `/post/${draftPost.slug}` // redireciona após um atraso de 1 segundo
+                      setTimeout(() => {
+                        setEffect('')
+                        return false
+                      }, 300)
+                      return false
                     }, 100)
                   }}
-                  onAnimationEnd={() => setEffect('')}
+                  // onAnimationEnd={() => setEffect('')}
                   href={''}
                 >
                   <Image
@@ -173,10 +178,12 @@ export default function Home({ posts }: BlogPostsProps) {
                       window.location.href = `/post/${slug}` // redireciona após um atraso
                       setTimeout(() => {
                         setEffect('')
+                        return false
                       }, 300)
+                      return false
                     }, 100)
                   }}
-                  onAnimationEnd={() => setEffect('')}
+                  // onAnimationEnd={() => setEffect('')}
                 >
                   <Image
                     width={650}
