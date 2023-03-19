@@ -158,7 +158,7 @@ const Pagination = ({
 export default Pagination
 ```
 
-Crie  `pagination.scss`  dentro de `src/` deixano conforme abaixo:
+Crie  `pagination.scss`  dentro de `src/` deixando conforme abaixo:
 
 ```javascript
 .pagination-container {
