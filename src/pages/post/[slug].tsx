@@ -1,7 +1,13 @@
-import md from 'markdown-it'
+// import md from 'markdown-it'
 import Link from 'next/link'
 
+import { nord as colorNord } from 'react-syntax-highlighter/dist/cjs/styles/prism'
+
 import { getStaticPaths, getStaticProps, PostProps } from '../../lib/posts'
+import ReactMarkdown from 'react-markdown'
+import remarkGfm from 'remark-gfm'
+
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 
 export default function PostPage({ frontmatter, content }: PostProps) {
   return (
@@ -16,10 +22,32 @@ export default function PostPage({ frontmatter, content }: PostProps) {
           {frontmatter.title}
         </span>
       </div>
-      <div
+      {/* <div
         className="mx-1"
         dangerouslySetInnerHTML={{ __html: md().render(content) }}
-      />
+      /> */}
+
+      <div className="mx-1">
+        <ReactMarkdown
+          remarkPlugins={[remarkGfm]}
+          components={{
+            code({ node, inline, className, children, ...props }) {
+              const match = /language-(\w+)/.exec(className || '')
+              return !inline && match ? (
+                <SyntaxHighlighter language={match[1]} style={colorNord}>
+                  {String(children).replace(/\n$/, '')}
+                </SyntaxHighlighter>
+              ) : (
+                <code className={className} {...props}>
+                  {children}
+                </code>
+              )
+            },
+          }}
+        >
+          {content}
+        </ReactMarkdown>
+      </div>
     </div>
   )
 }
