@@ -169,7 +169,7 @@ export default function Home({ posts }: BlogPostsProps) {
             currentTableData.map(({ slug, frontmatter }) => (
               <div
                 key={slug}
-                className={`border border-gray-200 m-2 rounded-xl shadow-lg overflow-hidden flex flex-col  ${
+                className={`delay-100 duration-100 transform hover:scale-105 transition ease-linear border border-gray-200 m-2 rounded-xl shadow-lg overflow-hidden flex flex-col  ${
                   effect === frontmatter.title && 'animate-ping'
                 }`}
               >
@@ -188,7 +188,7 @@ export default function Home({ posts }: BlogPostsProps) {
                     height={340}
                     alt={frontmatter.title}
                     src={`/${frontmatter.socialImage}`}
-                    className="hover:animate-pulse transition-all duration-200 ease-out"
+                    className="hover:animate-none transition-all duration-200 ease-out"
                   />
                   <h1 className="p-4">{frontmatter.title}</h1>
                 </button>
