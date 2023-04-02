@@ -179,9 +179,7 @@ export default function Home({ posts }: BlogPostsProps) {
                   onClick={() => {
                     setEffect(frontmatter.title)
 
-                    router.push(`/post/${slug}`).then(() => {
-                      setEffect('')
-                    })
+                    router.push(`/post/${slug}`)
                   }}
                   // onAnimationEnd={() => setEffect('')}
                 >
