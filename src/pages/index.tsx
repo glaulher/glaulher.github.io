@@ -103,13 +103,16 @@ export default function Home({ posts }: BlogPostsProps) {
                 <Link
                   onClick={() => {
                     setEffect(draftPost.frontmatter.title)
-                    setTimeout(() => {
-                      // window.location.href = `/post/${draftPost.slug}` // redireciona após um atraso de 1 segundo
-                      router.push(`/post/${draftPost.slug}`).then(() => {
-                        setEffect('')
-                      })
-                      return false
-                    }, 150)
+                    // setTimeout(() => {
+                    //   // window.location.href = `/post/${draftPost.slug}` // redireciona após um atraso de 1 segundo
+                    //   router.push(`/post/${draftPost.slug}`).then(() => {
+                    //     setEffect('')
+                    //   })
+                    //   return false
+                    // }, 100)
+                    router.push(`/post/${draftPost.slug}`).then(() => {
+                      setEffect('')
+                    })
                   }}
                   // onAnimationEnd={() => setEffect('')}
                   href={''}
@@ -151,7 +154,7 @@ export default function Home({ posts }: BlogPostsProps) {
                       'pt-BR',
                     )}
                   </span>
-                  <Link className="" href={`/post/${draftPost.slug}`}>
+                  <Link href={`/post/${draftPost.slug}`}>
                     <span className="hover:text-sky-700 ml-4 text-xl hover:animate-pulse transition-all duration-200 ease-out">
                       Continue &rarr;
                     </span>
@@ -175,12 +178,10 @@ export default function Home({ posts }: BlogPostsProps) {
                   href={''}
                   onClick={() => {
                     setEffect(frontmatter.title)
-                    setTimeout(() => {
-                      router.push(`/post/${slug}`).then(() => {
-                        setEffect('')
-                      })
-                      return false
-                    }, 150)
+
+                    router.push(`/post/${slug}`).then(() => {
+                      setEffect('')
+                    })
                   }}
                   // onAnimationEnd={() => setEffect('')}
                 >
