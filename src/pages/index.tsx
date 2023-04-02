@@ -100,7 +100,7 @@ export default function Home({ posts }: BlogPostsProps) {
                   effect === draftPost.frontmatter.title && 'animate-ping'
                 }`}
               >
-                <Link
+                <button
                   onClick={() => {
                     setEffect(draftPost.frontmatter.title)
                     // setTimeout(() => {
@@ -115,7 +115,6 @@ export default function Home({ posts }: BlogPostsProps) {
                     })
                   }}
                   // onAnimationEnd={() => setEffect('')}
-                  href={''}
                 >
                   <Image
                     width={750}
@@ -135,7 +134,7 @@ export default function Home({ posts }: BlogPostsProps) {
                       )}
                     </span> */}
                   </div>
-                </Link>
+                </button>
               </div>
               <div
                 key={draftPost.frontmatter.date}
@@ -174,12 +173,13 @@ export default function Home({ posts }: BlogPostsProps) {
                   effect === frontmatter.title && 'animate-ping'
                 }`}
               >
-                <Link
-                  href={''}
+                <button
                   onClick={() => {
                     setEffect(frontmatter.title)
 
-                    router.push(`/post/${slug}`)
+                    router.push(`/post/${slug}`).then(() => {
+                      setEffect('')
+                    })
                   }}
                   // onAnimationEnd={() => setEffect('')}
                 >
@@ -191,7 +191,7 @@ export default function Home({ posts }: BlogPostsProps) {
                     className="hover:animate-pulse transition-all duration-200 ease-out"
                   />
                   <h1 className="p-4">{frontmatter.title}</h1>
-                </Link>
+                </button>
               </div>
             ))}
         </div>
