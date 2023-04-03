@@ -55,6 +55,9 @@ export default function Home({ posts }: BlogPostsProps) {
   const [searchValue, setSearchValue] = useState<string>('')
   const router = useRouter()
   const [effect, setEffect] = useState('')
+  const [effectOnclick, setEffectOnclick] = useState(
+    'hover:scale-105 transition ease-linear',
+  )
 
   const draftPost = posts[0]
   const morePosts = posts
@@ -97,7 +100,8 @@ export default function Home({ posts }: BlogPostsProps) {
               <div
                 key={draftPost.slug}
                 className={`border border-gray-200 m-2 rounded-xl shadow-lg overflow-hidden flex flex-col ${
-                  effect === draftPost.frontmatter.title && 'animate-ping'
+                  effect === draftPost.frontmatter.title &&
+                  'scale-150  opacity-0 transition ease-linear duration-1000'
                 }`}
               >
                 <button
@@ -169,13 +173,15 @@ export default function Home({ posts }: BlogPostsProps) {
             currentTableData.map(({ slug, frontmatter }) => (
               <div
                 key={slug}
-                className={`delay-100 duration-100 transform hover:scale-105 transition ease-linear border border-gray-200 m-2 rounded-xl shadow-lg overflow-hidden flex flex-col  ${
-                  effect === frontmatter.title && 'animate-ping'
+                className={`delay-100 duration-100 transform ${effectOnclick}  border border-gray-200 m-2 rounded-xl shadow-lg overflow-hidden flex flex-col  ${
+                  effect === frontmatter.title &&
+                  'scale-150  opacity-0 transition ease-linear duration-1000'
                 }`}
               >
                 <button
                   onClick={() => {
                     setEffect(frontmatter.title)
+                    setEffectOnclick('')
 
                     router.push(`/post/${slug}`).then(() => {
                       setEffect('')
@@ -188,7 +194,6 @@ export default function Home({ posts }: BlogPostsProps) {
                     height={340}
                     alt={frontmatter.title}
                     src={`/${frontmatter.socialImage}`}
-                    className="hover:animate-none transition-all duration-200 ease-out"
                   />
                   <h1 className="p-4">{frontmatter.title}</h1>
                 </button>
