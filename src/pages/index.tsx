@@ -116,6 +116,11 @@ export default function Home({ posts }: BlogPostsProps) {
                     // }, 100)
                     router.push(`/post/${draftPost.slug}`).then(() => {
                       setEffect('')
+                      caches.keys().then((names) => {
+                        names.forEach((name) => {
+                          caches.delete(name)
+                        })
+                      })
                     })
                   }}
                   // onAnimationEnd={() => setEffect('')}
@@ -185,6 +190,11 @@ export default function Home({ posts }: BlogPostsProps) {
 
                     router.push(`/post/${slug}`).then(() => {
                       setEffect('')
+                      caches.keys().then((names) => {
+                        names.forEach((name) => {
+                          caches.delete(name)
+                        })
+                      })
                     })
                   }}
                   // onAnimationEnd={() => setEffect('')}
