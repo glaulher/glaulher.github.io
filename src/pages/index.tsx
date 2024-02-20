@@ -25,7 +25,7 @@ export type BlogPostProps = {
   slug: string
   siteTitle: string
   frontmatter: BlogFrontMatter
-  markdownBody: any
+  markdownBody: never
   wordCount: number
   readingTime: string
 }
