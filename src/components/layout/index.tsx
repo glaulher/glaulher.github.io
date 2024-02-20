@@ -40,7 +40,7 @@ export default function Layout({ children }: Props) {
       <footer className="bg-gray-700  mt-1 py-4">
         <div className="container mx-auto flex justify-center">
           <span className="mx-auto text-neutral-200">
-            &copy; 2023 GrmDevTips
+            &copy; 2024 GrmDevTips
           </span>
         </div>
       </footer>
