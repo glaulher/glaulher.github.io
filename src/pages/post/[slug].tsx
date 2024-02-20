@@ -1,13 +1,13 @@
 // import md from 'markdown-it'
 
-import Link from 'next/link'
+import Link from 'next/link';
 
-import ReactMarkdown from 'react-markdown'
-import { coldarkDark } from 'react-syntax-highlighter/dist/cjs/styles/prism'
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
-import remarkGfm from 'remark-gfm'
+import ReactMarkdown from 'react-markdown';
+import { coldarkDark } from 'react-syntax-highlighter/dist/cjs/styles/prism';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import remarkGfm from 'remark-gfm';
 
-import { getStaticPaths, getStaticProps, PostProps } from '../../lib/posts'
+import { getStaticPaths, getStaticProps, PostProps } from '../../lib/posts';
 
 export default function PostPage({ frontmatter, content }: PostProps) {
   return (
@@ -31,9 +31,9 @@ export default function PostPage({ frontmatter, content }: PostProps) {
         <ReactMarkdown
           remarkPlugins={[remarkGfm]}
           components={{
-            code({ node, inline, className, children, ...props }) {
-              const match = /language-(\w+)/.exec(className || '')
-              return !inline && match ? (
+            code({ node, className, children, ...props }) {
+              const match = /language-(\w+)/.exec(className || '');
+              return match ? (
                 <SyntaxHighlighter language={match[1]} style={coldarkDark}>
                   {String(children).replace(/\n$/, '')}
                 </SyntaxHighlighter>
@@ -41,7 +41,7 @@ export default function PostPage({ frontmatter, content }: PostProps) {
                 <code className={className} {...props}>
                   {children}
                 </code>
-              )
+              );
             },
           }}
         >
@@ -49,6 +49,6 @@ export default function PostPage({ frontmatter, content }: PostProps) {
         </ReactMarkdown>
       </div>
     </div>
-  )
+  );
 }
-export { getStaticPaths, getStaticProps }
+export { getStaticPaths, getStaticProps };
