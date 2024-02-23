@@ -1,14 +1,14 @@
-import { DOTS, usePagination } from '@/hooks/usePagination'
+import { DOTS, usePagination } from '@/hooks/usePagination';
 
-import React from 'react'
+import React from 'react';
 
 type PaginationProps = {
-  onPageChange: (page: number) => void
-  totalCount: number
-  siblingCount?: number
-  currentPage: number
-  pageSize: number
-}
+  onPageChange: (page: number) => void;
+  totalCount: number;
+  siblingCount?: number;
+  currentPage: number;
+  pageSize: number;
+};
 
 export default function Pagination({
   pageSize,
@@ -22,19 +22,19 @@ export default function Pagination({
     totalCount,
     siblingCount,
     pageSize,
-  })
+  });
 
   if (currentPage === 0 || paginationRange!.length < 2) {
-    return null
+    return null;
   }
 
   const onNext = () => {
-    onPageChange(currentPage + 1)
-  }
+    onPageChange(currentPage + 1);
+  };
   const onPrevious = () => {
-    onPageChange(currentPage - 1)
-  }
-  const lastPage = paginationRange![paginationRange!.length - 1]
+    onPageChange(currentPage - 1);
+  };
+  const lastPage = paginationRange![paginationRange!.length - 1];
 
   return (
     <div className="flex justify-center">
@@ -43,7 +43,7 @@ export default function Pagination({
           <li>
             <a
               onClick={() => {
-                currentPage > 1 && onPrevious()
+                currentPage > 1 && onPrevious();
               }}
               className="relative block rounded bg-transparent py-1.5 px-3 text-sm text-neutral-600 transition-all duration-300 hover:bg-neutral-300 dark:text-white dark:hover:bg-sky-700 dark:hover:text-white"
               href="#"
@@ -54,9 +54,9 @@ export default function Pagination({
 
           {paginationRange!.map((pageNumber) => {
             if (pageNumber === DOTS) {
-              return <li key={pageNumber}>&#8230;</li>
+              return <li key={pageNumber}>&#8230;</li>;
             }
-            const isActive = currentPage === pageNumber
+            const isActive = currentPage === pageNumber;
 
             return (
               <li
@@ -70,12 +70,12 @@ export default function Pagination({
               >
                 {pageNumber}
               </li>
-            )
+            );
           })}
           <li>
             <a
               onClick={() => {
-                currentPage < Number(lastPage) && onNext()
+                currentPage < Number(lastPage) && onNext();
               }}
               className="relative block rounded bg-transparent py-1.5 px-3 text-sm text-neutral-600 transition-all duration-300 hover:bg-neutral-300 dark:text-white dark:hover:bg-sky-700 dark:hover:text-white"
               href="#"
@@ -86,5 +86,5 @@ export default function Pagination({
         </ul>
       </nav>
     </div>
-  )
+  );
 }

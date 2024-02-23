@@ -1,11 +1,11 @@
-import Link from 'next/link'
-import Image from 'next/image'
-import { ReactNode } from 'react'
-import ThemeToggler from '../ThemeToggler'
+import Link from 'next/link';
+import Image from 'next/image';
+import { ReactNode } from 'react';
+import ThemeToggler from '../ThemeToggler';
 
 type Props = {
-  children: ReactNode
-}
+  children: ReactNode;
+};
 
 export default function Layout({ children }: Props) {
   return (
@@ -45,5 +45,5 @@ export default function Layout({ children }: Props) {
         </div>
       </footer>
     </div>
-  )
+  );
 }
