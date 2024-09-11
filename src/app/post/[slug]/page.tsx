@@ -6,10 +6,35 @@ import ReactMarkdown from 'react-markdown';
 import { coldarkDark } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import remarkGfm from 'remark-gfm';
+import { getAllPosts, getPostBySlug } from '@/src/lib/api';
+import { notFound } from 'next/navigation';
 
-import { getStaticPaths, getStaticProps, PostProps } from '../../lib/posts';
+//import { getStaticPaths, getStaticProps, PostProps } from '../../lib/posts';
 
-export default function PostPage({ frontmatter, content }: PostProps) {
+
+type Params = {
+  params: {
+    slug: string;
+  };
+};
+
+export async function generateStaticParams() {
+  const posts = getAllPosts();
+
+  return posts.map((post) => ({
+    slug: post.slug,
+  }));
+}
+
+export default async function PostPage({ params }: Params) {
+  const post = getPostBySlug(params.slug);
+
+  if (!post) {
+    return notFound();
+  }
+
+  const content = post.content;
+
   return (
     <div className="prose dark:prose-invert mx-auto">
       <Link href="/">
@@ -19,7 +44,7 @@ export default function PostPage({ frontmatter, content }: PostProps) {
       </Link>
       <div className="relative flex  justify-center ml-1 mr-24">
         <span className="text-xl font-bold md:text-3xl">
-          {frontmatter.title}
+          {post.title}
         </span>
       </div>
       {/* <div
@@ -51,4 +76,23 @@ export default function PostPage({ frontmatter, content }: PostProps) {
     </div>
   );
 }
-export { getStaticPaths, getStaticProps };
+
+
+
+// export function generateMetadata({ params }: Params): Metadata {
+//   const post = getPostBySlug(params.slug);
+
+//   if (!post) {
+//     return notFound();
+//   }
+
+//   const title = `${post.title} | Next.js Blog Example with ${CMS_NAME}`;
+
+//   return {
+//     openGraph: {
+//       title,
+//       images: [post.ogImage.url],
+//     },
+//   };
+// }
+

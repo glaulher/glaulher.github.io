@@ -3,7 +3,7 @@ title: npm-check-updates
 metaDesc: 'O npm (Node Package Manager) é uma ferramenta importante para desenvolvedores de JavaScript'
 author: Glaulher Medeiros
 socialImage: images/banner/Npm-check-update.png
-date: 2023-04-01 16:34:00 -0300
+publishedDate: 2023-04-01 16:34:00 -0300
 categories: [Blogging, Tutorial]
 tags: [Nodejs, npm]
 
