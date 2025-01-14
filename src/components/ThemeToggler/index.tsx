@@ -6,9 +6,11 @@ export default function ThemeToggler() {
   const [colorthemeBackground, setColorthemeBackground] = useState('');
 
   useEffect(() => {
-    resolvedTheme === 'light'
-      ? setColorthemeBackground('dark_mode')
-      : setColorthemeBackground('light_mode');
+    if (resolvedTheme === 'light') {
+      setColorthemeBackground('dark_mode');
+    } else {
+      setColorthemeBackground('light_mode');
+    }
   }, [resolvedTheme]);
 
   return (

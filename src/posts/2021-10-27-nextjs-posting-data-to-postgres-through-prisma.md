@@ -3,7 +3,7 @@ title: 'Next.js posting data to Postgres through Prisma'
 metaTitle: 'Next.js posting data to Postgres through Prisma'
 metaDesc: 'Posting data to Postgres using Prisma in Next.js'
 socialImage: images/banner/27-10-2021.jpg
-date: '2021-10-27'
+publishedDate: '2021-10-27 16:40:00 -0300'
 tags:
   - nextjs
   - prisma

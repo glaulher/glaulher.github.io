@@ -3,7 +3,7 @@ title: 'Next.js page options and how they work'
 metaTitle: 'Next.js page options and how they work'
 metaDesc: 'How to use pages in Next.js exploring the options'
 socialImage: images/banner/22-09-2021.jpg
-date: '2021-09-22'
+publishedDate: '2021-09-22 16:40:00 -0300'
 tags:
   - nextjs
 ---

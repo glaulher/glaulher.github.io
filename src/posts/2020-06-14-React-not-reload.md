@@ -1,10 +1,10 @@
 ---
 title: React não recarrega a página ao salvar no linux
+metaDesc: Para resolver esse problema é preciso alterar o valor  de max_user_watches em inotify...
 author: Glaulher Medeiros
 socialImage: images/banner/22-09-2021.jpg
-date: 2020-06-14 12:27:00 -0300
-categories: [Blogging, Tutorial]
-tags: [React, Linux]
+publishedDate: 2020-06-14 12:27:00 -0300
+tags: [Blogging, Tutorial,React, Linux]
 toc: true
 comments: true
 ---
