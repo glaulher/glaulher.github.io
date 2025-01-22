@@ -172,10 +172,9 @@ import { notFound } from 'next/navigation';
 import { getAllPosts, getPostBySlug } from '@/lib/api';
 import { CMS_NAME, HOME_OG_IMAGE_URL } from '@/lib/constants';
 import markdownToHtml from '@/lib/markdownToHtml';
-import Container from '@/app/_components/container';
 
-import { PostBody } from '@/app/_components/post-body';
-import { PostHeader } from '@/app/_components/post-header';
+import { PostBody } from '@/app/_components/PostBody';
+import { PostHeader } from '@/app/_components/PostHeader';
 import HeaderBlog from '@/app/_components/HeaderBlog/HeaderBlog';
 
 export default async function Post(props: Params) {
@@ -191,18 +190,18 @@ export default async function Post(props: Params) {
   return (
     <>
       <main>
-        <Container>
+        <div className="container mx-auto px-5">
           <HeaderBlog />
           <article className="mb-32">
             <PostHeader
               title={post.title}
               coverImage={post.coverImage}
-              date={post.publishedDate}
+              publishedDate={post.publishedDate}
               author={post.author}
             />
             <PostBody content={content} />
           </article>
-        </Container>
+        </div>
       </main>
     </>
   );

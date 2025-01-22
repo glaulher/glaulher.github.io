@@ -1,13 +1,7 @@
+import { PostPage } from './postPage';
 import { type Author } from './author';
 
-export type Post = {
-  metaDesc: string;
-  tags: string[];
-
-  slug: string;
-  title: string;
-  publishedDate: string;
-  coverImage: string;
+export type Post = PostPage & {
   author: Author;
   excerpt: string;
   ogImage: {

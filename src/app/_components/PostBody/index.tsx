@@ -1,6 +1,6 @@
 'use client';
 
-import markdownStyles from './markdown-styles.module.css';
+import markdownStyles from '../markdown-styles.module.css';
 import { useEffect } from 'react';
 import hljs from 'highlight.js';
 import 'highlight.js/styles/github-dark.css';

@@ -1,7 +1,5 @@
 import React from 'react';
 
-// import { Container } from './styles';
-
 const Footer: React.FC = () => {
   return (
     <footer className="bg-gray-700  mt-1 py-4">
