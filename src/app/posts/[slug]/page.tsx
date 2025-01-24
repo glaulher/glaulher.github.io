@@ -170,7 +170,7 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { getAllPosts, getPostBySlug } from '@/lib/api';
-import { CMS_NAME, HOME_OG_IMAGE_URL } from '@/lib/constants';
+import { CMS_NAME } from '@/lib/constants';
 import markdownToHtml from '@/lib/markdownToHtml';
 
 import { PostBody } from '@/app/_components/PostBody';
@@ -220,16 +220,15 @@ export async function generateMetadata(props: Params): Promise<Metadata> {
   if (!post) {
     return notFound();
   }
-  const metadataBase = new URL(HOME_OG_IMAGE_URL);
   const title = `${post.title} | Next.js Blog Example with ${CMS_NAME}`;
 
   return {
-    metadataBase,
     title,
     openGraph: {
       title,
       images: [post.ogImage.url],
     },
+    metadataBase: new URL('https://glaulher.github.io/'),
   };
 }
 
