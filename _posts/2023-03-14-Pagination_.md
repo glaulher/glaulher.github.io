@@ -363,4 +363,4 @@ A função `useMemo` é usada para armazenar em cache o resultado da lista de p�
 
 No final, o hook retorna a lista de páginas calculada.
 
-![gif pagination](/images/posts/paginate.gif)
+![gif pagination](/assets/posts/paginate.gif)

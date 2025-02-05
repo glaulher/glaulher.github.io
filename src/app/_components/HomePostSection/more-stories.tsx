@@ -1,3 +1,45 @@
+//import { type Author } from '@/interfaces/author';
+//import Link from 'next/link';
+//import Avatar from '../Avatar';
+//import CoverImage from '../CoverImage';
+//import DateFormatter from '../date-formatter';
+//
+//type Props = {
+//  title: string;
+//  coverImage: string;
+//  date: string;
+//  excerpt: string;
+//  author: Author;
+//  slug: string;
+//};
+//
+//export function MoreStories({
+//  title,
+//  coverImage,
+//  date,
+//  excerpt,
+//  author,
+//  slug,
+//}: Props) {
+//  return (
+//    <div>
+//      <div className="mb-5">
+//        <CoverImage slug={slug} title={title} coverImage={coverImage} />
+//      </div>
+//      <h3 className="text-3xl mb-3 leading-snug">
+//        <Link href={`/posts/${slug}`} className="hover:underline">
+//          {title}
+//        </Link>
+//      </h3>
+//      <div className="text-lg mb-4">
+//        <DateFormatter dateString={date} />
+//      </div>
+//      <p className="text-lg leading-relaxed mb-4">{excerpt}</p>
+//      <Avatar name={author.name} picture={author.picture} />
+//    </div>
+//  );
+//}
+
 'use client';
 
 import Link from 'next/link';
@@ -6,7 +48,7 @@ import CoverImage from '@/app/_components/CoverImage';
 import { PostPage } from '@/interfaces/postPage';
 import Loaded from '../Loaded';
 
-export function HeroPost({
+export function MoreStories({
   title,
   coverImage,
   metaDesc,
@@ -25,8 +67,8 @@ export function HeroPost({
   return (
     <>
       <section className="max-w-screen-md hover:scale-105 transition ease-linear">
-        <div className="overflow-hidden rounded-md border-2 border-gray-200 border-opacity-60 dark:border-gray-700">
-          <div className=" bg-gray-300 dark:bg-slate-800">
+        <div className="overflow-hidden  dark:border-gray-700">
+          <div className=" ">
             <div className="grid grid-cols-1 py-2">
               <div className="xl:flex lg:flex md:grid sm:grid">
                 <div className="pl-2">
@@ -44,6 +86,8 @@ export function HeroPost({
                         coverImage={coverImage}
                         slug={slug}
                         onClick={handleLinkClick}
+                        width={250}
+                        height={200}
                       />
                     </div>
                   </div>

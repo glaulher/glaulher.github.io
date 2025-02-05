@@ -10,7 +10,7 @@ type Props = {
 
 export const Header = ({ children }: Props) => {
   return (
-    <header className="bg-gray-700 mb-3 px-6 py-4 ">
+    <header className=" mb-3 px-6 py-4 ">
       <div className="container lg:mx-auto md:mx-auto flex justify-center">
         <Link href="/">
           <Image
@@ -23,10 +23,10 @@ export const Header = ({ children }: Props) => {
         </Link>
 
         <Link href="/">
-          <p className="text-lg ml-4 -mt-4 text-neutral-200  hover:text-sky-700">
+          <p className="text-lg ml-4 -mt-4 dark:text-neutral-200  hover:text-sky-700">
             Bem vindo ao
           </p>
-          <p className="text-lg ml-8 -mb-4 text-neutral-200  hover:text-sky-700">
+          <p className="text-lg ml-8 -mb-4 dark:text-neutral-200  hover:text-sky-700">
             Blog Post-it
           </p>
         </Link>

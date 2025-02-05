@@ -21,9 +21,12 @@ export function PostHeader({
         <Avatar name={author!.name} picture={author!.picture} />
       </div>
       <div className="mb-8 md:mb-16 sm:mx-0 flex items-center justify-center">
-        <div className="h-3/5 w-3/5">
-          <CoverImage title={title!} coverImage={coverImage!} />
-        </div>
+        <CoverImage
+          title={title!}
+          coverImage={coverImage!}
+          width={800}
+          height={800}
+        />
       </div>
       <div className="max-w-2xl mx-auto">
         <div className="block md:hidden mb-6">
