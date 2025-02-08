@@ -1,9 +1,10 @@
 'use client';
 
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import { HeroPost } from './hero-post';
 import { MoreStories } from './more-stories';
 import { Title } from '../Title';
+import Pagination from '../Pagination';
 
 interface Post {
   title: string;
@@ -14,9 +15,9 @@ interface Post {
   tags: string[];
 }
 
-export const ClientHomePostSection = ({ allPosts }: { allPosts: Post[] }) => {
-  // const allPosts = getAllPosts();
+const PageSize = 4;
 
+export const ClientHomePostSection = ({ allPosts }: { allPosts: Post[] }) => {
   const [searchValue, setSearchValue] = useState('');
 
   const heroPost = allPosts[0];
@@ -25,6 +26,15 @@ export const ClientHomePostSection = ({ allPosts }: { allPosts: Post[] }) => {
     .filter((post) =>
       post.title.toLowerCase().includes(searchValue.toLowerCase()),
     );
+
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const currentTableData = useMemo(() => {
+    const firstPageIndex = (Number(currentPage) - 1) * PageSize;
+    const lastPageIndex = firstPageIndex + PageSize;
+
+    return morePosts.slice(firstPageIndex, lastPageIndex);
+  }, [currentPage, morePosts]);
 
   return (
     <>
@@ -50,7 +60,7 @@ export const ClientHomePostSection = ({ allPosts }: { allPosts: Post[] }) => {
       </div>
 
       <div className="mx-2 sm:mx-0">
-        {!searchValue && (
+        {currentPage < 2 && !searchValue && (
           <>
             <HeroPost
               title={heroPost.title}
@@ -66,7 +76,7 @@ export const ClientHomePostSection = ({ allPosts }: { allPosts: Post[] }) => {
           </>
         )}
         {morePosts.length > 0 &&
-          morePosts.map((post) => (
+          currentTableData.map((post) => (
             <MoreStories
               key={post.slug}
               title={post.title}
@@ -77,6 +87,15 @@ export const ClientHomePostSection = ({ allPosts }: { allPosts: Post[] }) => {
               tags={post.tags}
             />
           ))}
+      </div>
+
+      <div className=" mt-48">
+        <Pagination
+          currentPage={Number(currentPage)}
+          totalCount={morePosts.length}
+          pageSize={PageSize}
+          onPageChange={(page) => setCurrentPage(page)}
+        />
       </div>
     </>
   );
