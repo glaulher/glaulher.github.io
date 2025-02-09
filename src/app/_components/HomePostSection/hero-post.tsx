@@ -14,8 +14,6 @@ export function HeroPost({
   tags,
   slug,
 }: PostPage) {
-  // const router = useRouter();
-
   const [loading, setLoading] = useState(false);
 
   const handleLinkClick = () => {

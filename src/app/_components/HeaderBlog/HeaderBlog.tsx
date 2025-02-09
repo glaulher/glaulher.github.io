@@ -3,14 +3,12 @@ import Link from 'next/link';
 const Header = () => {
   return (
     <div className="flex justify-between items-center mb-20 mt-8">
-      {/* Título "Blog" à esquerda */}
       <h2 className="text-2xl md:text-4xl font-bold tracking-tight md:tracking-tighter leading-tight">
         <Link href="/" className="hover:underline">
           Blog
         </Link>
       </h2>
 
-      {/* Botão "Voltar" à direita */}
       <Link href="/">
         <p className="text-sm dark:text-neutral-200 hover:text-sky-700 dark:hover:text-sky-700 flex items-center">
           <svg

@@ -1,16 +1,13 @@
-// import Container from '@/app/_components/container';
-// import { HeroPost } from '@/app/_components/hero-post';
-// import { Intro } from '@/app/_components/intro';
-// import { MoreStories } from '@/app/_components/more-stories';
-//import { getAllPosts } from '@/lib/api';
-
-import { HomePostSection } from '@/app/_components/HomePostSection';
+import { HomePostSection } from './_components/HomePostSection';
+import { getAllPosts } from '@/lib/api';
 
 export default function Index() {
+  const allPosts = getAllPosts();
+
   return (
     <main>
       <article className="container flex flex-col pt-6 sm:mx-2 md:mx-auto flex-1">
-        <HomePostSection />
+        <HomePostSection allPosts={allPosts} />
       </article>
     </main>
   );
