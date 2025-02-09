@@ -1,0 +1,80 @@
+1:"$Sreact.fragment"
+2:I[78534,["742","static/chunks/742-1acfcef730f5673c.js","177","static/chunks/app/layout-913397887a5bc604.js"],"Providers"]
+3:I[6538,["742","static/chunks/742-1acfcef730f5673c.js","177","static/chunks/app/layout-913397887a5bc604.js"],"WrapperHeader"]
+4:I[15244,[],""]
+5:I[43866,[],""]
+7:I[86213,[],"OutletBoundary"]
+9:I[86213,[],"MetadataBoundary"]
+b:I[86213,[],"ViewportBoundary"]
+d:I[34835,[],""]
+:HL["/_next/static/media/a34f9d1faa5f3315-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/css/7436ac03dcc02a7b.css","style"]
+:HL["/_next/static/css/4639d7b613416f5d.css","style"]
+0:{"P":null,"b":"6UXkEoSdYe0Cm-rWxR4XR","p":"","c":["","posts","2020-10-02-react-native-vector-icons"],"i":false,"f":[[["",{"children":["posts",{"children":[["slug","2020-10-02-react-native-vector-icons","d"],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/7436ac03dcc02a7b.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"en","children":[["$","head",null,{"children":[["$","link",null,{"rel":"apple-touch-icon","sizes":"180x180","href":"/favicon/apple-touch-icon.png"}],["$","link",null,{"rel":"icon","type":"image/png","sizes":"32x32","href":"/favicon/favicon-32x32.png"}],["$","link",null,{"rel":"icon","type":"image/png","sizes":"16x16","href":"/favicon/favicon-16x16.png"}],["$","link",null,{"rel":"manifest","href":"/favicon/site.webmanifest"}],["$","link",null,{"rel":"mask-icon","href":"/favicon/safari-pinned-tab.svg","color":"#000000"}],["$","link",null,{"rel":"shortcut icon","href":"/favicon/favicon.ico"}],["$","meta",null,{"name":"msapplication-TileColor","content":"#000000"}],["$","meta",null,{"name":"msapplication-config","content":"/favicon/browserconfig.xml"}],["$","meta",null,{"name":"theme-color","content":"#000"}],["$","link",null,{"rel":"alternate","type":"application/rss+xml","href":"/feed.xml"}]]}],["$","body",null,{"className":"bg-slate-100\n            dark:bg-gray-900\n            dark:from-gray-900\n            dark:to-gray-800 \n            bg-gradient-to-r \n            h-screen \n            __className_d65c78","children":[["$","$L2",null,{"children":[["$","$L3",null,{}],["$","$L4",null,{"parallelRouterKey":"children","segmentPath":["children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[],[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]]],"forbidden":"$undefined","unauthorized":"$undefined"}]]}],["$","footer",null,{"className":"bg-gray-700  mt-1 py-4","children":["$","div",null,{"className":"container mx-auto flex justify-center","children":["$","span",null,{"className":"mx-auto text-neutral-200","children":"© 2025 GrmDevTips"}]}]}]]}]]}]]}],{"children":["posts",["$","$1","c",{"children":[null,["$","$L4",null,{"parallelRouterKey":"children","segmentPath":["children","posts","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["slug","2020-10-02-react-native-vector-icons","d"],["$","$1","c",{"children":[null,["$","$L4",null,{"parallelRouterKey":"children","segmentPath":["children","posts","children","$0:f:0:1:2:children:2:children:0","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":["__PAGE__",["$","$1","c",{"children":["$L6",[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/4639d7b613416f5d.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","$L7",null,{"children":"$L8"}]]}],{},null,false]},null,false]},null,false]},null,false],["$","$1","h",{"children":[null,["$","$1","slvDKFmfMIQCJ_tDz1HA_",{"children":[["$","$L9",null,{"children":"$La"}],["$","$Lb",null,{"children":"$Lc"}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]]}],false]],"m":"$undefined","G":["$d","$undefined"],"s":false,"S":true}
+e:I[48173,["742","static/chunks/742-1acfcef730f5673c.js","688","static/chunks/688-2ba1992c7a7e345a.js","858","static/chunks/app/posts/%5Bslug%5D/page-b06279caf317e001.js"],""]
+f:I[87970,["742","static/chunks/742-1acfcef730f5673c.js","688","static/chunks/688-2ba1992c7a7e345a.js","858","static/chunks/app/posts/%5Bslug%5D/page-b06279caf317e001.js"],"Image"]
+10:I[85301,["742","static/chunks/742-1acfcef730f5673c.js","688","static/chunks/688-2ba1992c7a7e345a.js","858","static/chunks/app/posts/%5Bslug%5D/page-b06279caf317e001.js"],"PostBody"]
+11:Ta26,<hr>
+<p>O pacote de fonte de ícones, react-native-vector-icons, é uma forma de implementar icones no projeto de forma rápida e elegante, ícones presentes no pacote <a href="https://oblador.github.io/react-native-vector-icons/">clique aqui</a>{:target="_blank" rel="noopener"}. É ótimo para botões, logotipos, barras de navegação e guias, fácil de estender, estilizar e integrar no projeto.
+Para utilizar os pacotes de fontes no React-native vamos utilizar a biblioteca react-native-vector-icons.</p>
+<p>Criando um projeto para testes, considerando que tenha o react-native, yarn e emulador ja instalados, abra o terminal:</p>
+<pre><code class="language-javascript">npx react-native init MyApp --template react-native-template-typescript
+</code></pre>
+<pre><code class="language-shell">cd MyApp
+</code></pre>
+<p>Instale a biblioteca de ícones:</p>
+<pre><code class="language-shell">yarn add react-native-vector-icons
+</code></pre>
+<p>Realize o link da biblioteca com o código nativo com o comando:</p>
+<pre><code class="language-shell">yarn react-native link
+</code></pre>
+<p>Carregue o projeto no emulador</p>
+<pre><code class="language-shell">yarn android
+yarn start
+</code></pre>
+<p>Será carregado o template padrão do react-native, para testar edite o App.tsx colando o código abaixo:</p>
+<pre><code class="language-javascript">import React from 'react';
+import {SafeAreaView, View, Text, StatusBar, StyleSheet} from 'react-native';
+import Icon from 'react-native-vector-icons/Feather';
+
+Icon.loadFont(); // carrega os icones
+
+declare const global: {HermesInternal: null | {}};
+
+const App = () => {
+  return (
+    &#x3C;>
+      &#x3C;StatusBar barStyle="dark-content" />
+      &#x3C;SafeAreaView>
+        &#x3C;View style={styles.container}>
+          &#x3C;Text>
+            Olá
+            &#x3C;Icon name="github" size={30} color="red" />
+          &#x3C;/Text>
+        &#x3C;/View>
+      &#x3C;/SafeAreaView>
+    &#x3C;/>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingTop: 200,
+  },
+});
+
+export default App;
+
+</code></pre>
+<p>Ficará com o icone do github conforme a imagem:</p>
+<p>![image]({{ "/assets/img/sample/react-native/icon-vector.png" | relative_url }}){:target="_blank" rel="noopener"}</p>
+<p>fontes:</p>
+<p><a href="https://blog.rocketseat.com.br/utilizando-fontes-de-icones-no-react-native/">Rocketseat</a>{:target="_blank" rel="noopener"}</p>
+<p><a href="https://github.com/oblador/react-native-vector-icons">github.com/oblador</a>{:target="_blank" rel="noopener"}</p>
+6:["$","main",null,{"children":["$","div",null,{"className":"container mx-auto px-5","children":[["$","div",null,{"className":"flex justify-between items-center mb-20 mt-8","children":[["$","h2",null,{"className":"text-2xl md:text-4xl font-bold tracking-tight md:tracking-tighter leading-tight","children":["$","$Le",null,{"href":"/","className":"hover:underline","children":"Blog"}]}],["$","$Le",null,{"href":"/","children":["$","p",null,{"className":"text-sm dark:text-neutral-200 hover:text-sky-700 dark:hover:text-sky-700 flex items-center","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","fill":"none","viewBox":"0 0 24 24","strokeWidth":2,"stroke":"currentColor","className":"w-4 h-4 mr-1","children":["$","path",null,{"strokeLinecap":"round","strokeLinejoin":"round","d":"M15 19l-7-7 7-7"}]}],"Voltar"]}]}]]}],["$","article",null,{"className":"mb-32","children":[[["$","h1",null,{"className":"text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-tight md:leading-none mb-12 text-center md:text-left","children":"Ícones no react-native com o react-native-vector-icons"}],["$","div",null,{"className":"hidden md:block md:mb-12","children":["$","div",null,{"className":"flex items-center","children":[["$","$Lf",null,{"src":"/assets/blog/authors/glaulher.jpeg","width":48,"height":48,"className":" rounded-full mr-4","alt":"Glaulher Medeiros"}],["$","div",null,{"className":"text-xl font-bold","children":"Glaulher Medeiros"}]]}]}],["$","div",null,{"className":"mb-8 md:mb-16 sm:mx-0 flex items-center justify-center","children":["$","div",null,{"className":"sm:mx-0","children":["$","$Lf",null,{"src":"/assets/blog/post/22-09-2021.jpg","loading":"lazy","alt":"Cover Image for Ícones no react-native com o react-native-vector-icons","className":"object-contain object-center rounded-md shadow-sm w-full ","width":800,"height":800,"decoding":"async","data-nimg":"1"}]}]}],["$","div",null,{"className":"max-w-2xl mx-auto","children":[["$","div",null,{"className":"block md:hidden mb-6","children":["$","div",null,{"className":"flex items-center","children":[["$","$Lf",null,{"src":"/assets/blog/authors/glaulher.jpeg","width":48,"height":48,"className":" rounded-full mr-4","alt":"Glaulher Medeiros"}],["$","div",null,{"className":"text-xl font-bold","children":"Glaulher Medeiros"}]]}]}],["$","div",null,{"className":"mb-6 text-lg","children":["$","time",null,{"dateTime":"2020-11-02T16:34:00Z","children":"November\t2, 2020"}]}]]}]],["$","$L10",null,{"content":"$11"}]]}]]}]}]
+c:[["$","meta","0",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+a:[["$","meta","0",{"charSet":"utf-8"}],["$","title","1",{"children":"Ícones no react-native com o react-native-vector-icons | Next.js Blog Example with Markdown"}],["$","meta","2",{"name":"description","content":"A statically generated blog example using Next.js and Markdown."}],["$","meta","3",{"property":"og:title","content":"Ícones no react-native com o react-native-vector-icons | Next.js Blog Example with Markdown"}],["$","meta","4",{"property":"og:description","content":"A statically generated blog example using Next.js and Markdown."}],["$","meta","5",{"property":"og:image","content":"https://glaulher.github.io/assets/blog/post/22-09-2021.jpg"}],["$","meta","6",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","7",{"name":"twitter:title","content":"Ícones no react-native com o react-native-vector-icons | Next.js Blog Example with Markdown"}],["$","meta","8",{"name":"twitter:description","content":"A statically generated blog example using Next.js and Markdown."}],["$","meta","9",{"name":"twitter:image","content":"https://glaulher.github.io/assets/blog/post/22-09-2021.jpg"}]]
+8:null
