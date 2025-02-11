@@ -36,14 +36,14 @@ export function HeroPost({
                         year: 'numeric',
                       })}
                     </time>
-                    <div className="w-max ">
+                    <div className="w-max max-w-[300] ">
                       <CoverImage
                         title={title}
                         coverImage={coverImage}
                         slug={slug}
                         onClick={handleLinkClick}
-                        width={280}
-                        height={230}
+                        width={300}
+                        height={250}
                       />
                     </div>
                   </div>
