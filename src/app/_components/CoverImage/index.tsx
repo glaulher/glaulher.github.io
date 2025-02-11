@@ -22,13 +22,13 @@ const CoverImage = ({
   const image = (
     <Image
       src={coverImage}
-      loading="lazy"
+      // loading="lazy"
       alt={`Cover Image for ${title}`}
-      className={`object-contain object-center rounded-md shadow-sm w-full max-w-[${width}] ${slug ? slugHover : ''}`}
+      //className={`object-contain object-center rounded-md shadow-sm w-full max-w-[${width}] ${slug ? slugHover : ''}`}
       width={width}
       height={height}
-      decoding="async"
-      data-nimg="1"
+    //decoding="async"
+    //data-nimg="1"
     />
   );
   return (
