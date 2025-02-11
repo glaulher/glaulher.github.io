@@ -2,8 +2,6 @@ import Footer from '@/app/_components/Footer';
 import { CMS_NAME, HOME_OG_IMAGE_URL } from '@/lib/constants';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
-//import cn from 'classnames';
-//mport { ThemeSwitcher } from './_components/theme-switcher';
 
 import '@/app/globals.css';
 import '@/app/material-symbols.css';
@@ -72,8 +70,8 @@ export default function RootLayout({
         <Providers>
           <WrapperHeader />
           {children}
+          <Footer />
         </Providers>
-        <Footer />
       </body>
     </html>
   );
