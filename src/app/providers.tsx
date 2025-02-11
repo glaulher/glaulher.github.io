@@ -15,10 +15,6 @@ export function Providers({ children }: Props) {
     setMounted(true);
   }, []);
 
-  //if (!mounted) {
-  //  return <div className="loading-indicator">Carregando...</div>;
-  //}
-
   return mounted ? (
     <ThemeProvider enableSystem={true} defaultTheme="system" attribute="class">
       {children}
