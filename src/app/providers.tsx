@@ -12,7 +12,10 @@ export function Providers({ children }: Props) {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setMounted(true);
+    const timer = setTimeout(() => {
+      setMounted(true);
+    }, 1000);
+    return () => clearTimeout(timer);
   }, []);
 
   return mounted ? (
