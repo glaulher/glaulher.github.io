@@ -27,8 +27,6 @@ const CoverImage = ({
       //className={`object-contain object-center rounded-md shadow-sm w-full max-w-[${width}] ${slug ? slugHover : ''}`}
       width={width}
       height={height}
-    //decoding="async"
-    //data-nimg="1"
     />
   );
   return (
