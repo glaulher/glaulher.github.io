@@ -38,7 +38,7 @@ export function MoreStories({
                         year: 'numeric',
                       })}
                     </time>
-                    <div className=" ">
+                    <div className="w-max max-w-[250] ">
                       <CoverImage
                         title={title}
                         coverImage={coverImage}

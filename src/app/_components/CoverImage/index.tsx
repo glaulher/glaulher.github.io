@@ -9,7 +9,7 @@ type Props = ImageProps & {
   height: number;
 };
 
-//const slugHover = 'hover:shadow-lg transition-shadow duration-200';
+const slugHover = 'hover:shadow-lg transition-shadow duration-200';
 
 const CoverImage = ({
   title,
@@ -22,9 +22,8 @@ const CoverImage = ({
   const image = (
     <Image
       src={coverImage}
-      // loading="lazy"
       alt={`Cover Image for ${title}`}
-      //className={`object-contain object-center rounded-md shadow-sm w-full max-w-[${width}] ${slug ? slugHover : ''}`}
+      className={`object-contain object-center rounded-md shadow-sm ${slug ? slugHover : ''}`}
       width={width}
       height={height}
     />
