@@ -13,7 +13,7 @@ import { WrapperHeader } from '@/app/_components/WrapperHeader';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: `Next.js Blog Example with ${CMS_NAME}`,
+  title: `Blog Post-it`,
   description: `A statically generated blog example using Next.js and ${CMS_NAME}.`,
   openGraph: {
     images: [HOME_OG_IMAGE_URL],
