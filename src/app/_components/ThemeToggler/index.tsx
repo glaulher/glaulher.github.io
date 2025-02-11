@@ -21,7 +21,7 @@ export default function ThemeToggler() {
         setTheme(resolvedTheme === 'dark' ? 'light' : 'dark');
       }}
     >
-      <span className="hover:text-sky-700 material-symbols-outlined">
+      <span className="text-slate-600 dark:text-white dark:hover:text-sky-700 hover:text-sky-300 material-symbols-outlined">
         {colorthemeBackground}
       </span>
     </button>
