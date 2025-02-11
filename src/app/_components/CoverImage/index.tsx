@@ -9,7 +9,7 @@ type Props = ImageProps & {
   height: number;
 };
 
-const slugHover = 'hover:shadow-lg transition-shadow duration-200';
+//const slugHover = 'hover:shadow-lg transition-shadow duration-200';
 
 const CoverImage = ({
   title,
