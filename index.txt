@@ -1,0 +1,822 @@
+1:"$Sreact.fragment"
+2:I[78534,["742","static/chunks/742-1acfcef730f5673c.js","177","static/chunks/app/layout-f82bdf32c506e4d9.js"],"Providers"]
+3:I[6538,["742","static/chunks/742-1acfcef730f5673c.js","177","static/chunks/app/layout-f82bdf32c506e4d9.js"],"WrapperHeader"]
+4:I[15244,[],""]
+5:I[43866,[],""]
+6:I[34008,["742","static/chunks/742-1acfcef730f5673c.js","974","static/chunks/app/page-4d9a8135214f9e8b.js"],"HomePostSection"]
+f:I[86213,[],"OutletBoundary"]
+11:I[86213,[],"MetadataBoundary"]
+13:I[86213,[],"ViewportBoundary"]
+15:I[34835,[],""]
+:HL["/_next/static/media/a34f9d1faa5f3315-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/css/3cfc09a517430620.css","style"]
+7:T536,
+---
+
+O `npm (Node Package Manager)` é uma ferramenta importante para desenvolvedores de JavaScript que permite gerenciar e instalar dependências em projetos. Porém, gerenciar essas dependências pode se tornar uma tarefa complicada quando se tem muitas delas em um projeto. É aí que o `npx npm-check-updates` pode ajudar.
+
+O `npm-check-updates` é uma ferramenta que permite visualizar quais dependências em um projeto precisam ser atualizadas para sua versão mais recente. Com o comando `npx`, é possível executar a versão mais recente da ferramenta sem precisar instalá-la localmente.
+
+Para atualizar as dependências, basta executar o comando no terminal:
+
+```shell
+npx npm-check-updates -u
+```
+
+Irá retornar as dependências que podem ser atualizadas. Em seguida, executar o comando:
+
+```shell
+npm install
+```
+
+Instalará as novas versões das dependências.
+
+É importante ressaltar que a atualização de dependências pode causar problemas no projeto, especialmente quando se trata de dependências de versões muito diferentes. É sempre recomendado realizar testes após a atualização e verificar se tudo está funcionando corretamente.
+
+Em resumo, o `npx npm-check-updates -u` é uma ferramenta útil para gerenciar dependências em projetos `JavaScript`, permitindo atualizá-las de forma simples e rápida.
+8:T2969,
+---
+
+A paginação é um recurso que permite dividir grandes conjuntos de dados em páginas facilitando a visualização e a navegação para o usuário, é amplamente utilizado em interfaces que precisam lidar com grandes volumes de dados.
+
+Para criar um componete de paginação de exemplo utilizarei o vite:
+
+```shell
+npm create vite@latest paginate -- --template
+```
+
+No próximo passo escolher react:
+
+```shell
+? Select a framework: › - Use arrow-keys. Return to submit.
+    Vanilla
+    Vue
+❯   React
+    Preact
+    Lit
+    Svelte
+    Others
+```
+
+No próximo passo escolher typescript:
+
+```shell
+✔ Select a framework: › React
+? Select a variant: › - Use arrow-keys. Return to submit.
+    JavaScript
+❯   TypeScript
+    JavaScript + SWC
+    TypeScript + SWC
+```
+
+Entrar na pasta e rodar o `npm install`
+
+```shell
+✔ Select a framework: › React
+✔ Select a variant: › TypeScript
+
+Scaffolding project in ~/Documentos/teste/paginate...
+
+Done. Now run:
+
+  cd paginate
+  npm install
+  npm run dev
+```
+
+Criar na raiz do projeto o arquivo `.eslintrc.json`, instalar o pacote a seguir:
+
+```shell
+npm i -D @rocketseat/eslint-config
+```
+
+Abrir o arquivo `.eslintrc.json` e deixar conforme a seguir:
+
+```javascript
+{
+  "extends": "@rocketseat/eslint-config/react"
+  // "extends": "@rocketseat/eslint-config/node"
+}
+```
+
+[Baixe](https://raw.githubusercontent.com/glaulher/example/paginate/src/data/mock-data.json) o arquivo mock-data.json e coloque em `src/data/` , crie `Pagination.tsx` dentro de `src/`e deixe conforme a seguir:
+
+```javascript
+import React from 'react'
+import { usePagination, DOTS } from './usePagination'
+import './pagination.scss'
+
+type PaginationProps = {
+  onPageChange: (page: number) => void
+  totalCount: number
+  siblingCount: number
+  currentPage: number
+  pageSize: number
+  className: string
+}
+
+const Pagination = ({
+  onPageChange,
+  totalCount,
+  siblingCount = 1,
+  currentPage,
+  pageSize,
+}: PaginationProps) => {
+  const paginationRange = usePagination({
+    currentPage,
+    totalCount,
+    siblingCount,
+    pageSize,
+  })
+
+  if (currentPage === 0 || paginationRange!.length < 2) {
+    return null
+  }
+
+  const onNext = () => {
+    onPageChange(currentPage + 1)
+  }
+
+  const onPrevious = () => {
+    onPageChange(currentPage - 1)
+  }
+
+  const lastPage = paginationRange![paginationRange!.length - 1]
+  return (
+    <ul className="pagination-container">
+      <li
+        className={`pagination-item ${currentPage === 1 && 'disabled'}`}
+        onClick={onPrevious}
+      >
+        <div className="arrow left" />
+      </li>
+      {paginationRange!.map((pageNumber) => {
+        if (pageNumber === DOTS) {
+          return (
+            <li key={pageNumber} className="pagination-item dots">
+              &#8230;
+            </li>
+          )
+        }
+
+        return (
+          <li
+            className={`pagination-item ${
+              pageNumber === currentPage && 'selected'
+            }`}
+            onClick={() => onPageChange(Number(pageNumber))}
+            key={pageNumber}
+          >
+            {pageNumber}
+          </li>
+        )
+      })}
+      <li
+        className={`pagination-item ${currentPage === lastPage && 'disabled'}`}
+        onClick={onNext}
+      >
+        <div className="arrow right" />
+      </li>
+    </ul>
+  )
+}
+
+export default Pagination
+```
+
+Crie `pagination.scss` dentro de `src/` deixando conforme abaixo:
+
+```javascript
+.pagination-container {
+  display: flex;
+  list-style-type: none;
+
+  .pagination-item {
+    padding: 0 12px;
+    height: 32px;
+    text-align: center;
+    margin: auto 4px;
+    color: rgba(0, 0, 0, 0.87);
+    display: flex;
+    box-sizing: border-box;
+    align-items: center;
+    letter-spacing: 0.01071em;
+    border-radius: 16px;
+    line-height: 1.43;
+    font-size: 13px;
+    min-width: 32px;
+
+    &.dots:hover {
+      background-color: transparent;
+      cursor: default;
+    }
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.04);
+      cursor: pointer;
+    }
+
+    &.selected {
+      background-color: rgba(0, 0, 0, 0.08);
+    }
+
+    .arrow {
+      &::before {
+        position: relative;
+        /* top: 3pt; Remova essa linha do comentário para baixar os ícones conforme solicitado nos comentários*/
+        content: '';
+        /* Usando uma escala em, as setas terão o tamanho acompanhando a fonte */
+        display: inline-block;
+        width: 0.4em;
+        height: 0.4em;
+        border-right: 0.12em solid rgba(0, 0, 0, 0.87);
+        border-top: 0.12em solid rgba(0, 0, 0, 0.87);
+      }
+
+      &.left {
+        transform: rotate(-135deg) translate(-50%);
+      }
+
+      &.right {
+        transform: rotate(45deg);
+      }
+    }
+
+    &.disabled {
+      pointer-events: none;
+
+      .arrow::before {
+        border-right: 0.12em solid rgba(0, 0, 0, 0.43);
+        border-top: 0.12em solid rgba(0, 0, 0, 0.43);
+      }
+
+      &:hover {
+        background-color: transparent;
+        cursor: default;
+      }
+    }
+  }
+}
+```
+
+Instale o pacote `sass`:
+
+```shell
+npm i sass
+```
+
+#### Sobre Pagination:
+
+Pagination usa um hook personalizado chamado `usePagination` para calcular quais páginas devem ser exibidas e em que ordem.
+
+O componente renderiza uma lista de números de página, com a página atual destacada. O usuário poderá navegar pelos resultados da lista dividida em várias páginas.
+
+Propriedades do componente:
+
+- onPageChange: uma função que será chamada quando o usuário clicar em um número de página. Ela recebe como parâmetro o número da página que o usuário selecionou.
+- totalCount: o número total de itens que serão paginados.
+- siblingCount: o número de links de página exibidos à esquerda e à direita do link da página atual. O padrão é 1.
+- currentPage: o número da página atual.
+- pageSize: o número de itens exibidos em cada página.
+
+O componente usa a função usePagination para gerar uma matriz de números de página que deve ser exibida ao usuário. Essa função recebe como parâmetros a página atual, o número total de itens, o número de links e o tamanho da página.
+
+A função usePagination retorna uma matriz de números de página que deve ser exibida na interface do usuário. Ela também pode incluir um valor especial DOTS, que é usado para indicar que há mais páginas entre as que já estão sendo exibidas.
+
+O componente usa o currentPage e o paginationRange para gerar a lista de números de página que serão exibidos para o usuário. Ele também usa as funções onNext e onPrevious para permitir que o usuário navegue para a próxima ou para a página anterior, respectivamente.
+
+O componente renderiza a lista de números de página em uma lista não ordenada HTML (\<ul>), com cada número de página sendo um item de lista (\<li>). O item da lista atual é destacado com a classe CSS "selected".
+
+O componente também renderiza setas para permitir que o usuário navegue para a próxima ou para a página anterior. Se o usuário estiver na primeira ou na última página, o componente desativa o link correspondente para que ele não possa ser clicado.
+
+Crie `usePagination.ts` dentro de `src/`e deixe conforme a seguir:
+
+```javascript
+import { useMemo } from 'react'
+
+export const DOTS = '...'
+
+interface Props {
+  totalCount: number
+  pageSize: number
+  siblingCount: number
+  currentPage: number
+}
+
+const range = (start: number, end: number) => {
+  const length = end - start + 1
+  return Array.from({ length }, (_, idx) => idx + start)
+}
+
+export const usePagination = ({
+  totalCount,
+  pageSize,
+  siblingCount = 1,
+  currentPage,
+}: Props) => {
+  const paginationRange = useMemo(() => {
+    const totalPageCount = Math.ceil(totalCount / pageSize)
+
+    const totalPageNumbers = siblingCount + 5
+
+    if (totalPageNumbers >= totalPageCount) {
+      return range(1, totalPageCount)
+    }
+
+    const leftSiblingIndex = Math.max(currentPage - siblingCount, 1)
+    const rightSiblingIndex = Math.min(
+      currentPage + siblingCount,
+      totalPageCount,
+    )
+
+
+    const shouldShowLeftDots = leftSiblingIndex > 2
+    const shouldShowRightDots = rightSiblingIndex < totalPageCount - 2
+
+    const firstPageIndex = 1
+    const lastPageIndex = totalPageCount
+
+    if (!shouldShowLeftDots && shouldShowRightDots) {
+      const leftItemCount = 3 + 2 * siblingCount
+      const leftRange = range(1, leftItemCount)
+
+      return [...leftRange, DOTS, totalPageCount]
+    }
+
+    if (shouldShowLeftDots && !shouldShowRightDots) {
+      const rightItemCount = 3 + 2 * siblingCount
+      const rightRange = range(
+        totalPageCount - rightItemCount + 1,
+        totalPageCount,
+      )
+      return [firstPageIndex, DOTS, ...rightRange]
+    }
+
+    if (shouldShowLeftDots && shouldShowRightDots) {
+      const middleRange = range(leftSiblingIndex, rightSiblingIndex)
+      return [firstPageIndex, DOTS, ...middleRange, DOTS, lastPageIndex]
+    }
+    return undefined
+  }, [totalCount, pageSize, siblingCount, currentPage])
+
+  return paginationRange
+}
+
+```
+
+#### Sobre usePagination:
+
+Este código é responsável por retornar uma lista de páginas a serem exibidas em um componente de paginação, dado um conjunto de parâmetros de entrada, como o número total de itens, o número de itens por página, o número de itens vizinhos a serem exibidos à esquerda e à direita da página atual e a página atual.
+
+A função `range` é uma função que cria um array de números inteiros de um intervalo específico.
+
+O hook calcula o número total de páginas necessárias, em seguida, calcula o número total de páginas que devem ser exibidas (incluindo páginas vizinhas e pontos de suspensão), que é definido como `siblingCount + 5`.
+
+Se o número total de páginas for menor ou igual ao número total de páginas que devem ser exibidas, a função simplesmente retorna um array contendo todas as páginas de 1 a `totalPageCount`.
+
+Se o número total de páginas for maior que o número total de páginas que devem ser exibidas, a função calculará quais páginas vizinhas devem ser exibidas com base na página atual e no número de páginas vizinhas desejadas. A função também calcula se os pontos de suspensão devem ser exibidos à esquerda ou à direita, com base nas páginas vizinhas calculadas anteriormente.
+
+A função `useMemo` é usada para armazenar em cache o resultado da lista de páginas, garantindo que ela só seja recalculada quando as dependências (total de itens, número de itens por página, número de itens vizinhos e página atual) mudarem.
+
+No final, o hook retorna a lista de páginas calculada.
+
+![gif pagination](/assets/posts/paginate.gif)
+9:T468,
+---
+
+Debug como um humano , não um robô. Finalmente, um cliente REST que você vai adorar!
+
+​ Muito mais que um cliente HTTP. Auxiliares avançados de autenticação, modelagem encadeamento de solicitações ajudam a fazer as coisas mais rapidamente.
+
+​ Esse software é uma excelente alternativa para poder trabalhar com api, no site tem os procedimentos para instalar no linux. As instruções são para ubuntu ou utilizar o snap.
+
+​ No link a seguir, tem os pacotes para instalação direto do github onde há a opção de appimage (a qual prefiro em relação ao snap, para usar no Debian)
+
+[download](https://updates.insomnia.rest/downloads/release/latest?app=com.insomnia.app&source=website)
+
+​ Click em Insomnia-x.x.x.AppImage após o download dê a permissão: abra o terminal em Downloads e digite:
+
+```shell
+$ chmod +x Insomnia-x.x.x.AppImage //troque o x.x.x pela versão de download
+```
+
+para executar no terminal:
+
+```shell
+$ ./Insomnia-x.x.x.AppImage
+```
+
+[![upload-image Insomnia](/assets/posts/Insomnia.png)](https://updates.insomnia.rest/downloads/release/latest?app=com.insomnia.app&source=website)
+a:T1778,
+---
+
+Creating pages is an integral part of any framework. Today we'll be looking at three different types of pages that we can leverage in Next.js.
+
+1. Static pages (`/about`, `/contact`)
+2. Dynamic page content (`/posts/all`)
+3. Dynamic page paths (`/posts/1`, `posts/2`)
+
+Let's look at how we can create these in Next.js.
+
+## Static pages in Next.js
+
+To create static pages, we can simply create a file in our `pages` folder.
+This file can be a variety of extensions: `.js`, `.jsx`, `.ts`, `.tsx`.
+
+Let's create a simple static contact page for our [Next.js tailwind starter](https://github.com/rebelchris/next-tailwind).
+
+Create a file called `contact.js` in your `pages` folder.
+
+```js
+import Head from 'next/head';
+
+export default function Contact() {
+  return (
+    <div className="flex items-center justify-center min-h-screen">
+      <Head>
+        <title>Contact page</title>
+        <meta name="description" content="Contact us" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+
+      <div className="max-w-xs my-2 overflow-hidden rounded shadow-lg">
+        <div className="px-6 py-4">
+          <div className="mb-2 text-xl font-bold">Contact us</div>
+          <p className="text-base text-grey-darker">
+            This will be the place to contact us later on.
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}
+```
+
+And now if we run our script again `npm run dev` we can visit `http://localhost:3000/contact`.
+
+This should now show the page we just created.
+
+![Contact page in Next.js](https://cdn.hashnode.com/res/hashnode/image/upload/v1631702332167/H9HkNDp6F.png)
+
+## Creating dynamic based pages
+
+However, we often want our page to contain data from an external resource.
+
+Let's take the Anime API we used before as an example.
+The API endpoint we'll be using: `https://api.jikan.moe/v3/top/anime/1`.
+
+But let's first create a file called `shows.js` that should list all the top anime shows.
+
+We need to use the `getStaticProps` function for this to work. This function will fire and fetch data from an API.
+Then passes it to the actual view.
+
+So let's break it up into sections and fill those out one by one.
+
+```js
+function Shows({ shows }) {
+  return (
+    // HTML CODE
+  );
+}
+
+export async function getStaticProps() {
+  const shows = // TODO;
+  return {
+    props: {
+      shows,
+    },
+  };
+}
+
+export default Shows;
+```
+
+So this is the main wireframe. We have our function that contains the JSX code (HTML), then we have the `getStaticProps` function, which fires on build time.
+
+This can do API calls while we await it.
+And we can then return them as props.
+
+These props are passed to our primary function (Shows).
+
+So let's see how we can fetch data inside the `getStaticProps` function.
+
+```js
+const res = await fetch('https://api.jikan.moe/v3/top/anime/1');
+const shows = await res.json();
+```
+
+As you can see, top-level awaits are supported out of the box, which is super handy!
+We call the API, await the response, and convert it into a JSON object.
+
+Then as for our HTML, we can now use this `shows` object since we passed it to our function.
+
+```js
+function Shows({ shows }) {
+  return (
+    <div className="grid min-h-screen grid-cols-5 gap-4 p-5">
+      {shows.top.map((show) => (
+        <div
+          key={show.id}
+          className="max-w-xs my-2 overflow-hidden rounded shadow-lg "
+        >
+          <img
+            className="flex-1 object-cover w-full h-80"
+            src={show.image_url}
+            alt={show.title}
+          />
+          <div className="px-6 py-4">
+            <div className="mb-2 text-xl font-bold">{show.title}</div>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
+```
+
+We create a simple render of each show's own card, with an image and title of the anime show.
+
+![Top anime show in Next.js](https://cdn.hashnode.com/res/hashnode/image/upload/v1631712831922/I1Yb9K2DQ.png)
+
+## Creating dynamic page paths
+
+We still only have one page that loads dynamic data with the above example.
+Let's say we want to create a single page for each show.
+
+These pages could host more detailed information about the show.
+
+In Next.js, we can create dynamic pages by wrapping them in brackets like `show/[id].js` where the `[id]` is dynamic.
+
+For this, we can leverage the `getStaticPaths` method.
+This can pre-fetch our endpoints.
+
+And we can still include the `getStaticProps` to retrieve the data on build time.
+
+Let's put this together.
+
+```js
+function Show(show) {
+  return <h1>{show.title}</h1>;
+}
+
+export async function getStaticPaths() {
+  const res = await fetch('https://api.jikan.moe/v3/top/anime/1');
+  const shows = await res.json();
+  const paths = shows.top.map((show) => {
+    return {
+      params: { id: show.mal_id.toString() },
+    };
+  });
+
+  return { paths, fallback: false };
+}
+
+export async function getStaticProps({ params }) {
+  const res = await fetch(`https://api.jikan.moe/v3/anime/${params.id}`);
+  const show = await res.json();
+  return { props: show };
+}
+
+export default Show;
+```
+
+Wow, quite a lot going on, right?
+First, we have a simple view to keep things easy. We use an `h1` to return the title of the single page.
+
+Then we use `getStaticPaths` to create a path for each top show.
+We use the `mal_id` to generate unique ID pages.
+
+Then we use the `getStaticProps` function to retrieve these IDs from the URL and fetch the detailed view for each show.
+
+It results in a single page for each show.
+
+![Single page in Next.js](https://cdn.hashnode.com/res/hashnode/image/upload/v1631715374299/92TyD_WIe.png)
+
+And that's it. We now have explored these three ways of creating pages in Next.js.
+I hope you found this helpful article. You can also find the complete code on [GitHub](https://github.com/rebelchris/next-tailwind/tree/pages).
+
+### Thank you for reading, and let's connect!
+
+Thank you for reading my blog. Feel free to subscribe to my email newsletter and connect on [Facebook](https://www.facebook.com/DailyDevTipsBlog) or [Twitter](https://twitter.com/DailyDevTips1)
+b:T93e,
+---
+
+<img src="/assets/img/sample/react-native/react-native.png" alt="react-native" style="width:200px; heigth:200px; ">
+
+O pacote de fonte de ícones, react-native-vector-icons, é uma forma de implementar icones no projeto de forma rápida e elegante, ícones presentes no pacote [clique aqui](https://oblador.github.io/react-native-vector-icons/){:target="\_blank" rel="noopener"}. É ótimo para botões, logotipos, barras de navegação e guias, fácil de estender, estilizar e integrar no projeto.
+Para utilizar os pacotes de fontes no React-native vamos utilizar a biblioteca react-native-vector-icons.
+
+Criando um projeto para testes, considerando que tenha o react-native, yarn e emulador ja instalados, abra o terminal:
+
+```javascript
+npx react-native init MyApp --template react-native-template-typescript
+```
+
+```shell
+cd MyApp
+```
+
+Instale a biblioteca de ícones:
+
+```shell
+yarn add react-native-vector-icons
+```
+
+Realize o link da biblioteca com o código nativo com o comando:
+
+```shell
+yarn react-native link
+```
+
+Carregue o projeto no emulador
+
+```shell
+yarn android
+yarn start
+```
+
+Será carregado o template padrão do react-native, para testar edite o App.tsx colando o código abaixo:
+
+```javascript
+import React from 'react';
+import {SafeAreaView, View, Text, StatusBar, StyleSheet} from 'react-native';
+import Icon from 'react-native-vector-icons/Feather';
+
+Icon.loadFont(); // carrega os icones
+
+declare const global: {HermesInternal: null | {}};
+
+const App = () => {
+  return (
+    <>
+      <StatusBar barStyle="dark-content" />
+      <SafeAreaView>
+        <View style={styles.container}>
+          <Text>
+            Olá
+            <Icon name="github" size={30} color="red" />
+          </Text>
+        </View>
+      </SafeAreaView>
+    </>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingTop: 200,
+  },
+});
+
+export default App;
+
+```
+
+Ficará com o icone do github conforme a imagem:
+
+![image]({{ "/assets/img/sample/react-native/icon-vector.png" | relative_url }}){:target="\_blank" rel="noopener"}
+
+fontes:
+
+[Rocketseat](https://blog.rocketseat.com.br/utilizando-fontes-de-icones-no-react-native/){:target="\_blank" rel="noopener"}
+
+[github.com/oblador](https://github.com/oblador/react-native-vector-icons){:target="\_blank" rel="noopener"}
+c:T632,
+---
+
+O Node Version Manager é um script bash usado para gerenciar várias versões lançadas do Node.js. Plataformas: unix, macOS e windows WSL. Ele permite que você execute operações como instalar, desinstalar, alternar versão etc. Para instalar o nvm, use este script de instalação.
+
+obs: é preciso ter o curl instalado.
+
+no terminal:
+
+```shell
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
+```
+
+A execução de qualquer um dos comandos acima baixa um script e o executa. O script clona o repositório nvm para ~ / .nvm e tenta adicionar as linhas de origem do snippet abaixo ao arquivo de perfil correto(`~/.bash_profile`, `~/.zshrc`, `~/.profile`, or `~/.bashrc`).
+
+```shell
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+```
+
+Para instalar uma versão do Node.js:
+
+```javascript
+nvm install v14.3.0
+```
+
+Depois disso, você pode usar o nvm para alternar entre versões lançadas. Por exemplo, se a versão do Node.js que deseja utilizar for v14.3.0:
+
+```javascript
+nvm use v14.3.0
+```
+
+Define a versão default do Node.js no shell:
+
+```javascript
+nvm alias default v14.3.0
+```
+
+Desistalar uma versão do Node.js:
+
+```javascript
+nvm uninstall 8.0.0
+```
+
+Listar versões instaladas no sistema:
+
+```shell
+nvm list
+```
+
+Fonte:
+
+[github nvm](https://github.com/nvm-sh/nvm){:target="\_blank" rel="noopener"}
+
+[nodejs.org](https://nodejs.org/en/download/package-manager/){:target="\_blank" rel="noopener"}
+
+​
+d:Tb85,
+---
+
+![image]({{ "/assets/img/sample/react-reload/reload.png" | relative_url }})
+
+<div style="text-align: justify">  
+Para resolver esse problema é preciso alterar o valor  de max_user_watches em inotify, cada relógio inotify usado ocupa 540 bytes (sistema de 32 bits) ou 1 kB (duplo em 64 bits) Isso sai da memória do kernel, que não pode ser trocada. Supondo que você definiu o máximo em 524288 e todos foram usados (improvável), você usaria aproximadamente 256 MB / 512 MB de memória do kernel de 32 bits / 64 bits.<br />
+<br />
+Observe que seu aplicativo também utilizará memória adicional para acompanhar os identificadores inotify, os caminhos de arquivo / no diretório etc.<br />
+<br /></div>
+
+Para verificar o número máximo de relógios inotify:
+
+```shell
+cat /proc/sys/fs/inotify/max_user_watches
+```
+
+No Debian esse valor padrão é 8192, para definir o número máximo de relógios inotify temporariamente:
+
+```shell
+ sudo sysctl fs.inotify.max_user_watches = com o seu valor preferido no final.
+```
+
+**Para definir o número máximo de relógios inotify definitivamente:**
+
+```shell
+sudo -i
+echo "fs.inotify.max_user_watches=524288" |tee -a /etc/sysctl.conf
+sysctl -p
+exit
+```
+
+<div style="text-align: justify"> 
+Permanentemente (informações mais detalhadas):<br />
+
+Coloque fs.inotify.max_user_watches = 524288 nas configurações do sysctl. Dependendo do seu sistema, eles podem estar em um dos seguintes locais:<br />
+Debian / RedHat: /etc/sysctl.conf<br />
+Arch: coloque um novo arquivo em /etc/sysctl.d/, por exemplo /etc/sysctl.d/40-max-user-watches.conf<br />
+Você pode recarregar as configurações do sysctl para evitar uma reinicialização: sysctl -p (Debian / RedHat) ou sysctl --system (Arch)<br />
+Verifique se o número máximo de relógios inotify foi atingido:<br />
+
+Use tail com a opção -f (follow) em qualquer arquivo antigo, por exemplo tail -f / var / log / dmesg: - Se estiver tudo bem, mostrará as últimas 10 linhas e fará uma pausa; abortar com Ctrl-C - Se você estiver sem relógio, falhará com este erro um tanto enigmático:
+
+</div><br />
+
+```shell
+tail: cannot watch '/var/log/dmsg': No space left on device
+```
+
+Para ver o que está usando os relógios inotify:
+
+```shell
+find /proc/*/fd -lname anon_inode:inotify |
+   cut -d/ -f3 |
+   xargs -I '{}' -- ps --no-headers -o '%p %U %c' -p '{}' |
+   uniq -c |
+   sort -nr
+```
+
+A primeira coluna indica o número de inotify fds (embora não seja o número de relógios) e a segunda mostra o PID desse processo.
+
+fontes:
+
+[askbuntu](https://askubuntu.com/questions/716431/inotify-max-user-watches-value-resets-on-reboot-how-to-change-it-permanently){:target="\_blank" rel="noopener"}
+
+[dev.to](https://dev.to/rubiin/ubuntu-increase-inotify-watcher-file-watch-limit-kf4){:target="\_blank" rel="noopener"}
+
+[stackoverflow](https://stackoverflow.com/questions/42189575/create-react-app-reload-not-working){:target="\_blank" rel="noopener"}
+e:T6bf,
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Praesent elementum facilisis leo vel fringilla est ullamcorper eget. At imperdiet dui accumsan sit amet nulla facilities morbi tempus. Praesent elementum facilisis leo vel fringilla. Congue mauris rhoncus aenean vel. Egestas sed tempus urna et pharetra pharetra massa massa ultricies.
+
+Venenatis cras sed felis eget velit. Consectetur libero id faucibus nisl tincidunt. Gravida in fermentum et sollicitudin ac orci phasellus egestas tellus. Volutpat consequat mauris nunc congue nisi vitae. Id aliquet risus feugiat in ante metus dictum at tempor. Sed blandit libero volutpat sed cras. Sed odio morbi quis commodo odio aenean sed adipiscing. Velit euismod in pellentesque massa placerat. Mi bibendum neque egestas congue quisque egestas diam in arcu. Nisi lacus sed viverra tellus in. Nibh cras pulvinar mattis nunc sed. Luctus accumsan tortor posuere ac ut consequat semper viverra. Fringilla ut morbi tincidunt augue interdum velit euismod.
+
+## Lorem Ipsum
+
+Tristique senectus et netus et malesuada fames ac turpis. Ridiculous mus mauris vitae ultricies leo integer malesuada nunc vel. In mollis nunc sed id semper. Egestas tellus rutrum tellus pellentesque. Phasellus vestibulum lorem sed risus ultricies tristique nulla. Quis blandit turpis cursus in hac habitasse platea dictumst quisque. Eros donec ac odio tempor orci dapibus ultrices. Aliquam sem et tortor consequat id porta nibh. Adipiscing elit duis tristique sollicitudin nibh sit amet commodo nulla. Diam vulputate ut pharetra sit amet. Ut tellus elementum sagittis vitae et leo. Arcu non odio euismod lacinia at quis risus sed vulputate.
+0:{"P":null,"b":"1FREYlTmWJsJW9HQqIKFK","p":"","c":["",""],"i":false,"f":[[["",{"children":["__PAGE__",{}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/3cfc09a517430620.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"en","children":[["$","head",null,{"children":[["$","link",null,{"rel":"apple-touch-icon","sizes":"180x180","href":"/favicon/apple-touch-icon.png"}],["$","link",null,{"rel":"icon","type":"image/png","sizes":"32x32","href":"/favicon/favicon-32x32.png"}],["$","link",null,{"rel":"icon","type":"image/png","sizes":"16x16","href":"/favicon/favicon-16x16.png"}],["$","link",null,{"rel":"manifest","href":"/favicon/site.webmanifest"}],["$","link",null,{"rel":"mask-icon","href":"/favicon/safari-pinned-tab.svg","color":"#000000"}],["$","link",null,{"rel":"shortcut icon","href":"/favicon/favicon.ico"}],["$","meta",null,{"name":"msapplication-TileColor","content":"#000000"}],["$","meta",null,{"name":"msapplication-config","content":"/favicon/browserconfig.xml"}],["$","meta",null,{"name":"theme-color","content":"#000"}],["$","link",null,{"rel":"alternate","type":"application/rss+xml","href":"/feed.xml"}]]}],["$","body",null,{"className":"bg-slate-100\n            dark:bg-gray-900\n            dark:from-gray-900\n            dark:to-gray-800 \n            bg-gradient-to-r \n            h-screen \n            __className_d65c78","children":[["$","$L2",null,{"children":[["$","$L3",null,{}],["$","$L4",null,{"parallelRouterKey":"children","segmentPath":["children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[],[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]]],"forbidden":"$undefined","unauthorized":"$undefined"}]]}],["$","footer",null,{"className":"bg-gray-700  mt-1 py-4","children":["$","div",null,{"className":"container mx-auto flex justify-center","children":["$","span",null,{"className":"mx-auto text-neutral-200","children":"© 2025 GrmDevTips"}]}]}]]}]]}]]}],{"children":["__PAGE__",["$","$1","c",{"children":[["$","main",null,{"children":["$","article",null,{"className":"container flex flex-col pt-6 sm:mx-2 md:mx-auto flex-1","children":["$","$L6",null,{"allPosts":[{"title":"npm-check-updates","metaDesc":"O npm (Node Package Manager) é uma ferramenta importante para desenvolvedores de JavaScript","coverImage":"/assets/blog/post/Npm-check-update.png","author":{"name":"Glaulher Medeiros","picture":"/assets/blog/authors/glaulher.jpeg"},"ogImage":{"url":"/assets/blog/post/Npm-check-update.png"},"publishedDate":"2023-04-01T16:34:00Z","categories":["Blogging","Tutorial"],"tags":["Nodejs","npm"],"slug":"2023-04-01-UpdatePackage","content":"$7"},{"title":"Componente de paginação em react","metaDesc":"A paginação é um recurso que permite dividir grandes conjuntos de dados em páginas","coverImage":"/assets/blog/post/PaginateBanner.png","author":{"name":"Glaulher Medeiros","picture":"/assets/blog/authors/glaulher.jpeg"},"ogImage":{"url":"/assets/blog/post/PaginateBanner.png"},"publishedDate":"2023-03-14T16:34:00Z","categories":["Blogging","Tutorial"],"tags":["Component","React"],"slug":"2023-03-14-Pagination_","content":"$8"},{"title":"Insomnia em distros linux","metaDesc":"\tMuito mais que um cliente HTTP. Auxiliares avançados de autenticação, modelagem encadeamento","coverImage":"/assets/blog/post/InsomniaBanner.png","author":{"name":"Glaulher Medeiros","picture":"/assets/blog/authors/glaulher.jpeg"},"ogImage":{"url":"/assets/blog/post/InsomniaBanner.png"},"publishedDate":"2023-03-06T16:34:00Z","categories":["Blogging","Tutorial"],"tags":["Insomnia","REST","Linux"],"slug":"2023-03-06-Insomnia","content":"$9"},{"title":"Next.js page options and how they work","metaDesc":"How to use pages in Next.js exploring the options","coverImage":"/assets/blog/post/22-09-2021.jpg","author":{"name":"Tim Neutkens","picture":"/assets/blog/authors/tim.jpeg"},"ogImage":{"url":"/assets/blog/post/22-09-2021.jpg"},"publishedDate":"2021-09-22T05:35:07.322Z","tags":["nextjs"],"slug":"2021-09-22-nextjs-page-options-and-how-they-work","content":"$a"},{"title":"React-native não carrega o app","metaDesc":"error Failed to install the app. Make sure you have the Android development environment set up","coverImage":"/assets/blog/post/22-09-2021.jpg","author":{"name":"Glaulher Medeiros","picture":"/assets/blog/authors/glaulher.jpeg"},"ogImage":{"url":"/assets/blog/post/22-09-2021.jpg"},"publishedDate":"2020-11-08T16:34:00Z","categories":["Blogging","Tutorial"],"tags":["React","React-native","Linux"],"slug":"2020-11-08-React-not-emul","content":"\n---\n\nMe deparei com esse problema, o yarn android não conseguia carregar o app no emulador e entregava a mensagem de erro:\"error Failed to install the app. Make sure you have the Android development environment set up\", ao tentar executar:\n\n```shell\ncd android && ./gradlew clean\n```\n\nme retornava que estava sem permissão:\n\nDei permissão:\n\n```shell\nchmod 777 -R gradlew\n```\n\ne ao executar yarn android o app carregou no emulador :)\n\nfontes:\n\n[stackoverflow](https://stackoverflow.com/questions/56891033/facing-issue-failed-to-install-the-app-make-sure-you-have-the-android-develop){:target=\"\\_blank\" rel=\"noopener\"}\n\n[github.com](https://github.com/facebook/react-native/issues/23306){:target=\"\\_blank\" rel=\"noopener\"}\n"},{"title":"Ícones no react-native com o react-native-vector-icons","metaDesc":"react-native-vector-icons, é uma forma de implementar icones no projeto de forma rápida e elegante","coverImage":"/assets/blog/post/22-09-2021.jpg","author":{"name":"Glaulher Medeiros","picture":"/assets/blog/authors/glaulher.jpeg"},"ogImage":{"url":"/assets/blog/post/22-09-2021.jpg"},"publishedDate":"2020-11-02T16:34:00Z","categories":["Blogging","Tutorial"],"tags":["React","React-native","Linux"],"slug":"2020-10-02-react-native-vector-icons","content":"$b"},{"title":"Gerenciador nvm no Linux","metaDesc":"O Node Version Manager é um script bash usado para gerenciar várias versões lançadas do Node.js","coverImage":"/assets/blog/post/22-09-2021.jpg","author":{"name":"Glaulher Medeiros","picture":"/assets/blog/authors/glaulher.jpeg"},"ogImage":{"url":"/assets/blog/post/22-09-2021.jpg"},"publishedDate":"2020-06-16T16:34:00Z","categories":["Blogging","Tutorial"],"tags":["Nodejs","Linux"],"slug":"2020-06-16-nvm","content":"$c"},{"title":"React não recarrega a página ao salvar no linux","metaDesc":"Para resolver esse problema é preciso alterar o valor  de max_user_watches em inotify...","coverImage":"/assets/blog/post/22-09-2021.jpg","author":{"name":"Glaulher Medeiros","picture":"/assets/blog/authors/glaulher.jpeg"},"ogImage":{"url":"/assets/blog/post/22-09-2021.jpg"},"publishedDate":"2020-06-14T16:34:00Z","tags":["Blogging","Tutorial","React","Linux"],"slug":"2020-06-14-React-not-reload","content":"$d"},{"title":"Learn How to Pre-render Pages Using Static Generation with Next.js","metaDesc":"Lorem ipsum dolor sit amet, consectetur adipiscing elit.","coverImage":"/assets/blog/post/hello-world/cover.jpg","author":{"name":"Tim Neutkens","picture":"/assets/blog/authors/tim.jpeg"},"ogImage":{"url":"/assets/blog/post/hello-world/cover.jpg"},"publishedDate":"2020-03-16T05:35:07.322Z","slug":"hello-world","content":"$e"}]}]}]}],null,["$","$Lf",null,{"children":"$L10"}]]}],{},null,false]},null,false],["$","$1","h",{"children":[null,["$","$1","M3Pcj8Ox0-SZo39--F9QY",{"children":[["$","$L11",null,{"children":"$L12"}],["$","$L13",null,{"children":"$L14"}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]]}],false]],"m":"$undefined","G":["$15","$undefined"],"s":false,"S":true}
+14:[["$","meta","0",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+12:[["$","meta","0",{"charSet":"utf-8"}],["$","title","1",{"children":"Next.js Blog Example with Markdown"}],["$","meta","2",{"name":"description","content":"A statically generated blog example using Next.js and Markdown."}],["$","meta","3",{"property":"og:title","content":"Next.js Blog Example with Markdown"}],["$","meta","4",{"property":"og:description","content":"A statically generated blog example using Next.js and Markdown."}],["$","meta","5",{"property":"og:image","content":"https://og-image.vercel.app/Next.js%20Blog%20Starter%20Example.png?theme=light&md=1&fontSize=100px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg"}],["$","meta","6",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","7",{"name":"twitter:title","content":"Next.js Blog Example with Markdown"}],["$","meta","8",{"name":"twitter:description","content":"A statically generated blog example using Next.js and Markdown."}],["$","meta","9",{"name":"twitter:image","content":"https://og-image.vercel.app/Next.js%20Blog%20Starter%20Example.png?theme=light&md=1&fontSize=100px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg"}]]
+10:null
