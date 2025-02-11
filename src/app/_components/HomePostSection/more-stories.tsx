@@ -5,6 +5,7 @@ import { useState } from 'react';
 import CoverImage from '@/app/_components/CoverImage';
 import { PostPage } from '@/interfaces/postPage';
 import Loaded from '../Loaded';
+import DateFormatter from '../date-formatter';
 
 export function MoreStories({
   title,
@@ -31,13 +32,7 @@ export function MoreStories({
               <div className="xl:flex lg:flex md:grid sm:grid">
                 <div className="pl-2">
                   <div className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400 ">
-                    <time>
-                      {new Date(publishedDate).toLocaleDateString('pt-BR', {
-                        day: 'numeric',
-                        month: 'long',
-                        year: 'numeric',
-                      })}
-                    </time>
+                    <DateFormatter dateString={publishedDate!} />
                     <div className="w-max max-w-[250] ">
                       <CoverImage
                         title={title}
