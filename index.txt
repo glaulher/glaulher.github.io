@@ -4,13 +4,420 @@
 4:I[15244,[],""]
 5:I[43866,[],""]
 6:I[94861,["742","static/chunks/742-565a7562c8d1d87c.js","974","static/chunks/app/page-1515f6076534fd12.js"],"HomePostSection"]
-10:I[86213,[],"OutletBoundary"]
-12:I[86213,[],"MetadataBoundary"]
-14:I[86213,[],"ViewportBoundary"]
-16:I[34835,[],""]
+11:I[86213,[],"OutletBoundary"]
+13:I[86213,[],"MetadataBoundary"]
+15:I[86213,[],"ViewportBoundary"]
+17:I[34835,[],""]
 :HL["/_next/static/media/a34f9d1faa5f3315-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/_next/static/css/d5e5fa7de236218a.css","style"]
-7:Taa0,
+7:T3f3d,
+---
+
+Tenho utilizado o Neovim como meu editor de código há um tempo. 
+No início, optei por configurá-lo manualmente, do zero. 
+No entanto, conforme fui adicionando mais plugins, comecei a enfrentar
+ dificuldades — alguns tiveram suas APIs modificadas,
+  enquanto outros foram descontinuados. Isso tornou a atualização com o Packer,
+   gerenciador de plugins que eu utilizava, uma tarefa problemática,
+    pois frequentemente resultava em falhas no sistema.
+
+Em busca de uma solução mais estável, experimentei o LunarVim,
+ mas achei a configuração um pouco "bloated". Recentemente,
+  optei pelo Kickstart.nvim, uma configuração mínima e eficiente mantida por TJ Devries,
+   um dos desenvolvedores do Neovim e responsável por plugins essenciais
+    como Telescope e Plenary, que já vêm integrados ao Kickstart.
+     Até agora, a experiência tem sido excelente.
+
+### Como instalar o Kickstart.nvim
+
+Se você deseja testar o Kickstart.nvim, siga os passos abaixo:
+
+1 ➜ **Instale o Neovim**  
+
+  Se ainda não tem o Neovim instalado, baixe a versão mais recente no [site oficial](https://neovim.io/) ou instale via gerenciador de pacotes:
+   
+   ```sh
+   # No Debian/Ubuntu
+   sudo apt install neovim
+   
+   # No Arch Linux
+   sudo pacman -S neovim
+   
+   # No macOS (via Homebrew)
+   brew install neovim
+   
+   # No openSUSE
+   sudo zypper install neovim
+   ```
+
+2 ➜ **[Clone o Kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim)**  
+
+  Para começar com a configuração mínima do Kickstart.nvim, basta clonar o repositório diretamente na pasta de configuração do Neovim:
+
+   ```sh
+   git clone --depth=1 https://github.com/nvim-lua/kickstart.nvim.git ~/.config/nvim
+   ```
+
+3 ➜ **Abra o Neovim e finalize a instalação**  
+
+  Execute o Neovim e os plugins serão instalados automaticamente:
+   
+   ```sh
+   nvim
+   ```
+   Aguarde a instalação ser concluída e reinicie o editor para garantir que tudo esteja funcionando corretamente.
+
+4 ➜ **Personalize sua configuração**  
+  
+  O Kickstart.nvim é apenas uma base mínima. Você pode personalizá-lo editando o arquivo `init.lua` localizado em `~/.config/nvim/init.lua`. Se precisar adicionar novos plugins, edite a parte onde o `lazy.nvim` está configurado.
+
+5 ➜ **Personalize sua configuração**  
+  Rode o comando :`checkhealth` no nvim e verifique a saída, instalando as ferramentas que faltam:
+
+  ```lua
+
+kickstart: require("kickstart.health").check()
+
+kickstart.nvim ~
+- NOTE: Not every warning is a 'must-fix' in `:checkhealth`
+  
+    Fix only warnings for plugins and languages you intend to use.
+      Mason will give warnings for languages that are not installed.
+      You do not need to install, unless you want to use those languages!
+- System Information: {
+    machine = "x86_64",
+    release = "6.13.1-1-default",
+    sysname = "Linux",
+    version = "#1 SMP PREEMPT_DYNAMIC Mon Feb  3 05:33:25 UTC 2025 (1918d13)"
+  }
+- OK Neovim version is: '0.10.4'
+- OK Found executable: 'git'
+- OK Found executable: 'make'
+- OK Found executable: 'unzip'
+- OK Found executable: 'rg'
+
+==============================================================================
+lazy: require("lazy.health").check()
+
+lazy.nvim ~
+- {lazy.nvim} version `11.16.2`
+- OK {git} `version 2.48.1`
+- OK no existing packages found by other package managers
+- OK packer_compiled.lua not found
+
+luarocks ~
+- checking `luarocks` installation
+- OK no plugins require `luarocks`, so you can ignore any warnings below
+- OK {luarocks} `/usr/bin/luarocks 3.11.0`
+- OK {lua5.1} `Lua 5.1.5  Copyright (C) 1994-2012 Lua.org, PUC-Rio`
+
+==============================================================================
+lspconfig: require("lspconfig.health").check()
+
+LSP configs active in this session (globally) ~
+- Configured servers: tailwindcss, jdtls, lua_ls, ts_ls, eslint
+- OK Deprecated servers: (none)
+
+LSP configs active in this buffer (bufnr: 1) ~
+- Language client log: ~/.local/state/nvim/lsp.log
+- Detected filetype: ``
+- 0 client(s) attached to this buffer
+
+Docs for active configs: ~
+
+==============================================================================
+mason: require("mason.health").check()
+
+mason.nvim ~
+- OK mason.nvim version v1.10.0
+- OK PATH: prepend
+- OK Providers: 
+    mason.providers.registry-api
+    mason.providers.client
+- OK neovim version >= 0.7.0
+
+mason.nvim [Registries] ~
+- OK Registry `github.com/mason-org/mason-registry version: 2025-02-11-soggy-foam` is installed.
+
+mason.nvim [Core utils] ~
+- OK unzip: `UnZip 6.00 of 20 April 2009, by Info-ZIP.  Maintained by C. Spieler.  Send`
+- OK wget: `GNU Wget 1.25.0 construído em linux-gnu.`
+- OK curl: `curl 8.11.1 (x86_64-suse-linux-gnu) libcurl/8.11.1 OpenSSL/3.2.3 zlib/1.3.1.zlib-ng brotli/1.1.0 zstd/1.5.6 libidn2/2.3.7 libpsl/0.21.5 libssh/0.11.1/openssl/zlib nghttp2/1.64.0 OpenLDAP/2.6.8`
+- OK gzip: `gzip 1.13`
+- OK tar: `tar (GNU tar) 1.35`
+- OK bash: `GNU bash, versão 5.2.37(1)-release (x86_64-suse-linux)`
+- OK sh: `Ok`
+
+mason.nvim [Languages] ~
+- WARNING Go: not available
+  - ADVICE:
+    - spawn: go failed with exit code - and signal -. go is not executable
+- WARNING Composer: not available
+  - ADVICE:
+    - spawn: composer failed with exit code - and signal -. composer is not executable
+- WARNING PHP: not available
+  - ADVICE:
+    - spawn: php failed with exit code - and signal -. php is not executable
+- WARNING cargo: not available
+  - ADVICE:
+    - spawn: cargo failed with exit code - and signal -. cargo is not executable
+- OK node: `v22.13.1`
+- OK Ruby: `ruby 3.4.1 (2024-12-25 revision 48d4efcb85) +PRISM [x86_64-linux-gnu]`
+- OK luarocks: `/usr/bin/luarocks 3.11.0`
+- WARNING julia: not available
+  - ADVICE:
+    - spawn: julia failed with exit code - and signal -. julia is not executable
+- OK python: `Python 3.11.11`
+- OK java: `openjdk version "17.0.2" 2022-01-18`
+- OK JAVA_HOME: `openjdk version "21.0.6" 2025-01-21`
+- OK npm: `10.9.2`
+- OK RubyGem: `3.6.2`
+- OK javac: `javac 21.0.6`
+- OK pip: `pip 24.3.1 from /usr/lib/python3.11/site-packages/pip (python 3.11)`
+- OK python venv: `Ok`
+
+mason.nvim [GitHub] ~
+- OK GitHub API rate limit. Used: 0. Remaining: 60. Limit: 60. Reset: ter 11 fev 2025 21:29:59.
+  Install and authenticate via gh-cli to increase rate limit.
+
+==============================================================================
+nvim: require("nvim.health").check()
+
+Configuration ~
+- OK no issues found
+
+Runtime ~
+- OK $VIMRUNTIME: /usr/share/nvim/runtime
+
+Performance ~
+- OK Build type: RelWithDebInfo
+
+Remote Plugins ~
+- OK Up to date
+
+terminal ~
+- key_backspace (kbs) terminfo entry: `key_backspace=\177`
+- key_dc (kdch1) terminfo entry: `key_dc=\E[3~`
+- $VTE_VERSION="7803"
+- $COLORTERM="truecolor"
+
+External Tools ~
+- OK ripgrep 14.1.1 (/usr/bin/rg)
+
+==============================================================================
+nvim-treesitter: require("nvim-treesitter.health").check()
+
+Installation ~
+- WARNING `tree-sitter` executable not found (parser generator, only needed for :TSInstallFromGrammar, not required for :TSInstall)
+- OK `node` found v22.13.1 (only needed for :TSInstallFromGrammar)
+- OK `git` executable found.
+- OK `cc` executable found. Selected from { vim.NIL, "cc", "gcc", "clang", "cl", "zig" }
+  Version: cc (SUSE Linux) 14.2.1 20241007 [revision 4af44f2cf7d281f3e4f3957efce10e8b2ccb2ad3]
+- OK Neovim was compiled with tree-sitter runtime ABI version 15 (required >=13). Parsers must be compatible with runtime ABI.
+
+OS Info:
+{
+  machine = "x86_64",
+  release = "6.13.1-1-default",
+  sysname = "Linux",
+  version = "#1 SMP PREEMPT_DYNAMIC Mon Feb  3 05:33:25 UTC 2025 (1918d13)"
+} ~
+
+Parser/Features         H L F I J
+  - bash                ✓ ✓ ✓ . ✓
+  - c                   ✓ ✓ ✓ ✓ ✓
+  - diff                ✓ . ✓ . ✓
+  - html                ✓ ✓ ✓ ✓ ✓
+  - lua                 ✓ ✓ ✓ ✓ ✓
+  - luadoc              ✓ . . . .
+  - markdown            ✓ . ✓ ✓ ✓
+  - markdown_inline     ✓ . . . ✓
+  - python              ✓ ✓ ✓ ✓ ✓
+  - query               ✓ ✓ ✓ ✓ ✓
+  - vim                 ✓ ✓ ✓ . ✓
+  - vimdoc              ✓ . . . ✓
+
+  Legend: H[ighlight], L[ocals], F[olds], I[ndents], In[j]ections
+         +) multiple parsers found, only one will be used
+         x) errors found in the query, try to run :TSUpdate {lang} ~
+
+==============================================================================
+provider.clipboard: require("provider.clipboard.health").check()
+
+Clipboard (optional) ~
+- OK Clipboard tool found: wl-copy
+
+==============================================================================
+provider.node: require("provider.node.health").check()
+
+Node.js provider (optional) ~
+- Node.js: v22.13.1
+  
+- Nvim node.js host: /home/glaulher/.nvm/versions/node/v22.13.1/lib/node_modules/neovim/bin/cli.js
+- OK Latest "neovim" npm/yarn/pnpm package is installed: 5.3.0
+  
+
+==============================================================================
+provider.perl: require("provider.perl.health").check()
+
+Perl provider (optional) ~
+- WARNING "Neovim::Ext" cpan module is not installed
+  - ADVICE:
+    - See :help |provider-perl| for more information.
+    - You may disable this provider (and warning) by adding `let g:loaded_perl_provider = 0` to your init.vim
+- WARNING No usable perl executable found
+
+==============================================================================
+provider.python: require("provider.python.health").check()
+
+Python 3 provider (optional) ~
+- `g:python3_host_prog` is not set. Searching for python3 in the environment.
+- Executable: /usr/bin/python3
+- Python version: 3.11.11
+- pynvim version: 0.5.2
+- OK Latest pynvim is installed.
+
+Python virtualenv ~
+- OK no $VIRTUAL_ENV
+
+==============================================================================
+provider.ruby: require("provider.ruby.health").check()
+
+Ruby provider (optional) ~
+- Ruby: ruby 3.4.1 (2024-12-25 revision 48d4efcb85) +PRISM [x86_64-linux-gnu]
+- WARNING `neovim-ruby-host` not found.
+  - ADVICE:
+    - Run `gem install neovim` to ensure the neovim RubyGem is installed.
+    - Run `gem environment` to ensure the gem bin directory is in $PATH.
+    - If you are using rvm/rbenv/chruby, try "rehashing".
+    - See :help |g:ruby_host_prog| for non-standard gem installations.
+    - You may disable this provider (and warning) by adding `let g:loaded_ruby_provider = 0` to your init.vim
+
+==============================================================================
+telescope: require("telescope.health").check()
+
+Checking for required plugins ~
+- OK plenary installed.
+- OK nvim-treesitter installed.
+
+Checking external dependencies ~
+- OK rg: found ripgrep 14.1.1
+- OK fd: found fd 10.2.0
+
+===== Installed extensions ===== ~
+
+Telescope Extension: `ui-select` ~
+- No healthcheck provided
+
+==============================================================================
+vim.lsp: require("vim.lsp.health").check()
+
+- LSP log level : WARN
+- Log path: /home/glaulher/.local/state/nvim/lsp.log
+- Log size: 4 KB
+
+vim.lsp: Active Clients ~
+- No active clients
+
+vim.lsp: File Watcher ~
+- file watching "(workspace/didChangeWatchedFiles)" disabled on all clients
+
+vim.lsp: Position Encodings ~
+- No active clients
+
+==============================================================================
+vim.treesitter: require("vim.treesitter.health").check()
+
+- Nvim runtime ABI version: 15
+- OK Parser: bash                 ABI: 14, path: /home/glaulher/.local/share/nvim/lazy/nvim-treesitter/parser/bash.so
+- OK Parser: c                    ABI: 14, path: /home/glaulher/.local/share/nvim/lazy/nvim-treesitter/parser/c.so
+- OK Parser: diff                 ABI: 14, path: /home/glaulher/.local/share/nvim/lazy/nvim-treesitter/parser/diff.so
+- OK Parser: html                 ABI: 14, path: /home/glaulher/.local/share/nvim/lazy/nvim-treesitter/parser/html.so
+- OK Parser: lua                  ABI: 14, path: /home/glaulher/.local/share/nvim/lazy/nvim-treesitter/parser/lua.so
+- OK Parser: luadoc               ABI: 14, path: /home/glaulher/.local/share/nvim/lazy/nvim-treesitter/parser/luadoc.so
+- OK Parser: markdown             ABI: 14, path: /home/glaulher/.local/share/nvim/lazy/nvim-treesitter/parser/markdown.so
+- OK Parser: markdown_inline      ABI: 14, path: /home/glaulher/.local/share/nvim/lazy/nvim-treesitter/parser/markdown_inline.so
+- OK Parser: query                ABI: 14, path: /home/glaulher/.local/share/nvim/lazy/nvim-treesitter/parser/query.so
+- OK Parser: vim                  ABI: 14, path: /home/glaulher/.local/share/nvim/lazy/nvim-treesitter/parser/vim.so
+- OK Parser: vimdoc               ABI: 14, path: /home/glaulher/.local/share/nvim/lazy/nvim-treesitter/parser/vimdoc.so
+- OK Parser: c                    ABI: 14, path: /usr/share/nvim/runtime/parser/c.so
+- OK Parser: lua                  ABI: 14, path: /usr/share/nvim/runtime/parser/lua.so
+- OK Parser: markdown             ABI: 14, path: /usr/share/nvim/runtime/parser/markdown.so
+- OK Parser: markdown_inline      ABI: 14, path: /usr/share/nvim/runtime/parser/markdown_inline.so
+- OK Parser: python               ABI: 14, path: /usr/share/nvim/runtime/parser/python.so
+- OK Parser: query                ABI: 14, path: /usr/share/nvim/runtime/parser/query.so
+- OK Parser: vim                  ABI: 14, path: /usr/share/nvim/runtime/parser/vim.so
+- OK Parser: vimdoc               ABI: 14, path: /usr/share/nvim/runtime/parser/vimdoc.so
+
+==============================================================================
+which-key: require("which-key.health").check()
+
+- OK Most of these checks are for informational purposes only.
+  WARNINGS should be treated as a warning, and don't necessarily indicate a problem with your config.
+  Please |DON'T| report these warnings as an issue.
+
+Checking your config ~
+- OK |mini.icons| is installed
+- WARNING |nvim-web-devicons| is not installed
+
+Checking for issues with your mappings ~
+- OK No issues reported
+
+checking for overlapping keymaps ~
+- WARNING In mode `n`, <sf> overlaps with <sfn>, <sfl>:
+  - <sf>: Find right surrounding
+  - <sfn>: Find next right surrounding
+  - <sfl>: Find previous right surrounding
+- WARNING In mode `n`, <sF> overlaps with <sFn>, <sFl>:
+  - <sF>: Find left surrounding
+  - <sFn>: Find next left surrounding
+  - <sFl>: Find previous left surrounding
+- WARNING In mode `n`, <sd> overlaps with <sdn>, <sdl>:
+  - <sd>: Delete surrounding
+  - <sdn>: Delete next surrounding
+  - <sdl>: Delete previous surrounding
+- WARNING In mode `n`, <sh> overlaps with <shn>, <shl>:
+  - <sh>: Highlight surrounding
+  - <shn>: Highlight next surrounding
+  - <shl>: Highlight previous surrounding
+- WARNING In mode `n`, <sr> overlaps with <srn>, <srl>:
+  - <sr>: Replace surrounding
+  - <srn>: Replace next surrounding
+  - <srl>: Replace previous surrounding
+- WARNING In mode `n`, <gc> overlaps with <gcc>:
+  - <gc>: Toggle comment
+  - <gcc>: Toggle comment line
+- WARNING In mode `x`, <i> overlaps with <il>, <in>:
+  - <i>: Inside textobject
+  - <il>: Inside last textobject
+  - <in>: Inside next textobject
+- WARNING In mode `x`, <a> overlaps with <a%>, <al>, <an>:
+  - <a>: Around textobject
+  - <al>: Around last textobject
+  - <an>: Around next textobject
+- WARNING In mode `o`, <a> overlaps with <al>, <an>:
+  - <a>: Around textobject
+  - <al>: Around last textobject
+  - <an>: Around next textobject
+- WARNING In mode `o`, <i> overlaps with <il>, <in>:
+  - <i>: Inside textobject
+  - <il>: Inside last textobject
+  - <in>: Inside next textobject
+- OK Overlapping keymaps are only reported for informational purposes.
+  This doesn't necessarily mean there is a problem with your config.
+
+Checking for duplicate mappings ~
+- OK No duplicate mappings found
+
+  ```
+Essa saída do comando `checkhealth` no meu sistema openSUSE ja com o java e node instalados no sistema.
+
+### Conclusão
+  O Kickstart.nvim oferece uma experiência mínima e otimizada, permitindo que você construa sua configuração sem dores de cabeça. Se você quer um ambiente leve, fácil de manter e pronto para desenvolvimento, vale a pena testar!
+
+🔗 Repositório oficial: [Kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim)
+
+8:Taa0,
 ---
 
 Há algum tempo, eu mantinha um blog utilizando Next.js. Porém, quando o Next.js 13 foi lançado, precisei fazer algumas adaptações para hospedá-lo no GitHub Pages. Com o tempo, acabei deixando o projeto de lado, mas recentemente decidi retomá-lo e atualizar tudo para a versão mais recente.
@@ -92,7 +499,7 @@ export function PostBody({ content }: Props) {
 
 Com essas melhorias, meu blog está atualizado, mais organizado e pronto para futuras publicações! Se você também está pensando em criar ou atualizar seu blog com Next.js, espero que este post tenha sido útil.
 
-Até a próxima! 🚀8:T536,
+Até a próxima! 🚀9:T536,
 ---
 
 O `npm (Node Package Manager)` é uma ferramenta importante para desenvolvedores de JavaScript que permite gerenciar e instalar dependências em projetos. Porém, gerenciar essas dependências pode se tornar uma tarefa complicada quando se tem muitas delas em um projeto. É aí que o `npx npm-check-updates` pode ajudar.
@@ -116,7 +523,7 @@ Instalará as novas versões das dependências.
 É importante ressaltar que a atualização de dependências pode causar problemas no projeto, especialmente quando se trata de dependências de versões muito diferentes. É sempre recomendado realizar testes após a atualização e verificar se tudo está funcionando corretamente.
 
 Em resumo, o `npx npm-check-updates -u` é uma ferramenta útil para gerenciar dependências em projetos `JavaScript`, permitindo atualizá-las de forma simples e rápida.
-9:T2969,
+a:T2969,
 ---
 
 A paginação é um recurso que permite dividir grandes conjuntos de dados em páginas facilitando a visualização e a navegação para o usuário, é amplamente utilizado em interfaces que precisam lidar com grandes volumes de dados.
@@ -462,7 +869,7 @@ A função `useMemo` é usada para armazenar em cache o resultado da lista de p�
 No final, o hook retorna a lista de páginas calculada.
 
 ![gif pagination](/assets/posts/paginate.gif)
-a:T468,
+b:T468,
 ---
 
 Debug como um humano , não um robô. Finalmente, um cliente REST que você vai adorar!
@@ -488,7 +895,7 @@ $ ./Insomnia-x.x.x.AppImage
 ```
 
 [![upload-image Insomnia](/assets/posts/Insomnia.png)](https://updates.insomnia.rest/downloads/release/latest?app=com.insomnia.app&source=website)
-b:T1778,
+c:T1778,
 ---
 
 Creating pages is an integral part of any framework. Today we'll be looking at three different types of pages that we can leverage in Next.js.
@@ -679,7 +1086,7 @@ I hope you found this helpful article. You can also find the complete code on [G
 ### Thank you for reading, and let's connect!
 
 Thank you for reading my blog. Feel free to subscribe to my email newsletter and connect on [Facebook](https://www.facebook.com/DailyDevTipsBlog) or [Twitter](https://twitter.com/DailyDevTips1)
-c:T93e,
+d:T93e,
 ---
 
 <img src="/assets/img/sample/react-native/react-native.png" alt="react-native" style="width:200px; heigth:200px; ">
@@ -765,7 +1172,7 @@ fontes:
 [Rocketseat](https://blog.rocketseat.com.br/utilizando-fontes-de-icones-no-react-native/){:target="\_blank" rel="noopener"}
 
 [github.com/oblador](https://github.com/oblador/react-native-vector-icons){:target="\_blank" rel="noopener"}
-d:T632,
+e:T632,
 ---
 
 O Node Version Manager é um script bash usado para gerenciar várias versões lançadas do Node.js. Plataformas: unix, macOS e windows WSL. Ele permite que você execute operações como instalar, desinstalar, alternar versão etc. Para instalar o nvm, use este script de instalação.
@@ -822,7 +1229,7 @@ Fonte:
 [nodejs.org](https://nodejs.org/en/download/package-manager/){:target="\_blank" rel="noopener"}
 
 ​
-e:Tb85,
+f:Tb85,
 ---
 
 ![image]({{ "/assets/img/sample/react-reload/reload.png" | relative_url }})
@@ -890,7 +1297,7 @@ fontes:
 [dev.to](https://dev.to/rubiin/ubuntu-increase-inotify-watcher-file-watch-limit-kf4){:target="\_blank" rel="noopener"}
 
 [stackoverflow](https://stackoverflow.com/questions/42189575/create-react-app-reload-not-working){:target="\_blank" rel="noopener"}
-f:T6bf,
+10:T6bf,
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Praesent elementum facilisis leo vel fringilla est ullamcorper eget. At imperdiet dui accumsan sit amet nulla facilities morbi tempus. Praesent elementum facilisis leo vel fringilla. Congue mauris rhoncus aenean vel. Egestas sed tempus urna et pharetra pharetra massa massa ultricies.
 
 Venenatis cras sed felis eget velit. Consectetur libero id faucibus nisl tincidunt. Gravida in fermentum et sollicitudin ac orci phasellus egestas tellus. Volutpat consequat mauris nunc congue nisi vitae. Id aliquet risus feugiat in ante metus dictum at tempor. Sed blandit libero volutpat sed cras. Sed odio morbi quis commodo odio aenean sed adipiscing. Velit euismod in pellentesque massa placerat. Mi bibendum neque egestas congue quisque egestas diam in arcu. Nisi lacus sed viverra tellus in. Nibh cras pulvinar mattis nunc sed. Luctus accumsan tortor posuere ac ut consequat semper viverra. Fringilla ut morbi tincidunt augue interdum velit euismod.
@@ -898,7 +1305,7 @@ Venenatis cras sed felis eget velit. Consectetur libero id faucibus nisl tincidu
 ## Lorem Ipsum
 
 Tristique senectus et netus et malesuada fames ac turpis. Ridiculous mus mauris vitae ultricies leo integer malesuada nunc vel. In mollis nunc sed id semper. Egestas tellus rutrum tellus pellentesque. Phasellus vestibulum lorem sed risus ultricies tristique nulla. Quis blandit turpis cursus in hac habitasse platea dictumst quisque. Eros donec ac odio tempor orci dapibus ultrices. Aliquam sem et tortor consequat id porta nibh. Adipiscing elit duis tristique sollicitudin nibh sit amet commodo nulla. Diam vulputate ut pharetra sit amet. Ut tellus elementum sagittis vitae et leo. Arcu non odio euismod lacinia at quis risus sed vulputate.
-0:{"P":null,"b":"MCiJDkp7AAQQH2y8c-hTE","p":"","c":["",""],"i":false,"f":[[["",{"children":["__PAGE__",{}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/d5e5fa7de236218a.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"en","children":[["$","head",null,{"children":[["$","link",null,{"rel":"apple-touch-icon","sizes":"180x180","href":"/favicon/apple-touch-icon.png"}],["$","link",null,{"rel":"icon","type":"image/png","sizes":"32x32","href":"/favicon/favicon-32x32.png"}],["$","link",null,{"rel":"icon","type":"image/png","sizes":"16x16","href":"/favicon/favicon-16x16.png"}],["$","link",null,{"rel":"manifest","href":"/favicon/site.webmanifest"}],["$","link",null,{"rel":"mask-icon","href":"/favicon/safari-pinned-tab.svg","color":"#000000"}],["$","link",null,{"rel":"shortcut icon","href":"/favicon/favicon.ico"}],["$","meta",null,{"name":"msapplication-TileColor","content":"#000000"}],["$","meta",null,{"name":"msapplication-config","content":"/favicon/browserconfig.xml"}],["$","meta",null,{"name":"theme-color","content":"#000"}],["$","link",null,{"rel":"alternate","type":"application/rss+xml","href":"/feed.xml"}]]}],["$","body",null,{"className":"bg-slate-100\n            dark:bg-gray-900\n            dark:from-gray-900\n            dark:to-gray-800 \n            bg-gradient-to-r \n            h-screen \n            __className_d65c78","children":["$","$L2",null,{"children":[["$","$L3",null,{}],["$","$L4",null,{"parallelRouterKey":"children","segmentPath":["children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[],[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]]],"forbidden":"$undefined","unauthorized":"$undefined"}],["$","footer",null,{"className":"bg-gray-700  mt-1 py-4","children":["$","div",null,{"className":"container mx-auto flex justify-center","children":["$","span",null,{"className":"mx-auto text-neutral-200","children":"© 2025 GrmDevTips"}]}]}]]}]}]]}]]}],{"children":["__PAGE__",["$","$1","c",{"children":[["$","main",null,{"children":["$","article",null,{"className":"container flex flex-col pt-6 sm:mx-2 md:mx-auto flex-1","children":["$","$L6",null,{"allPosts":[{"title":"Atualizando meu blog com Next.js 15","metaDesc":"Criando um blog pessoal com nextjs e markdown","coverImage":"/assets/blog/post/Blog.png","author":{"name":"Glaulher Medeiros","picture":"/assets/blog/authors/glaulher.jpeg"},"ogImage":{"url":"/assets/blog/post/Blog.png"},"publishedDate":"2025-02-11T16:34:00Z","categories":["Blogging","Tutorial"],"tags":["nextjs","markdown"],"slug":"2025-02-11-blog","content":"$7"},{"title":"npm-check-updates","metaDesc":"O npm (Node Package Manager) é uma ferramenta importante para desenvolvedores de JavaScript","coverImage":"/assets/blog/post/Npm-check-update.png","author":{"name":"Glaulher Medeiros","picture":"/assets/blog/authors/glaulher.jpeg"},"ogImage":{"url":"/assets/blog/post/Npm-check-update.png"},"publishedDate":"2023-04-01T16:34:00Z","categories":["Blogging","Tutorial"],"tags":["Nodejs","npm"],"slug":"2023-04-01-UpdatePackage","content":"$8"},{"title":"Componente de paginação em react","metaDesc":"A paginação é um recurso que permite dividir grandes conjuntos de dados em páginas","coverImage":"/assets/blog/post/PaginateBanner.png","author":{"name":"Glaulher Medeiros","picture":"/assets/blog/authors/glaulher.jpeg"},"ogImage":{"url":"/assets/blog/post/PaginateBanner.png"},"publishedDate":"2023-03-14T16:34:00Z","categories":["Blogging","Tutorial"],"tags":["Component","React"],"slug":"2023-03-14-Pagination_","content":"$9"},{"title":"Insomnia em distros linux","metaDesc":"\tMuito mais que um cliente HTTP. Auxiliares avançados de autenticação, modelagem encadeamento","coverImage":"/assets/blog/post/InsomniaBanner.png","author":{"name":"Glaulher Medeiros","picture":"/assets/blog/authors/glaulher.jpeg"},"ogImage":{"url":"/assets/blog/post/InsomniaBanner.png"},"publishedDate":"2023-03-06T16:34:00Z","categories":["Blogging","Tutorial"],"tags":["Insomnia","REST","Linux"],"slug":"2023-03-06-Insomnia","content":"$a"},{"title":"Next.js page options and how they work","metaDesc":"How to use pages in Next.js exploring the options","coverImage":"/assets/blog/post/22-09-2021.jpg","author":{"name":"Tim Neutkens","picture":"/assets/blog/authors/tim.jpeg"},"ogImage":{"url":"/assets/blog/post/22-09-2021.jpg"},"publishedDate":"2021-09-22T05:35:07.322Z","tags":["nextjs"],"slug":"2021-09-22-nextjs-page-options-and-how-they-work","content":"$b"},{"title":"React-native não carrega o app","metaDesc":"error Failed to install the app. Make sure you have the Android development environment set up","coverImage":"/assets/blog/post/22-09-2021.jpg","author":{"name":"Glaulher Medeiros","picture":"/assets/blog/authors/glaulher.jpeg"},"ogImage":{"url":"/assets/blog/post/22-09-2021.jpg"},"publishedDate":"2020-11-08T16:34:00Z","categories":["Blogging","Tutorial"],"tags":["React","React-native","Linux"],"slug":"2020-11-08-React-not-emul","content":"\n---\n\nMe deparei com esse problema, o yarn android não conseguia carregar o app no emulador e entregava a mensagem de erro:\"error Failed to install the app. Make sure you have the Android development environment set up\", ao tentar executar:\n\n```shell\ncd android && ./gradlew clean\n```\n\nme retornava que estava sem permissão:\n\nDei permissão:\n\n```shell\nchmod 777 -R gradlew\n```\n\ne ao executar yarn android o app carregou no emulador :)\n\nfontes:\n\n[stackoverflow](https://stackoverflow.com/questions/56891033/facing-issue-failed-to-install-the-app-make-sure-you-have-the-android-develop){:target=\"\\_blank\" rel=\"noopener\"}\n\n[github.com](https://github.com/facebook/react-native/issues/23306){:target=\"\\_blank\" rel=\"noopener\"}\n"},{"title":"Ícones no react-native com o react-native-vector-icons","metaDesc":"react-native-vector-icons, é uma forma de implementar icones no projeto de forma rápida e elegante","coverImage":"/assets/blog/post/22-09-2021.jpg","author":{"name":"Glaulher Medeiros","picture":"/assets/blog/authors/glaulher.jpeg"},"ogImage":{"url":"/assets/blog/post/22-09-2021.jpg"},"publishedDate":"2020-11-02T16:34:00Z","categories":["Blogging","Tutorial"],"tags":["React","React-native","Linux"],"slug":"2020-10-02-react-native-vector-icons","content":"$c"},{"title":"Gerenciador nvm no Linux","metaDesc":"O Node Version Manager é um script bash usado para gerenciar várias versões lançadas do Node.js","coverImage":"/assets/blog/post/22-09-2021.jpg","author":{"name":"Glaulher Medeiros","picture":"/assets/blog/authors/glaulher.jpeg"},"ogImage":{"url":"/assets/blog/post/22-09-2021.jpg"},"publishedDate":"2020-06-16T16:34:00Z","categories":["Blogging","Tutorial"],"tags":["Nodejs","Linux"],"slug":"2020-06-16-nvm","content":"$d"},{"title":"React não recarrega a página ao salvar no linux","metaDesc":"Para resolver esse problema é preciso alterar o valor  de max_user_watches em inotify...","coverImage":"/assets/blog/post/22-09-2021.jpg","author":{"name":"Glaulher Medeiros","picture":"/assets/blog/authors/glaulher.jpeg"},"ogImage":{"url":"/assets/blog/post/22-09-2021.jpg"},"publishedDate":"2020-06-14T16:34:00Z","tags":["Blogging","Tutorial","React","Linux"],"slug":"2020-06-14-React-not-reload","content":"$e"},{"title":"Learn How to Pre-render Pages Using Static Generation with Next.js","metaDesc":"Lorem ipsum dolor sit amet, consectetur adipiscing elit.","coverImage":"/assets/blog/post/hello-world/cover.jpg","author":{"name":"Tim Neutkens","picture":"/assets/blog/authors/tim.jpeg"},"ogImage":{"url":"/assets/blog/post/hello-world/cover.jpg"},"publishedDate":"2020-03-16T05:35:07.322Z","slug":"hello-world","content":"$f"}]}]}]}],null,["$","$L10",null,{"children":"$L11"}]]}],{},null,false]},null,false],["$","$1","h",{"children":[null,["$","$1","CopuQ4658o-GqMqwdqepE",{"children":[["$","$L12",null,{"children":"$L13"}],["$","$L14",null,{"children":"$L15"}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]]}],false]],"m":"$undefined","G":["$16","$undefined"],"s":false,"S":true}
-15:[["$","meta","0",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
-13:[["$","meta","0",{"charSet":"utf-8"}],["$","title","1",{"children":"Blog Post-it"}],["$","meta","2",{"name":"description","content":"A statically generated blog example using Next.js and Markdown."}],["$","meta","3",{"property":"og:title","content":"Blog Post-it"}],["$","meta","4",{"property":"og:description","content":"A statically generated blog example using Next.js and Markdown."}],["$","meta","5",{"property":"og:image","content":"https://og-image.vercel.app/Next.js%20Blog%20Starter%20Example.png?theme=light&md=1&fontSize=100px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg"}],["$","meta","6",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","7",{"name":"twitter:title","content":"Blog Post-it"}],["$","meta","8",{"name":"twitter:description","content":"A statically generated blog example using Next.js and Markdown."}],["$","meta","9",{"name":"twitter:image","content":"https://og-image.vercel.app/Next.js%20Blog%20Starter%20Example.png?theme=light&md=1&fontSize=100px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg"}]]
-11:null
+0:{"P":null,"b":"PyC6YfGkWQfyA1Iv3Fais","p":"","c":["",""],"i":false,"f":[[["",{"children":["__PAGE__",{}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/d5e5fa7de236218a.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"en","children":[["$","head",null,{"children":[["$","link",null,{"rel":"apple-touch-icon","sizes":"180x180","href":"/favicon/apple-touch-icon.png"}],["$","link",null,{"rel":"icon","type":"image/png","sizes":"32x32","href":"/favicon/favicon-32x32.png"}],["$","link",null,{"rel":"icon","type":"image/png","sizes":"16x16","href":"/favicon/favicon-16x16.png"}],["$","link",null,{"rel":"manifest","href":"/favicon/site.webmanifest"}],["$","link",null,{"rel":"mask-icon","href":"/favicon/safari-pinned-tab.svg","color":"#000000"}],["$","link",null,{"rel":"shortcut icon","href":"/favicon/favicon.ico"}],["$","meta",null,{"name":"msapplication-TileColor","content":"#000000"}],["$","meta",null,{"name":"msapplication-config","content":"/favicon/browserconfig.xml"}],["$","meta",null,{"name":"theme-color","content":"#000"}],["$","link",null,{"rel":"alternate","type":"application/rss+xml","href":"/feed.xml"}]]}],["$","body",null,{"className":"bg-slate-100\n            dark:bg-gray-900\n            dark:from-gray-900\n            dark:to-gray-800 \n            bg-gradient-to-r \n            h-screen \n            __className_d65c78","children":["$","$L2",null,{"children":[["$","$L3",null,{}],["$","$L4",null,{"parallelRouterKey":"children","segmentPath":["children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[],[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]]],"forbidden":"$undefined","unauthorized":"$undefined"}],["$","footer",null,{"className":"bg-gray-700  mt-1 py-4","children":["$","div",null,{"className":"container mx-auto flex justify-center","children":["$","span",null,{"className":"mx-auto text-neutral-200","children":"© 2025 GrmDevTips"}]}]}]]}]}]]}]]}],{"children":["__PAGE__",["$","$1","c",{"children":[["$","main",null,{"children":["$","article",null,{"className":"container flex flex-col pt-6 sm:mx-2 md:mx-auto flex-1","children":["$","$L6",null,{"allPosts":[{"title":"Nvim como editor de código","metaDesc":"Kickstart.nvim, uma configuração mínima e eficiente mantida por TJ Devries","coverImage":"/assets/blog/post/nvim.webp","author":{"name":"Glaulher Medeiros","picture":"/assets/blog/authors/glaulher.jpeg"},"ogImage":{"url":"/assets/blog/post/nvim.webp"},"publishedDate":"2025-02-13T16:34:00Z","categories":["Blogging","Tutorial"],"tags":["nextjs","markdown"],"slug":"2025-02-13-nvim","content":"$7"},{"title":"Atualizando meu blog com Next.js 15","metaDesc":"Criando um blog pessoal com nextjs e markdown","coverImage":"/assets/blog/post/Blog.png","author":{"name":"Glaulher Medeiros","picture":"/assets/blog/authors/glaulher.jpeg"},"ogImage":{"url":"/assets/blog/post/Blog.png"},"publishedDate":"2025-02-11T16:34:00Z","categories":["Blogging","Tutorial"],"tags":["nextjs","markdown"],"slug":"2025-02-11-blog","content":"$8"},{"title":"npm-check-updates","metaDesc":"O npm (Node Package Manager) é uma ferramenta importante para desenvolvedores de JavaScript","coverImage":"/assets/blog/post/Npm-check-update.png","author":{"name":"Glaulher Medeiros","picture":"/assets/blog/authors/glaulher.jpeg"},"ogImage":{"url":"/assets/blog/post/Npm-check-update.png"},"publishedDate":"2023-04-01T16:34:00Z","categories":["Blogging","Tutorial"],"tags":["Nodejs","npm"],"slug":"2023-04-01-UpdatePackage","content":"$9"},{"title":"Componente de paginação em react","metaDesc":"A paginação é um recurso que permite dividir grandes conjuntos de dados em páginas","coverImage":"/assets/blog/post/PaginateBanner.png","author":{"name":"Glaulher Medeiros","picture":"/assets/blog/authors/glaulher.jpeg"},"ogImage":{"url":"/assets/blog/post/PaginateBanner.png"},"publishedDate":"2023-03-14T16:34:00Z","categories":["Blogging","Tutorial"],"tags":["Component","React"],"slug":"2023-03-14-Pagination_","content":"$a"},{"title":"Insomnia em distros linux","metaDesc":"\tMuito mais que um cliente HTTP. Auxiliares avançados de autenticação, modelagem encadeamento","coverImage":"/assets/blog/post/InsomniaBanner.png","author":{"name":"Glaulher Medeiros","picture":"/assets/blog/authors/glaulher.jpeg"},"ogImage":{"url":"/assets/blog/post/InsomniaBanner.png"},"publishedDate":"2023-03-06T16:34:00Z","categories":["Blogging","Tutorial"],"tags":["Insomnia","REST","Linux"],"slug":"2023-03-06-Insomnia","content":"$b"},{"title":"Next.js page options and how they work","metaDesc":"How to use pages in Next.js exploring the options","coverImage":"/assets/blog/post/22-09-2021.jpg","author":{"name":"Tim Neutkens","picture":"/assets/blog/authors/tim.jpeg"},"ogImage":{"url":"/assets/blog/post/22-09-2021.jpg"},"publishedDate":"2021-09-22T05:35:07.322Z","tags":["nextjs"],"slug":"2021-09-22-nextjs-page-options-and-how-they-work","content":"$c"},{"title":"React-native não carrega o app","metaDesc":"error Failed to install the app. Make sure you have the Android development environment set up","coverImage":"/assets/blog/post/22-09-2021.jpg","author":{"name":"Glaulher Medeiros","picture":"/assets/blog/authors/glaulher.jpeg"},"ogImage":{"url":"/assets/blog/post/22-09-2021.jpg"},"publishedDate":"2020-11-08T16:34:00Z","categories":["Blogging","Tutorial"],"tags":["React","React-native","Linux"],"slug":"2020-11-08-React-not-emul","content":"\n---\n\nMe deparei com esse problema, o yarn android não conseguia carregar o app no emulador e entregava a mensagem de erro:\"error Failed to install the app. Make sure you have the Android development environment set up\", ao tentar executar:\n\n```shell\ncd android && ./gradlew clean\n```\n\nme retornava que estava sem permissão:\n\nDei permissão:\n\n```shell\nchmod 777 -R gradlew\n```\n\ne ao executar yarn android o app carregou no emulador :)\n\nfontes:\n\n[stackoverflow](https://stackoverflow.com/questions/56891033/facing-issue-failed-to-install-the-app-make-sure-you-have-the-android-develop){:target=\"\\_blank\" rel=\"noopener\"}\n\n[github.com](https://github.com/facebook/react-native/issues/23306){:target=\"\\_blank\" rel=\"noopener\"}\n"},{"title":"Ícones no react-native com o react-native-vector-icons","metaDesc":"react-native-vector-icons, é uma forma de implementar icones no projeto de forma rápida e elegante","coverImage":"/assets/blog/post/22-09-2021.jpg","author":{"name":"Glaulher Medeiros","picture":"/assets/blog/authors/glaulher.jpeg"},"ogImage":{"url":"/assets/blog/post/22-09-2021.jpg"},"publishedDate":"2020-11-02T16:34:00Z","categories":["Blogging","Tutorial"],"tags":["React","React-native","Linux"],"slug":"2020-10-02-react-native-vector-icons","content":"$d"},{"title":"Gerenciador nvm no Linux","metaDesc":"O Node Version Manager é um script bash usado para gerenciar várias versões lançadas do Node.js","coverImage":"/assets/blog/post/22-09-2021.jpg","author":{"name":"Glaulher Medeiros","picture":"/assets/blog/authors/glaulher.jpeg"},"ogImage":{"url":"/assets/blog/post/22-09-2021.jpg"},"publishedDate":"2020-06-16T16:34:00Z","categories":["Blogging","Tutorial"],"tags":["Nodejs","Linux"],"slug":"2020-06-16-nvm","content":"$e"},{"title":"React não recarrega a página ao salvar no linux","metaDesc":"Para resolver esse problema é preciso alterar o valor  de max_user_watches em inotify...","coverImage":"/assets/blog/post/22-09-2021.jpg","author":{"name":"Glaulher Medeiros","picture":"/assets/blog/authors/glaulher.jpeg"},"ogImage":{"url":"/assets/blog/post/22-09-2021.jpg"},"publishedDate":"2020-06-14T16:34:00Z","tags":["Blogging","Tutorial","React","Linux"],"slug":"2020-06-14-React-not-reload","content":"$f"},{"title":"Learn How to Pre-render Pages Using Static Generation with Next.js","metaDesc":"Lorem ipsum dolor sit amet, consectetur adipiscing elit.","coverImage":"/assets/blog/post/hello-world/cover.jpg","author":{"name":"Tim Neutkens","picture":"/assets/blog/authors/tim.jpeg"},"ogImage":{"url":"/assets/blog/post/hello-world/cover.jpg"},"publishedDate":"2020-03-16T05:35:07.322Z","slug":"hello-world","content":"$10"}]}]}]}],null,["$","$L11",null,{"children":"$L12"}]]}],{},null,false]},null,false],["$","$1","h",{"children":[null,["$","$1","vsiC0obvOnn5Q7w-tpN4p",{"children":[["$","$L13",null,{"children":"$L14"}],["$","$L15",null,{"children":"$L16"}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]]}],false]],"m":"$undefined","G":["$17","$undefined"],"s":false,"S":true}
+16:[["$","meta","0",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+14:[["$","meta","0",{"charSet":"utf-8"}],["$","title","1",{"children":"Blog Post-it"}],["$","meta","2",{"name":"description","content":"A statically generated blog example using Next.js and Markdown."}],["$","meta","3",{"property":"og:title","content":"Blog Post-it"}],["$","meta","4",{"property":"og:description","content":"A statically generated blog example using Next.js and Markdown."}],["$","meta","5",{"property":"og:image","content":"https://og-image.vercel.app/Next.js%20Blog%20Starter%20Example.png?theme=light&md=1&fontSize=100px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg"}],["$","meta","6",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","7",{"name":"twitter:title","content":"Blog Post-it"}],["$","meta","8",{"name":"twitter:description","content":"A statically generated blog example using Next.js and Markdown."}],["$","meta","9",{"name":"twitter:image","content":"https://og-image.vercel.app/Next.js%20Blog%20Starter%20Example.png?theme=light&md=1&fontSize=100px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg"}]]
+12:null
