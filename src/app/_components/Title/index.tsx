@@ -30,6 +30,10 @@ export const Title = () => {
           </span>
 
           <span className="mr-3 inline-block whitespace-nowrap pt-3">
+            ☕︎Java
+          </span>
+
+          <span className="mr-3 inline-block whitespace-nowrap pt-3">
             🧊 HTML
           </span>
           <span className="mr-3 inline-block whitespace-nowrap pt-3">
@@ -40,9 +44,6 @@ export const Title = () => {
           </span>
           <span className="mr-3 inline-block whitespace-nowrap pt-3">
             🚃 Npm
-          </span>
-          <span className="mr-3 inline-block whitespace-nowrap pt-3">
-            🧶 Yarn
           </span>
 
           <span className="mr-3 inline-block whitespace-nowrap pt-3">
