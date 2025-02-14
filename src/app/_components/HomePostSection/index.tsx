@@ -5,6 +5,7 @@ import { HeroPost } from './hero-post';
 import { MoreStories } from './more-stories';
 import { Title } from '../Title';
 import Pagination from '../Pagination';
+import Button from '../Button';
 
 interface Post {
   title: string;
@@ -42,7 +43,9 @@ export const HomePostSection = ({ allPosts }: { allPosts: Post[] }) => {
         <div className="flex flex-col">
           <Title />
         </div>
-
+        <div>
+          <Button />
+        </div>
         <div className="relative flex items-center pr-2 sm:pr-0 sm:mr-2 justify-end ml-auto w-full sm:w-96 md:w-auto ">
           <div className="relative flex-1 mr-2 sm:mr-auto ">
             <input
