@@ -12,7 +12,7 @@ const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: `Blog Post-it`,
-  description: `A statically generated blog example using Next.js and ${CMS_NAME}.`,
+  description: `Meu blog sobre tecnologia utilizando Next.js and ${CMS_NAME}.`,
   openGraph: {
     images: [HOME_OG_IMAGE_URL],
   },
