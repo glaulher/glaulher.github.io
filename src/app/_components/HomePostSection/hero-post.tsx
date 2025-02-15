@@ -37,7 +37,7 @@ export function HeroPost({
                         coverImage={coverImage}
                         slug={slug}
                         onClick={handleLinkClick}
-                        width={300}
+                        width={250}
                         height={250}
                       />
                     </div>
