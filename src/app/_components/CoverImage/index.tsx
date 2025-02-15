@@ -27,7 +27,7 @@ const CoverImage = ({
       width={width}
       height={height}
       priority={true}
-      style={{ width: `${width}`, height: `${height}` }}
+      style={{ width: `${width} px`, height: `${height} px` }}
     />
   );
   return (
