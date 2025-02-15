@@ -31,14 +31,16 @@ export function HeroPost({
                 <div className="pl-2">
                   <div className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400 ">
                     <DateFormatter dateString={publishedDate!} />
-                    <CoverImage
-                      title={title}
-                      coverImage={coverImage}
-                      slug={slug}
-                      onClick={handleLinkClick}
-                      width={200}
-                      height={200}
-                    />
+                    <div className="w-max  max-w-[280px] max-h-[230px]">
+                      <CoverImage
+                        title={title}
+                        coverImage={coverImage}
+                        slug={slug}
+                        onClick={handleLinkClick}
+                        width={280}
+                        height={230}
+                      />
+                    </div>
                   </div>
                 </div>
                 <div className="pt-6 px-2">
