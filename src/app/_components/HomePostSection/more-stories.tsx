@@ -22,7 +22,7 @@ export function MoreStories({
   const handleLinkClick = () => {
     setLoading(true);
   };
-
+  // max-w-[250px] max-h-[200px]
   return (
     <>
       <section className="max-w-screen-md hover:scale-105 transition ease-linear">
@@ -33,7 +33,7 @@ export function MoreStories({
                 <div className="pl-2">
                   <div className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400 ">
                     <DateFormatter dateString={publishedDate!} />
-                    <div className="w-max max-w-[250] ">
+                    <div className="w-max  ">
                       <CoverImage
                         title={title}
                         coverImage={coverImage}

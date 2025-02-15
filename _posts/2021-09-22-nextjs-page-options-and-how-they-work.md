@@ -13,7 +13,7 @@ ogImage:
 
 publishedDate: '2021-09-22T05:35:07.322Z'
 
-tags: [nextjs]
+tags: [nextjs, react]
 ---
 
 ---

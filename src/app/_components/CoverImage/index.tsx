@@ -23,9 +23,10 @@ const CoverImage = ({
     <Image
       src={coverImage}
       alt={`Cover Image for ${title}`}
-      className={`object-contain object-center rounded-md shadow-sm ${slug ? slugHover : ''}`}
+      className={`object-contain object-center w-auto h-auto rounded-md shadow-sm ${slug ? slugHover : ''}`}
       width={width}
       height={height}
+      priority={true}
     />
   );
   return (

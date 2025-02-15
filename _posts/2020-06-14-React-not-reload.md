@@ -12,7 +12,7 @@ ogImage:
   url: '/assets/blog/post/22-09-2021.jpg'
 
 publishedDate: '2020-06-14T16:34:00Z'
-tags: [Blogging, Tutorial, React, Linux]
+tags: [blog, tutorial, react, linux]
 ---
 
 ---

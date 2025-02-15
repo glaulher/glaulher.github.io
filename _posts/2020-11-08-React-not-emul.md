@@ -14,8 +14,7 @@ ogImage:
 
 publishedDate: '2020-11-08T16:34:00Z'
 
-categories: [Blogging, Tutorial]
-tags: [React, React-native, Linux]
+tags: [react, react-native, linux]
 ---
 
 ---

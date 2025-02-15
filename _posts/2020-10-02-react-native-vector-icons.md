@@ -13,8 +13,7 @@ ogImage:
   url: '/assets/blog/post/22-09-2021.jpg'
 
 publishedDate: '2020-11-02T16:34:00Z'
-categories: [Blogging, Tutorial]
-tags: [React, React-native, Linux]
+tags: [react, react-native, linux]
 ---
 
 ---

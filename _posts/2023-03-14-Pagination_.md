@@ -16,7 +16,7 @@ publishedDate: '2023-03-14T16:34:00Z'
 
 categories: [Blogging, Tutorial]
 
-tags: [Component, React]
+tags: [react, tutorial]
 ---
 
 ---
