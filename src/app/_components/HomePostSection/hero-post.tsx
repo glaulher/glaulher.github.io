@@ -1,4 +1,4 @@
-'use client';
+'>puse client';
 
 import Link from 'next/link';
 import { useState } from 'react';
@@ -31,14 +31,14 @@ export function HeroPost({
                 <div className="pl-2">
                   <div className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400 ">
                     <DateFormatter dateString={publishedDate!} />
-                    <div className=" ">
+                    <div className="w-max max-w-[280] max-h-[230] ">
                       <CoverImage
                         title={title}
                         coverImage={coverImage}
                         slug={slug}
                         onClick={handleLinkClick}
-                        width={250}
-                        height={250}
+                        width={280}
+                        height={230}
                       />
                     </div>
                   </div>
