@@ -3,18 +3,16 @@ title: 'Componente de paginação em react'
 
 metaDesc: 'A paginação é um recurso que permite dividir grandes conjuntos de dados em páginas'
 
-coverImage: '/assets/blog/post/PaginateBanner.png'
+coverImage: '/assets/blog/post/PaginateBanner.webp'
 
 author:
   name: Glaulher Medeiros
   picture: '/assets/blog/authors/glaulher.jpeg'
 
 ogImage:
-  url: '/assets/blog/post/PaginateBanner.png'
+  url: '/assets/blog/post/PaginateBanner.webp'
 
 publishedDate: '2023-03-14T16:34:00Z'
-
-categories: [Blogging, Tutorial]
 
 tags: [react, tutorial]
 ---

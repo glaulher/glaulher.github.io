@@ -6,9 +6,10 @@ import Image from 'next/image';
 
 type Props = {
   children: ReactNode;
+  src: string;
 };
 
-export const Header = ({ children }: Props) => {
+export const Header = ({ children, src }: Props) => {
   return (
     <header className=" mb-3 px-6 py-4 ">
       <div className="container lg:mx-auto md:mx-auto flex justify-center">
@@ -18,7 +19,7 @@ export const Header = ({ children }: Props) => {
             width={60}
             height={60}
             alt="Menu"
-            src="assets/blog/menuIcons/svgviewer-output.svg"
+            src={src}
           />
         </Link>
 

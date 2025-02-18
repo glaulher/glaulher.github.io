@@ -1,4 +1,4 @@
-'>puse client';
+'use client';
 
 import Link from 'next/link';
 import { useState } from 'react';
@@ -7,6 +7,10 @@ import { PostPage } from '@/interfaces/postPage';
 import Loaded from '../Loaded';
 import DateFormatter from '../date-formatter';
 
+type Props = PostPage & {
+  onClickAction: (tag: string) => void;
+};
+
 export function MoreStories({
   title,
   coverImage,
@@ -14,7 +18,8 @@ export function MoreStories({
   publishedDate,
   tags,
   slug,
-}: PostPage) {
+  onClickAction,
+}: Props) {
   // const router = useRouter();
 
   const [loading, setLoading] = useState(false);
@@ -53,13 +58,13 @@ export function MoreStories({
                   <div className="flex flex-wrap">
                     {Array.isArray(tags) && tags.length > 0 ? (
                       tags.map((category) => (
-                        <Link
+                        <button
                           key={category}
                           className="mr-3 text-sm font-medium uppercase text-green-500 hover:text-green-600 dark:hover:text-green-400"
-                          href="/tags/programming"
+                          onClick={() => onClickAction?.(category)}
                         >
                           {category}
-                        </Link>
+                        </button>
                       ))
                     ) : (
                       <div />

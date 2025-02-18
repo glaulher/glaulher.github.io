@@ -5,7 +5,7 @@ import ThemeToggler from '@/app/_components/ThemeToggler';
 
 export const WrapperHeader = () => {
   return (
-    <Header>
+    <Header src="/assets/blog/menuIcons/svgviewer-output.webp">
       <ThemeToggler />
     </Header>
   );

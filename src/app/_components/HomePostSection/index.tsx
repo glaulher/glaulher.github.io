@@ -65,6 +65,15 @@ export const HomePostSection = ({ allPosts }: { allPosts: Post[] }) => {
     );
   }, [allPosts]);
 
+  const SearchTag = (tag: string) => {
+    if (currentPage > 1) {
+      setCurrentPage(1);
+    }
+
+    setSearchValue('');
+    setTimeout(() => setSearchValue(tag), 20);
+  };
+
   return (
     <>
       <div className="flex flex-col mb-4 sm:flex-row md:justify-between md:items-start sm:justify-center mx-2 sm:mx-auto sm:items-start w-full">
@@ -73,17 +82,7 @@ export const HomePostSection = ({ allPosts }: { allPosts: Post[] }) => {
           <div className="flex flex-wrap gap-2 mb-2">
             {tag.length > 0 &&
               tag.map((tag, index) => (
-                <Button
-                  onClick={() => {
-                    if (currentPage > 1) {
-                      setCurrentPage(1);
-                    }
-
-                    setSearchValue('');
-                    setTimeout(() => setSearchValue(tag), 10);
-                  }}
-                  key={index}
-                >
+                <Button onClick={(tag) => SearchTag(tag)} key={index}>
                   {tag}
                 </Button>
               ))}
@@ -123,6 +122,7 @@ export const HomePostSection = ({ allPosts }: { allPosts: Post[] }) => {
               slug={heroPost.slug}
               metaDesc={heroPost.metaDesc}
               tags={heroPost.tags}
+              onClickAction={(tag) => SearchTag(tag)}
             />
             <h2 className="mb-8 text-2xl md:text-5xl font-bold tracking-tighter leading-tight">
               Explore Mais
@@ -139,6 +139,7 @@ export const HomePostSection = ({ allPosts }: { allPosts: Post[] }) => {
               slug={post.slug}
               metaDesc={post.metaDesc}
               tags={post.tags}
+              onClickAction={(tag) => SearchTag(tag)}
             />
           ))}
       </div>

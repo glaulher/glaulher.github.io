@@ -1,16 +1,15 @@
 ---
 title: 'npm-check-updates'
 metaDesc: 'O npm (Node Package Manager) é uma ferramenta importante para desenvolvedores de JavaScript'
-coverImage: '/assets/blog/post/Npm-check-update.png'
+coverImage: '/assets/blog/post/Npm-check-update.webp'
 author:
   name: Glaulher Medeiros
   picture: '/assets/blog/authors/glaulher.jpeg'
 ogImage:
-  url: '/assets/blog/post/Npm-check-update.png'
+  url: '/assets/blog/post/Npm-check-update.webp'
 publishedDate: '2023-04-01T16:34:00Z'
 
-categories: [Blogging, Tutorial]
-tags: [Nodejs, npm]
+tags: [nodejs, npm]
 ---
 
 ---
