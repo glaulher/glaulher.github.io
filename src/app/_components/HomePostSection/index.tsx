@@ -70,8 +70,10 @@ export const HomePostSection = ({ allPosts }: { allPosts: Post[] }) => {
       setCurrentPage(1);
     }
 
-    setSearchValue('');
-    setTimeout(() => setSearchValue(tag), 20);
+    setTimeout(() => {
+      setSearchValue('');
+      setSearchValue(tag);
+    }, 200);
   };
 
   return (
@@ -82,7 +84,12 @@ export const HomePostSection = ({ allPosts }: { allPosts: Post[] }) => {
           <div className="flex flex-wrap gap-2 mb-2">
             {tag.length > 0 &&
               tag.map((tag, index) => (
-                <Button onClick={(tag) => SearchTag(tag)} key={index}>
+                <Button
+                  onClick={(tag) => {
+                    SearchTag(tag);
+                  }}
+                  key={index}
+                >
                   {tag}
                 </Button>
               ))}
