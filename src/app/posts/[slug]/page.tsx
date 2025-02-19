@@ -51,7 +51,7 @@ export async function generateMetadata(props: Params): Promise<Metadata> {
   if (!post) {
     return notFound();
   }
-  const title = `${post.title} | Next.js Blog Example with ${CMS_NAME}`;
+  const title = `${post.title} | Meu blog sobre tecnologia utilizando Next.js and ${CMS_NAME}.`;
 
   return {
     title,
