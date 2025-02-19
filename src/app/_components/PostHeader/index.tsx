@@ -21,7 +21,7 @@ export function PostHeader({
         <Avatar name={author!.name} picture={author!.picture} />
       </div>
       <div className="mb-8 md:mb-16 sm:mx-0 flex items-center justify-center ">
-        <div className=" w-[800] h-[500] ">
+        <div className="w-full max-w-[800px] max-h-[500px] ">
           <CoverImage
             title={title!}
             coverImage={coverImage!}
