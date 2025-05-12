@@ -48,7 +48,7 @@ getnf
 Escolha uma fonte, como por exemplo a opção 9 - CascadiaMono.
 Após a instalação, altere a fonte do seu terminal para essa nova fonte.
 
-⚙️ Instalando o [**ble.sh**](https://github.com/akinomyoga/ble.sh)
+⚙️ Instalando o <a href="https://github.com/akinomyoga/ble.sh" style="color:blue;">ble.sh</a>
 - Clone o repositório nightly (é o que funcionou comigo no fedora 42):
 
 ```bash
