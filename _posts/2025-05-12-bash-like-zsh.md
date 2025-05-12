@@ -8,7 +8,7 @@ author:
   picture: '/assets/blog/authors/glaulher.jpeg'
 
 ogImage:
-  url: '/assets/blog/post/driveI965.webp'
+  url: '/assets/blog/post/Bash.webp'
 
 publishedDate: '2025-05-12T16:34:00Z'
 tags: [linux]
@@ -30,7 +30,7 @@ sudo apt install make curl fzf # (ou o equivalente para sua distro)
 ```
 
 🎨 Instalando uma Nerd Font
-Vamos usar o [getnf ](https://github.com/getnf/getnf) para instalar uma fonte com ícones Nerd Font:
+Vamos usar o [**getnf**](https://github.com/getnf/getnf) para instalar uma fonte com ícones Nerd Font:
 
 ```bash
 
@@ -48,7 +48,7 @@ getnf
 Escolha uma fonte, como por exemplo a opção 9 - CascadiaMono.
 Após a instalação, altere a fonte do seu terminal para essa nova fonte.
 
-⚙️ Instalando o [ble.sh ](https://github.com/akinomyoga/ble.sh)
+⚙️ Instalando o [**ble.sh**](https://github.com/akinomyoga/ble.sh)
 - Clone o repositório nightly (é o que funcionou comigo no fedora 42):
 
 ```bash
@@ -58,7 +58,7 @@ bash ble-nightly/ble.sh --install ~/.local/share
 ```
 
 
-🚀 Instalando o [Starship](https://starship.rs/)
+🚀 Instalando o [**Starship**](https://starship.rs/)
 
 ```bash
 
