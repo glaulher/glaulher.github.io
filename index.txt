@@ -4,13 +4,143 @@
 4:I[15244,[],""]
 5:I[43866,[],""]
 6:I[96570,["742","static/chunks/742-565a7562c8d1d87c.js","974","static/chunks/app/page-5900c0aa15e61cfb.js"],"HomePostSection"]
-12:I[86213,[],"OutletBoundary"]
-14:I[86213,[],"MetadataBoundary"]
-16:I[86213,[],"ViewportBoundary"]
-18:I[34835,[],""]
+13:I[86213,[],"OutletBoundary"]
+15:I[86213,[],"MetadataBoundary"]
+17:I[86213,[],"ViewportBoundary"]
+19:I[34835,[],""]
 :HL["/_next/static/media/a34f9d1faa5f3315-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/_next/static/css/277fcc79e498577f.css","style"]
-7:Tf54,
+7:Tbac,
+---
+
+Uso o zsh há bastante tempo principalmente por conta do autocompletar com sugestões inteligentes. No entanto, recentemente descobri um plugin incrível para o bash que resolve exatamente esse problema: o ble.sh.
+
+Combinando o ble.sh com o Starship e uma Nerd Font, o Bash fica moderno, produtivo e bonito. Abaixo explico o passo a passo completo para instalar e configurar tudo.
+
+✅ Pré-requisitos
+Certifique-se de que os seguintes pacotes estão instalados:
+
+```bash
+
+sudo apt install make curl fzf # (ou o equivalente para sua distro)
+
+```
+
+🎨 Instalando uma Nerd Font
+Vamos usar o [getnf ](https://github.com/getnf/getnf) para instalar uma fonte com ícones Nerd Font:
+
+```bash
+
+curl -fsSL https://raw.githubusercontent.com/getnf/getnf/main/install.sh | bash
+
+```
+
+Depois, execute:
+
+```bash
+
+getnf
+
+```
+Escolha uma fonte, como por exemplo a opção 9 - CascadiaMono.
+Após a instalação, altere a fonte do seu terminal para essa nova fonte.
+
+⚙️ Instalando o [ble.sh ](https://github.com/akinomyoga/ble.sh)
+- Clone o repositório nightly (é o que funcionou comigo no fedora 42):
+
+```bash
+curl -L https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly.tar.xz | tar xJf -
+bash ble-nightly/ble.sh --install ~/.local/share
+
+```
+
+
+🚀 Instalando o [Starship](https://starship.rs/)
+
+```bash
+
+curl -sS https://starship.rs/install.sh | sh
+
+```
+🧠 Configurando o .bashrc
+- Edite o arquivo `~/.bashrc` e adicione ao final:
+
+```bash
+
+# Inicializa o ble.sh de forma não intrusiva para sessões interativas
+[[ $- == *i* ]] && source ~/.local/share/blesh/ble.sh --noattach
+
+# Configurações do ble.sh
+ble-bind -f up history-search-backward     # seta ↑ percorre histórico por prefixo
+ble-bind -f down history-search-forward    # seta ↓ percorre histórico por prefixo
+ble-import -d integration/fzf-completion   # usa fzf como menu de histórico/autocompletar
+ble-import -d integration/fzf-key-bindings
+
+# Inicializa o Starship (prompt moderno)
+eval "$(starship init bash)"
+
+# Ativa o ble.sh
+[[ ! ${BLE_VERSION-} ]] || ble-attach
+
+```
+
+Salve e feche. Em seguida, recarregue o shell:
+
+```bash
+
+source ~/.bashrc
+
+```
+
+🧩 Configurando o Starship
+
+- Crie o diretório de configuração (se ainda não existir):
+
+```bash
+
+mkdir -p ~/.config
+
+```
+
+E dentro dele, crie o arquivo starship.toml com o seguinte conteúdo:
+
+```toml
+
+"$schema" = 'https://starship.rs/config-schema.json'
+
+command_timeout = 10000
+add_newline = false
+
+[username]
+show_always = true
+
+[cmd_duration]
+disabled = false
+
+[directory]
+truncation_length = 8
+
+[character]
+success_symbol = '[❯](bold bright-blue)'
+
+[battery]
+disabled = true # Coloque como false para exibir o status da bateria
+
+```
+
+
+✅ Resultado
+Você terá um terminal Bash com:
+
+- Sugestões de comandos anteriores com fzf
+
+- Estilo visual moderno com Starship
+
+- Ícones e símbolos com Nerd Font
+
+- Experiência com auto-complete e Syntax highlighting no Bash
+
+- Ao teclar ctrl+r terá um menu com fzf bem bacana.😊8:Tf54,
 ---
 
 📌 Corrigindo erro de libva no Fedora (Processadores Antigos - Driver i965)
@@ -117,7 +247,7 @@ vainfo: Supported profile and entrypoints
 
 
 ```
-8:T3e0b,
+9:T3e0b,
 ---
 
 Tenho utilizado o Neovim como meu editor de código há um tempo.
@@ -526,7 +656,7 @@ Essa saída do comando `checkhealth` no meu sistema openSUSE ja com o java e nod
 O Kickstart.nvim oferece uma experiência mínima e otimizada, permitindo que você construa sua configuração sem dores de cabeça. Se você quer um ambiente leve, fácil de manter e pronto para desenvolvimento, vale a pena testar!
 
 🔗 Repositório oficial: [Kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim)
-9:Taa2,
+a:Taa2,
 ---
 
 Há algum tempo, eu mantinha um blog utilizando Next.js. Porém, quando o Next.js 13 foi lançado, precisei fazer algumas adaptações para hospedá-lo no GitHub Pages. Com o tempo, acabei deixando o projeto de lado, mas recentemente decidi retomá-lo e atualizar tudo para a versão mais recente.
@@ -610,7 +740,7 @@ Com essas melhorias, meu blog está atualizado, mais organizado e pronto para fu
 
 Até a próxima! 🚀
 
-a:T536,
+b:T536,
 ---
 
 O `npm (Node Package Manager)` é uma ferramenta importante para desenvolvedores de JavaScript que permite gerenciar e instalar dependências em projetos. Porém, gerenciar essas dependências pode se tornar uma tarefa complicada quando se tem muitas delas em um projeto. É aí que o `npx npm-check-updates` pode ajudar.
@@ -634,7 +764,7 @@ Instalará as novas versões das dependências.
 É importante ressaltar que a atualização de dependências pode causar problemas no projeto, especialmente quando se trata de dependências de versões muito diferentes. É sempre recomendado realizar testes após a atualização e verificar se tudo está funcionando corretamente.
 
 Em resumo, o `npx npm-check-updates -u` é uma ferramenta útil para gerenciar dependências em projetos `JavaScript`, permitindo atualizá-las de forma simples e rápida.
-b:T2969,
+c:T2969,
 ---
 
 A paginação é um recurso que permite dividir grandes conjuntos de dados em páginas facilitando a visualização e a navegação para o usuário, é amplamente utilizado em interfaces que precisam lidar com grandes volumes de dados.
@@ -980,7 +1110,7 @@ A função `useMemo` é usada para armazenar em cache o resultado da lista de p�
 No final, o hook retorna a lista de páginas calculada.
 
 ![gif pagination](/assets/posts/paginate.gif)
-c:T468,
+d:T468,
 ---
 
 Debug como um humano , não um robô. Finalmente, um cliente REST que você vai adorar!
@@ -1006,7 +1136,7 @@ $ ./Insomnia-x.x.x.AppImage
 ```
 
 [![upload-image Insomnia](/assets/posts/Insomnia.png)](https://updates.insomnia.rest/downloads/release/latest?app=com.insomnia.app&source=website)
-d:T1778,
+e:T1778,
 ---
 
 Creating pages is an integral part of any framework. Today we'll be looking at three different types of pages that we can leverage in Next.js.
@@ -1197,7 +1327,7 @@ I hope you found this helpful article. You can also find the complete code on [G
 ### Thank you for reading, and let's connect!
 
 Thank you for reading my blog. Feel free to subscribe to my email newsletter and connect on [Facebook](https://www.facebook.com/DailyDevTipsBlog) or [Twitter](https://twitter.com/DailyDevTips1)
-e:T93e,
+f:T93e,
 ---
 
 <img src="/assets/img/sample/react-native/react-native.png" alt="react-native" style="width:200px; heigth:200px; ">
@@ -1283,7 +1413,7 @@ fontes:
 [Rocketseat](https://blog.rocketseat.com.br/utilizando-fontes-de-icones-no-react-native/){:target="\_blank" rel="noopener"}
 
 [github.com/oblador](https://github.com/oblador/react-native-vector-icons){:target="\_blank" rel="noopener"}
-f:T632,
+10:T632,
 ---
 
 O Node Version Manager é um script bash usado para gerenciar várias versões lançadas do Node.js. Plataformas: unix, macOS e windows WSL. Ele permite que você execute operações como instalar, desinstalar, alternar versão etc. Para instalar o nvm, use este script de instalação.
@@ -1340,7 +1470,7 @@ Fonte:
 [nodejs.org](https://nodejs.org/en/download/package-manager/){:target="\_blank" rel="noopener"}
 
 ​
-10:Tb85,
+11:Tb85,
 ---
 
 ![image]({{ "/assets/img/sample/react-reload/reload.png" | relative_url }})
@@ -1408,7 +1538,7 @@ fontes:
 [dev.to](https://dev.to/rubiin/ubuntu-increase-inotify-watcher-file-watch-limit-kf4){:target="\_blank" rel="noopener"}
 
 [stackoverflow](https://stackoverflow.com/questions/42189575/create-react-app-reload-not-working){:target="\_blank" rel="noopener"}
-11:T6bf,
+12:T6bf,
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Praesent elementum facilisis leo vel fringilla est ullamcorper eget. At imperdiet dui accumsan sit amet nulla facilities morbi tempus. Praesent elementum facilisis leo vel fringilla. Congue mauris rhoncus aenean vel. Egestas sed tempus urna et pharetra pharetra massa massa ultricies.
 
 Venenatis cras sed felis eget velit. Consectetur libero id faucibus nisl tincidunt. Gravida in fermentum et sollicitudin ac orci phasellus egestas tellus. Volutpat consequat mauris nunc congue nisi vitae. Id aliquet risus feugiat in ante metus dictum at tempor. Sed blandit libero volutpat sed cras. Sed odio morbi quis commodo odio aenean sed adipiscing. Velit euismod in pellentesque massa placerat. Mi bibendum neque egestas congue quisque egestas diam in arcu. Nisi lacus sed viverra tellus in. Nibh cras pulvinar mattis nunc sed. Luctus accumsan tortor posuere ac ut consequat semper viverra. Fringilla ut morbi tincidunt augue interdum velit euismod.
@@ -1416,7 +1546,7 @@ Venenatis cras sed felis eget velit. Consectetur libero id faucibus nisl tincidu
 ## Lorem Ipsum
 
 Tristique senectus et netus et malesuada fames ac turpis. Ridiculous mus mauris vitae ultricies leo integer malesuada nunc vel. In mollis nunc sed id semper. Egestas tellus rutrum tellus pellentesque. Phasellus vestibulum lorem sed risus ultricies tristique nulla. Quis blandit turpis cursus in hac habitasse platea dictumst quisque. Eros donec ac odio tempor orci dapibus ultrices. Aliquam sem et tortor consequat id porta nibh. Adipiscing elit duis tristique sollicitudin nibh sit amet commodo nulla. Diam vulputate ut pharetra sit amet. Ut tellus elementum sagittis vitae et leo. Arcu non odio euismod lacinia at quis risus sed vulputate.
-0:{"P":null,"b":"g2m1E_AO2wJPinQ2cHuyU","p":"","c":["",""],"i":false,"f":[[["",{"children":["__PAGE__",{}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/277fcc79e498577f.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"en","children":[["$","head",null,{"children":[["$","link",null,{"rel":"apple-touch-icon","sizes":"180x180","href":"/favicon/apple-touch-icon.png"}],["$","link",null,{"rel":"icon","type":"image/png","sizes":"32x32","href":"/favicon/favicon-32x32.png"}],["$","link",null,{"rel":"icon","type":"image/png","sizes":"16x16","href":"/favicon/favicon-16x16.png"}],["$","link",null,{"rel":"manifest","href":"/favicon/site.webmanifest"}],["$","link",null,{"rel":"mask-icon","href":"/favicon/safari-pinned-tab.svg","color":"#000000"}],["$","link",null,{"rel":"shortcut icon","href":"/favicon/favicon.ico"}],["$","meta",null,{"name":"msapplication-TileColor","content":"#000000"}],["$","meta",null,{"name":"msapplication-config","content":"/favicon/browserconfig.xml"}],["$","meta",null,{"name":"theme-color","content":"#000"}],["$","link",null,{"rel":"alternate","type":"application/rss+xml","href":"/feed.xml"}]]}],["$","body",null,{"className":"bg-slate-100\n            dark:bg-gray-900\n            dark:from-gray-900\n            dark:to-gray-800 \n            bg-gradient-to-r \n            h-screen \n            __className_d65c78","children":["$","$L2",null,{"children":[["$","$L3",null,{}],["$","$L4",null,{"parallelRouterKey":"children","segmentPath":["children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[],[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]]],"forbidden":"$undefined","unauthorized":"$undefined"}],["$","footer",null,{"className":"bg-gray-700  mt-1 py-4","children":["$","div",null,{"className":"container mx-auto flex justify-center","children":["$","span",null,{"className":"mx-auto text-neutral-200","children":"© 2025 GrmDevTips"}]}]}]]}]}]]}]]}],{"children":["__PAGE__",["$","$1","c",{"children":[["$","main",null,{"children":["$","article",null,{"className":"container flex flex-col pt-6 sm:mx-2 md:mx-auto flex-1","children":["$","$L6",null,{"allPosts":[{"title":"Corrigindo erro de libva no Fedora","metaDesc":"Habilitar aceleração de video em processador antigo no Fedora","coverImage":"/assets/blog/post/driveI965.webp","author":{"name":"Glaulher Medeiros","picture":"/assets/blog/authors/glaulher.jpeg"},"ogImage":{"url":"/assets/blog/post/driveI965.webp"},"publishedDate":"2025-02-17T16:34:00Z","tags":["linux"],"slug":"2025-02-17-driveI965","content":"$7"},{"title":"Nvim como editor de código","metaDesc":"Kickstart.nvim, uma configuração mínima e eficiente mantida por TJ Devries","coverImage":"/assets/blog/post/nvim.webp","author":{"name":"Glaulher Medeiros","picture":"/assets/blog/authors/glaulher.jpeg"},"ogImage":{"url":"/assets/blog/post/nvim.webp"},"publishedDate":"2025-02-13T16:34:00Z","categories":["Blogging","Tutorial"],"tags":["nvim","lua"],"slug":"2025-02-13-nvim","content":"$8"},{"title":"Atualizando meu blog com Next.js 15","metaDesc":"Criando um blog pessoal com nextjs e markdown","coverImage":"/assets/blog/post/Blog.webp","author":{"name":"Glaulher Medeiros","picture":"/assets/blog/authors/glaulher.jpeg"},"ogImage":{"url":"/assets/blog/post/Blog.png"},"publishedDate":"2025-02-11T16:34:00Z","categories":["Blogging","Tutorial"],"tags":["nextjs","markdown","react"],"slug":"2025-02-11-blog","content":"$9"},{"title":"npm-check-updates","metaDesc":"O npm (Node Package Manager) é uma ferramenta importante para desenvolvedores de JavaScript","coverImage":"/assets/blog/post/Npm-check-update.webp","author":{"name":"Glaulher Medeiros","picture":"/assets/blog/authors/glaulher.jpeg"},"ogImage":{"url":"/assets/blog/post/Npm-check-update.webp"},"publishedDate":"2023-04-01T16:34:00Z","tags":["nodejs","npm"],"slug":"2023-04-01-UpdatePackage","content":"$a"},{"title":"Componente de paginação em react","metaDesc":"A paginação é um recurso que permite dividir grandes conjuntos de dados em páginas","coverImage":"/assets/blog/post/PaginateBanner.webp","author":{"name":"Glaulher Medeiros","picture":"/assets/blog/authors/glaulher.jpeg"},"ogImage":{"url":"/assets/blog/post/PaginateBanner.webp"},"publishedDate":"2023-03-14T16:34:00Z","tags":["react","tutorial"],"slug":"2023-03-14-Pagination_","content":"$b"},{"title":"Insomnia em distros linux","metaDesc":"\tMuito mais que um cliente HTTP. Auxiliares avançados de autenticação, modelagem encadeamento","coverImage":"/assets/blog/post/InsomniaBanner.webp","author":{"name":"Glaulher Medeiros","picture":"/assets/blog/authors/glaulher.jpeg"},"ogImage":{"url":"/assets/blog/post/InsomniaBanner.webp"},"publishedDate":"2023-03-06T16:34:00Z","tags":["insomnia","rest","linux"],"slug":"2023-03-06-Insomnia","content":"$c"},{"title":"Next.js page options and how they work","metaDesc":"How to use pages in Next.js exploring the options","coverImage":"/assets/blog/post/22-09-2021.jpg","author":{"name":"Tim Neutkens","picture":"/assets/blog/authors/tim.jpeg"},"ogImage":{"url":"/assets/blog/post/22-09-2021.jpg"},"publishedDate":"2021-09-22T05:35:07.322Z","tags":["nextjs","react"],"slug":"2021-09-22-nextjs-page-options-and-how-they-work","content":"$d"},{"title":"React-native não carrega o app","metaDesc":"error Failed to install the app. Make sure you have the Android development environment set up","coverImage":"/assets/blog/post/22-09-2021.jpg","author":{"name":"Glaulher Medeiros","picture":"/assets/blog/authors/glaulher.jpeg"},"ogImage":{"url":"/assets/blog/post/22-09-2021.jpg"},"publishedDate":"2020-11-08T16:34:00Z","tags":["react","react-native","linux"],"slug":"2020-11-08-React-not-emul","content":"\n---\n\nMe deparei com esse problema, o yarn android não conseguia carregar o app no emulador e entregava a mensagem de erro:\"error Failed to install the app. Make sure you have the Android development environment set up\", ao tentar executar:\n\n```shell\ncd android && ./gradlew clean\n```\n\nme retornava que estava sem permissão:\n\nDei permissão:\n\n```shell\nchmod 777 -R gradlew\n```\n\ne ao executar yarn android o app carregou no emulador :)\n\nfontes:\n\n[stackoverflow](https://stackoverflow.com/questions/56891033/facing-issue-failed-to-install-the-app-make-sure-you-have-the-android-develop){:target=\"\\_blank\" rel=\"noopener\"}\n\n[github.com](https://github.com/facebook/react-native/issues/23306){:target=\"\\_blank\" rel=\"noopener\"}\n"},{"title":"Ícones no react-native com o react-native-vector-icons","metaDesc":"react-native-vector-icons, é uma forma de implementar icones no projeto de forma rápida e elegante","coverImage":"/assets/blog/post/22-09-2021.jpg","author":{"name":"Glaulher Medeiros","picture":"/assets/blog/authors/glaulher.jpeg"},"ogImage":{"url":"/assets/blog/post/22-09-2021.jpg"},"publishedDate":"2020-11-02T16:34:00Z","tags":["react","react-native","linux"],"slug":"2020-10-02-react-native-vector-icons","content":"$e"},{"title":"Gerenciador nvm no Linux","metaDesc":"O Node Version Manager é um script bash usado para gerenciar várias versões lançadas do Node.js","coverImage":"/assets/blog/post/22-09-2021.jpg","author":{"name":"Glaulher Medeiros","picture":"/assets/blog/authors/glaulher.jpeg"},"ogImage":{"url":"/assets/blog/post/22-09-2021.jpg"},"publishedDate":"2020-06-16T16:34:00Z","tags":["nodejs","linux"],"slug":"2020-06-16-nvm","content":"$f"},{"title":"React não recarrega a página ao salvar no linux","metaDesc":"Para resolver esse problema é preciso alterar o valor  de max_user_watches em inotify...","coverImage":"/assets/blog/post/22-09-2021.jpg","author":{"name":"Glaulher Medeiros","picture":"/assets/blog/authors/glaulher.jpeg"},"ogImage":{"url":"/assets/blog/post/22-09-2021.jpg"},"publishedDate":"2020-06-14T16:34:00Z","tags":["blog","tutorial","react","linux"],"slug":"2020-06-14-React-not-reload","content":"$10"},{"title":"Learn How to Pre-render Pages Using Static Generation with Next.js","metaDesc":"Lorem ipsum dolor sit amet, consectetur adipiscing elit.","coverImage":"/assets/blog/post/hello-world/cover.jpg","author":{"name":"Tim Neutkens","picture":"/assets/blog/authors/tim.jpeg"},"ogImage":{"url":"/assets/blog/post/hello-world/cover.jpg"},"publishedDate":"2020-03-16T05:35:07.322Z","slug":"hello-world","content":"$11"}]}]}]}],null,["$","$L12",null,{"children":"$L13"}]]}],{},null,false]},null,false],["$","$1","h",{"children":[null,["$","$1","NH-ffcojTCzTsZfrMYOYQ",{"children":[["$","$L14",null,{"children":"$L15"}],["$","$L16",null,{"children":"$L17"}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]]}],false]],"m":"$undefined","G":["$18","$undefined"],"s":false,"S":true}
-17:[["$","meta","0",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
-15:[["$","meta","0",{"charSet":"utf-8"}],["$","title","1",{"children":"Blog Post-it"}],["$","meta","2",{"name":"description","content":"Meu blog sobre tecnologia utilizando Next.js and Markdown."}],["$","meta","3",{"property":"og:title","content":"Blog Post-it"}],["$","meta","4",{"property":"og:description","content":"Meu blog sobre tecnologia utilizando Next.js and Markdown."}],["$","meta","5",{"property":"og:image","content":"https://og-image.vercel.app/Next.js%20Blog%20Starter%20Example.png?theme=light&md=1&fontSize=100px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg"}],["$","meta","6",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","7",{"name":"twitter:title","content":"Blog Post-it"}],["$","meta","8",{"name":"twitter:description","content":"Meu blog sobre tecnologia utilizando Next.js and Markdown."}],["$","meta","9",{"name":"twitter:image","content":"https://og-image.vercel.app/Next.js%20Blog%20Starter%20Example.png?theme=light&md=1&fontSize=100px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg"}]]
-13:null
+0:{"P":null,"b":"WzIl1qC82sf0WRWrhnXn9","p":"","c":["",""],"i":false,"f":[[["",{"children":["__PAGE__",{}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/277fcc79e498577f.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"en","children":[["$","head",null,{"children":[["$","link",null,{"rel":"apple-touch-icon","sizes":"180x180","href":"/favicon/apple-touch-icon.png"}],["$","link",null,{"rel":"icon","type":"image/png","sizes":"32x32","href":"/favicon/favicon-32x32.png"}],["$","link",null,{"rel":"icon","type":"image/png","sizes":"16x16","href":"/favicon/favicon-16x16.png"}],["$","link",null,{"rel":"manifest","href":"/favicon/site.webmanifest"}],["$","link",null,{"rel":"mask-icon","href":"/favicon/safari-pinned-tab.svg","color":"#000000"}],["$","link",null,{"rel":"shortcut icon","href":"/favicon/favicon.ico"}],["$","meta",null,{"name":"msapplication-TileColor","content":"#000000"}],["$","meta",null,{"name":"msapplication-config","content":"/favicon/browserconfig.xml"}],["$","meta",null,{"name":"theme-color","content":"#000"}],["$","link",null,{"rel":"alternate","type":"application/rss+xml","href":"/feed.xml"}]]}],["$","body",null,{"className":"bg-slate-100\n            dark:bg-gray-900\n            dark:from-gray-900\n            dark:to-gray-800 \n            bg-gradient-to-r \n            h-screen \n            __className_d65c78","children":["$","$L2",null,{"children":[["$","$L3",null,{}],["$","$L4",null,{"parallelRouterKey":"children","segmentPath":["children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[],[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]]],"forbidden":"$undefined","unauthorized":"$undefined"}],["$","footer",null,{"className":"bg-gray-700  mt-1 py-4","children":["$","div",null,{"className":"container mx-auto flex justify-center","children":["$","span",null,{"className":"mx-auto text-neutral-200","children":"© 2025 GrmDevTips"}]}]}]]}]}]]}]]}],{"children":["__PAGE__",["$","$1","c",{"children":[["$","main",null,{"children":["$","article",null,{"className":"container flex flex-col pt-6 sm:mx-2 md:mx-auto flex-1","children":["$","$L6",null,{"allPosts":[{"title":"Deixando o Bash com cara nova","metaDesc":"Deixando o Bash com cara nova: ble.sh + Starship + Nerd Font","coverImage":"/assets/blog/post/Bash.webp","author":{"name":"Glaulher Medeiros","picture":"/assets/blog/authors/glaulher.jpeg"},"ogImage":{"url":"/assets/blog/post/driveI965.webp"},"publishedDate":"2025-05-12T16:34:00Z","tags":["linux"],"slug":"2025-05-12-bash-like-zsh","content":"$7"},{"title":"Corrigindo erro de libva no Fedora","metaDesc":"Habilitar aceleração de video em processador antigo no Fedora","coverImage":"/assets/blog/post/driveI965.webp","author":{"name":"Glaulher Medeiros","picture":"/assets/blog/authors/glaulher.jpeg"},"ogImage":{"url":"/assets/blog/post/driveI965.webp"},"publishedDate":"2025-02-17T16:34:00Z","tags":["linux"],"slug":"2025-02-17-driveI965","content":"$8"},{"title":"Nvim como editor de código","metaDesc":"Kickstart.nvim, uma configuração mínima e eficiente mantida por TJ Devries","coverImage":"/assets/blog/post/nvim.webp","author":{"name":"Glaulher Medeiros","picture":"/assets/blog/authors/glaulher.jpeg"},"ogImage":{"url":"/assets/blog/post/nvim.webp"},"publishedDate":"2025-02-13T16:34:00Z","categories":["Blogging","Tutorial"],"tags":["nvim","lua"],"slug":"2025-02-13-nvim","content":"$9"},{"title":"Atualizando meu blog com Next.js 15","metaDesc":"Criando um blog pessoal com nextjs e markdown","coverImage":"/assets/blog/post/Blog.webp","author":{"name":"Glaulher Medeiros","picture":"/assets/blog/authors/glaulher.jpeg"},"ogImage":{"url":"/assets/blog/post/Blog.png"},"publishedDate":"2025-02-11T16:34:00Z","categories":["Blogging","Tutorial"],"tags":["nextjs","markdown","react"],"slug":"2025-02-11-blog","content":"$a"},{"title":"npm-check-updates","metaDesc":"O npm (Node Package Manager) é uma ferramenta importante para desenvolvedores de JavaScript","coverImage":"/assets/blog/post/Npm-check-update.webp","author":{"name":"Glaulher Medeiros","picture":"/assets/blog/authors/glaulher.jpeg"},"ogImage":{"url":"/assets/blog/post/Npm-check-update.webp"},"publishedDate":"2023-04-01T16:34:00Z","tags":["nodejs","npm"],"slug":"2023-04-01-UpdatePackage","content":"$b"},{"title":"Componente de paginação em react","metaDesc":"A paginação é um recurso que permite dividir grandes conjuntos de dados em páginas","coverImage":"/assets/blog/post/PaginateBanner.webp","author":{"name":"Glaulher Medeiros","picture":"/assets/blog/authors/glaulher.jpeg"},"ogImage":{"url":"/assets/blog/post/PaginateBanner.webp"},"publishedDate":"2023-03-14T16:34:00Z","tags":["react","tutorial"],"slug":"2023-03-14-Pagination_","content":"$c"},{"title":"Insomnia em distros linux","metaDesc":"\tMuito mais que um cliente HTTP. Auxiliares avançados de autenticação, modelagem encadeamento","coverImage":"/assets/blog/post/InsomniaBanner.webp","author":{"name":"Glaulher Medeiros","picture":"/assets/blog/authors/glaulher.jpeg"},"ogImage":{"url":"/assets/blog/post/InsomniaBanner.webp"},"publishedDate":"2023-03-06T16:34:00Z","tags":["insomnia","rest","linux"],"slug":"2023-03-06-Insomnia","content":"$d"},{"title":"Next.js page options and how they work","metaDesc":"How to use pages in Next.js exploring the options","coverImage":"/assets/blog/post/22-09-2021.jpg","author":{"name":"Tim Neutkens","picture":"/assets/blog/authors/tim.jpeg"},"ogImage":{"url":"/assets/blog/post/22-09-2021.jpg"},"publishedDate":"2021-09-22T05:35:07.322Z","tags":["nextjs","react"],"slug":"2021-09-22-nextjs-page-options-and-how-they-work","content":"$e"},{"title":"React-native não carrega o app","metaDesc":"error Failed to install the app. Make sure you have the Android development environment set up","coverImage":"/assets/blog/post/22-09-2021.jpg","author":{"name":"Glaulher Medeiros","picture":"/assets/blog/authors/glaulher.jpeg"},"ogImage":{"url":"/assets/blog/post/22-09-2021.jpg"},"publishedDate":"2020-11-08T16:34:00Z","tags":["react","react-native","linux"],"slug":"2020-11-08-React-not-emul","content":"\n---\n\nMe deparei com esse problema, o yarn android não conseguia carregar o app no emulador e entregava a mensagem de erro:\"error Failed to install the app. Make sure you have the Android development environment set up\", ao tentar executar:\n\n```shell\ncd android && ./gradlew clean\n```\n\nme retornava que estava sem permissão:\n\nDei permissão:\n\n```shell\nchmod 777 -R gradlew\n```\n\ne ao executar yarn android o app carregou no emulador :)\n\nfontes:\n\n[stackoverflow](https://stackoverflow.com/questions/56891033/facing-issue-failed-to-install-the-app-make-sure-you-have-the-android-develop){:target=\"\\_blank\" rel=\"noopener\"}\n\n[github.com](https://github.com/facebook/react-native/issues/23306){:target=\"\\_blank\" rel=\"noopener\"}\n"},{"title":"Ícones no react-native com o react-native-vector-icons","metaDesc":"react-native-vector-icons, é uma forma de implementar icones no projeto de forma rápida e elegante","coverImage":"/assets/blog/post/22-09-2021.jpg","author":{"name":"Glaulher Medeiros","picture":"/assets/blog/authors/glaulher.jpeg"},"ogImage":{"url":"/assets/blog/post/22-09-2021.jpg"},"publishedDate":"2020-11-02T16:34:00Z","tags":["react","react-native","linux"],"slug":"2020-10-02-react-native-vector-icons","content":"$f"},{"title":"Gerenciador nvm no Linux","metaDesc":"O Node Version Manager é um script bash usado para gerenciar várias versões lançadas do Node.js","coverImage":"/assets/blog/post/22-09-2021.jpg","author":{"name":"Glaulher Medeiros","picture":"/assets/blog/authors/glaulher.jpeg"},"ogImage":{"url":"/assets/blog/post/22-09-2021.jpg"},"publishedDate":"2020-06-16T16:34:00Z","tags":["nodejs","linux"],"slug":"2020-06-16-nvm","content":"$10"},{"title":"React não recarrega a página ao salvar no linux","metaDesc":"Para resolver esse problema é preciso alterar o valor  de max_user_watches em inotify...","coverImage":"/assets/blog/post/22-09-2021.jpg","author":{"name":"Glaulher Medeiros","picture":"/assets/blog/authors/glaulher.jpeg"},"ogImage":{"url":"/assets/blog/post/22-09-2021.jpg"},"publishedDate":"2020-06-14T16:34:00Z","tags":["blog","tutorial","react","linux"],"slug":"2020-06-14-React-not-reload","content":"$11"},{"title":"Learn How to Pre-render Pages Using Static Generation with Next.js","metaDesc":"Lorem ipsum dolor sit amet, consectetur adipiscing elit.","coverImage":"/assets/blog/post/hello-world/cover.jpg","author":{"name":"Tim Neutkens","picture":"/assets/blog/authors/tim.jpeg"},"ogImage":{"url":"/assets/blog/post/hello-world/cover.jpg"},"publishedDate":"2020-03-16T05:35:07.322Z","slug":"hello-world","content":"$12"}]}]}]}],null,["$","$L13",null,{"children":"$L14"}]]}],{},null,false]},null,false],["$","$1","h",{"children":[null,["$","$1","bCOOh3UsdX--mw3doqCq3",{"children":[["$","$L15",null,{"children":"$L16"}],["$","$L17",null,{"children":"$L18"}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]]}],false]],"m":"$undefined","G":["$19","$undefined"],"s":false,"S":true}
+18:[["$","meta","0",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+16:[["$","meta","0",{"charSet":"utf-8"}],["$","title","1",{"children":"Blog Post-it"}],["$","meta","2",{"name":"description","content":"Meu blog sobre tecnologia utilizando Next.js and Markdown."}],["$","meta","3",{"property":"og:title","content":"Blog Post-it"}],["$","meta","4",{"property":"og:description","content":"Meu blog sobre tecnologia utilizando Next.js and Markdown."}],["$","meta","5",{"property":"og:image","content":"https://og-image.vercel.app/Next.js%20Blog%20Starter%20Example.png?theme=light&md=1&fontSize=100px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg"}],["$","meta","6",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","7",{"name":"twitter:title","content":"Blog Post-it"}],["$","meta","8",{"name":"twitter:description","content":"Meu blog sobre tecnologia utilizando Next.js and Markdown."}],["$","meta","9",{"name":"twitter:image","content":"https://og-image.vercel.app/Next.js%20Blog%20Starter%20Example.png?theme=light&md=1&fontSize=100px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg"}]]
+14:null
