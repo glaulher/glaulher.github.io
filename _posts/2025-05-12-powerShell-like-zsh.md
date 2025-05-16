@@ -60,9 +60,7 @@ Esse módulo ajuda a prever comandos completos com base no seu histórico e cont
 1. Instale uma Nerd Font 
 
 ```powershell
-
 winget install --id=DEVCOM.JetBrainsMonoNerdFont  -e
-
 ```
 
 Depois, altere a fonte no Windows Terminal → Aparência → Fonte.
@@ -70,17 +68,13 @@ Depois, altere a fonte no Windows Terminal → Aparência → Fonte.
 2. Instale o Starship
 
 ```powershell
-
 winget install --id Starship.Starship
-
 ```
 
 3. icones ao executa ls no terminal: 
 
 ```powershell
-
 Install-Module -Name Terminal-Icons -Force -Scope CurrentUser
-
 ```
 
 
@@ -95,7 +89,6 @@ notepad $PROFILE
 - Cole o seguinte conteúdo e salve:
 
 ```powershell
-
 Import-Module PSReadLine
 Import-Module Terminal-Icons
 
@@ -109,8 +102,6 @@ Set-PSReadLineKeyHandler -Key DownArrow -Function HistorySearchForward
 $ENV:STARSHIP_CONFIG = "$HOME\Documents\PowerShell\starship.toml"
 
 Invoke-Expression (&starship init powershell)
-
-
 ```
 
 
@@ -124,7 +115,6 @@ notepad $HOME\Documents\PowerShell\starship.toml
 Exemplo de starship.toml:
 
 ```toml
-
 "$schema" = 'https://starship.rs/config-schema.json'
 
 add_newline = false
@@ -139,7 +129,6 @@ error_symbol = '[✗](bold red)'
 
 [directory]
 truncation_length = 8
-
 ```
 
 Salve e reinicie o terminal.
