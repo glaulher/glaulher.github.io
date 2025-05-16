@@ -10,11 +10,11 @@ d:I[34835,[],""]
 :HL["/_next/static/media/a34f9d1faa5f3315-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/_next/static/css/277fcc79e498577f.css","style"]
 :HL["/_next/static/css/4639d7b613416f5d.css","style"]
-0:{"P":null,"b":"Dr8E3ai8Z8716qim2HvRN","p":"","c":["","posts","2025-05-12-powerShell-like-zsh"],"i":false,"f":[[["",{"children":["posts",{"children":[["slug","2025-05-12-powerShell-like-zsh","d"],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/277fcc79e498577f.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"en","children":[["$","head",null,{"children":[["$","link",null,{"rel":"apple-touch-icon","sizes":"180x180","href":"/favicon/apple-touch-icon.png"}],["$","link",null,{"rel":"icon","type":"image/png","sizes":"32x32","href":"/favicon/favicon-32x32.png"}],["$","link",null,{"rel":"icon","type":"image/png","sizes":"16x16","href":"/favicon/favicon-16x16.png"}],["$","link",null,{"rel":"manifest","href":"/favicon/site.webmanifest"}],["$","link",null,{"rel":"mask-icon","href":"/favicon/safari-pinned-tab.svg","color":"#000000"}],["$","link",null,{"rel":"shortcut icon","href":"/favicon/favicon.ico"}],["$","meta",null,{"name":"msapplication-TileColor","content":"#000000"}],["$","meta",null,{"name":"msapplication-config","content":"/favicon/browserconfig.xml"}],["$","meta",null,{"name":"theme-color","content":"#000"}],["$","link",null,{"rel":"alternate","type":"application/rss+xml","href":"/feed.xml"}]]}],["$","body",null,{"className":"bg-slate-100\n            dark:bg-gray-900\n            dark:from-gray-900\n            dark:to-gray-800 \n            bg-gradient-to-r \n            h-screen \n            __className_d65c78","children":["$","$L2",null,{"children":[["$","$L3",null,{}],["$","$L4",null,{"parallelRouterKey":"children","segmentPath":["children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[],[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]]],"forbidden":"$undefined","unauthorized":"$undefined"}],["$","footer",null,{"className":"bg-gray-700  mt-1 py-4","children":["$","div",null,{"className":"container mx-auto flex justify-center","children":["$","span",null,{"className":"mx-auto text-neutral-200","children":"© 2025 GrmDevTips"}]}]}]]}]}]]}]]}],{"children":["posts",["$","$1","c",{"children":[null,["$","$L4",null,{"parallelRouterKey":"children","segmentPath":["children","posts","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["slug","2025-05-12-powerShell-like-zsh","d"],["$","$1","c",{"children":[null,["$","$L4",null,{"parallelRouterKey":"children","segmentPath":["children","posts","children","$0:f:0:1:2:children:2:children:0","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":["__PAGE__",["$","$1","c",{"children":["$L6",[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/4639d7b613416f5d.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","$L7",null,{"children":"$L8"}]]}],{},null,false]},null,false]},null,false]},null,false],["$","$1","h",{"children":[null,["$","$1","1jX5MEj4nIE3mXes2QznV",{"children":[["$","$L9",null,{"children":"$La"}],["$","$Lb",null,{"children":"$Lc"}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]]}],false]],"m":"$undefined","G":["$d","$undefined"],"s":false,"S":true}
+0:{"P":null,"b":"LeB4Vm-SsCZI8goF-3GGN","p":"","c":["","posts","2025-05-12-powerShell-like-zsh"],"i":false,"f":[[["",{"children":["posts",{"children":[["slug","2025-05-12-powerShell-like-zsh","d"],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/277fcc79e498577f.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"en","children":[["$","head",null,{"children":[["$","link",null,{"rel":"apple-touch-icon","sizes":"180x180","href":"/favicon/apple-touch-icon.png"}],["$","link",null,{"rel":"icon","type":"image/png","sizes":"32x32","href":"/favicon/favicon-32x32.png"}],["$","link",null,{"rel":"icon","type":"image/png","sizes":"16x16","href":"/favicon/favicon-16x16.png"}],["$","link",null,{"rel":"manifest","href":"/favicon/site.webmanifest"}],["$","link",null,{"rel":"mask-icon","href":"/favicon/safari-pinned-tab.svg","color":"#000000"}],["$","link",null,{"rel":"shortcut icon","href":"/favicon/favicon.ico"}],["$","meta",null,{"name":"msapplication-TileColor","content":"#000000"}],["$","meta",null,{"name":"msapplication-config","content":"/favicon/browserconfig.xml"}],["$","meta",null,{"name":"theme-color","content":"#000"}],["$","link",null,{"rel":"alternate","type":"application/rss+xml","href":"/feed.xml"}]]}],["$","body",null,{"className":"bg-slate-100\n            dark:bg-gray-900\n            dark:from-gray-900\n            dark:to-gray-800 \n            bg-gradient-to-r \n            h-screen \n            __className_d65c78","children":["$","$L2",null,{"children":[["$","$L3",null,{}],["$","$L4",null,{"parallelRouterKey":"children","segmentPath":["children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[],[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]]],"forbidden":"$undefined","unauthorized":"$undefined"}],["$","footer",null,{"className":"bg-gray-700  mt-1 py-4","children":["$","div",null,{"className":"container mx-auto flex justify-center","children":["$","span",null,{"className":"mx-auto text-neutral-200","children":"© 2025 GrmDevTips"}]}]}]]}]}]]}]]}],{"children":["posts",["$","$1","c",{"children":[null,["$","$L4",null,{"parallelRouterKey":"children","segmentPath":["children","posts","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["slug","2025-05-12-powerShell-like-zsh","d"],["$","$1","c",{"children":[null,["$","$L4",null,{"parallelRouterKey":"children","segmentPath":["children","posts","children","$0:f:0:1:2:children:2:children:0","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":["__PAGE__",["$","$1","c",{"children":["$L6",[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/4639d7b613416f5d.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","$L7",null,{"children":"$L8"}]]}],{},null,false]},null,false]},null,false]},null,false],["$","$1","h",{"children":[null,["$","$1","JVVYugetFnNaCiT25_8JC",{"children":[["$","$L9",null,{"children":"$La"}],["$","$Lb",null,{"children":"$Lc"}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]]}],false]],"m":"$undefined","G":["$d","$undefined"],"s":false,"S":true}
 e:I[48173,["742","static/chunks/742-565a7562c8d1d87c.js","688","static/chunks/688-2ba1992c7a7e345a.js","858","static/chunks/app/posts/%5Bslug%5D/page-b06279caf317e001.js"],""]
 f:I[87970,["742","static/chunks/742-565a7562c8d1d87c.js","688","static/chunks/688-2ba1992c7a7e345a.js","858","static/chunks/app/posts/%5Bslug%5D/page-b06279caf317e001.js"],"Image"]
 10:I[85301,["742","static/chunks/742-565a7562c8d1d87c.js","688","static/chunks/688-2ba1992c7a7e345a.js","858","static/chunks/app/posts/%5Bslug%5D/page-b06279caf317e001.js"],"PostBody"]
-11:Tfc4,<hr>
+11:Tfb9,<hr>
 <p>Se usa Zsh com plugins como zsh-autosuggestions e zsh-syntax-highlighting no unix like, talvez ache o PowerShell do windows muito básico à primeira vista.</p>
 <p>Mas a verdade é que com alguns ajustes simples, o PowerShell no Windows pode oferecer uma experiência de terminal moderna, inteligente e bonita — com autosuggestions, syntax highlight, busca no histórico por substring e visual com ícones graças ao Starship e Nerd Fonts. Abaixo explico tudo passo a passo.</p>
 <h4>✅ Instalando o PowerShell (última versão)</h4>
@@ -40,24 +40,18 @@ winget install Microsoft.PowerShell
 <ol>
 <li>Instale uma Nerd Font</li>
 </ol>
-<pre><code class="language-powershell">
-winget install --id=DEVCOM.JetBrainsMonoNerdFont  -e
-
+<pre><code class="language-powershell">winget install --id=DEVCOM.JetBrainsMonoNerdFont  -e
 </code></pre>
 <p>Depois, altere a fonte no Windows Terminal → Aparência → Fonte.</p>
 <ol start="2">
 <li>Instale o Starship</li>
 </ol>
-<pre><code class="language-powershell">
-winget install --id Starship.Starship
-
+<pre><code class="language-powershell">winget install --id Starship.Starship
 </code></pre>
 <ol start="3">
 <li>icones ao executa ls no terminal:</li>
 </ol>
-<pre><code class="language-powershell">
-Install-Module -Name Terminal-Icons -Force -Scope CurrentUser
-
+<pre><code class="language-powershell">Install-Module -Name Terminal-Icons -Force -Scope CurrentUser
 </code></pre>
 <h4>📂 Salvando tudo no seu perfil ($PROFILE)</h4>
 <p>Para manter essa configuração sempre que abrir o terminal:</p>
@@ -66,8 +60,7 @@ Install-Module -Name Terminal-Icons -Force -Scope CurrentUser
 <ul>
 <li>Cole o seguinte conteúdo e salve:</li>
 </ul>
-<pre><code class="language-powershell">
-Import-Module PSReadLine
+<pre><code class="language-powershell">Import-Module PSReadLine
 Import-Module Terminal-Icons
 
 Set-PSReadLineOption -PredictionSource HistoryAndPlugin
@@ -80,8 +73,6 @@ Set-PSReadLineKeyHandler -Key DownArrow -Function HistorySearchForward
 $ENV:STARSHIP_CONFIG = "$HOME\Documents\PowerShell\starship.toml"
 
 Invoke-Expression (&#x26;starship init powershell)
-
-
 </code></pre>
 <ol start="4">
 <li>Personalize o Starship (opcional)</li>
@@ -92,8 +83,7 @@ Invoke-Expression (&#x26;starship init powershell)
 <pre><code class="language-powershell">notepad $HOME\Documents\PowerShell\starship.toml
 </code></pre>
 <p>Exemplo de starship.toml:</p>
-<pre><code class="language-toml">
-"$schema" = 'https://starship.rs/config-schema.json'
+<pre><code class="language-toml">"$schema" = 'https://starship.rs/config-schema.json'
 
 add_newline = false
 command_timeout = 10000
@@ -107,7 +97,6 @@ error_symbol = '[✗](bold red)'
 
 [directory]
 truncation_length = 8
-
 </code></pre>
 <p>Salve e reinicie o terminal.
 Pronto! 😄</p>
