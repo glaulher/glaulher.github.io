@@ -1,0 +1,219 @@
+1:"$Sreact.fragment"
+2:I[78534,["742","static/chunks/742-565a7562c8d1d87c.js","177","static/chunks/app/layout-c2fa79d5b2cde0df.js"],"Providers"]
+3:I[6538,["742","static/chunks/742-565a7562c8d1d87c.js","177","static/chunks/app/layout-c2fa79d5b2cde0df.js"],"WrapperHeader"]
+4:I[15244,[],""]
+5:I[43866,[],""]
+7:I[86213,[],"OutletBoundary"]
+9:I[86213,[],"MetadataBoundary"]
+b:I[86213,[],"ViewportBoundary"]
+d:I[34835,[],""]
+:HL["/_next/static/media/e4af272ccee01ff0-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/css/9a455a0bc55c7fd0.css","style"]
+:HL["/_next/static/css/4639d7b613416f5d.css","style"]
+0:{"P":null,"b":"B7neQQhyWsSCIOhBmHY2S","p":"","c":["","posts","2025-06-25-neovim"],"i":false,"f":[[["",{"children":["posts",{"children":[["slug","2025-06-25-neovim","d"],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/9a455a0bc55c7fd0.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"en","children":[["$","head",null,{"children":[["$","link",null,{"rel":"apple-touch-icon","sizes":"180x180","href":"/favicon/apple-touch-icon.png"}],["$","link",null,{"rel":"icon","type":"image/png","sizes":"32x32","href":"/favicon/favicon-32x32.png"}],["$","link",null,{"rel":"icon","type":"image/png","sizes":"16x16","href":"/favicon/favicon-16x16.png"}],["$","link",null,{"rel":"manifest","href":"/favicon/site.webmanifest"}],["$","link",null,{"rel":"mask-icon","href":"/favicon/safari-pinned-tab.svg","color":"#000000"}],["$","link",null,{"rel":"shortcut icon","href":"/favicon/favicon.ico"}],["$","meta",null,{"name":"msapplication-TileColor","content":"#000000"}],["$","meta",null,{"name":"msapplication-config","content":"/favicon/browserconfig.xml"}],["$","meta",null,{"name":"theme-color","content":"#000"}],["$","link",null,{"rel":"alternate","type":"application/rss+xml","href":"/feed.xml"}]]}],["$","body",null,{"className":"bg-slate-100\n            dark:bg-gray-900\n            dark:from-gray-900\n            dark:to-gray-800 \n            bg-gradient-to-r \n            h-screen \n            __className_e8ce0c","children":["$","$L2",null,{"children":[["$","$L3",null,{}],["$","$L4",null,{"parallelRouterKey":"children","segmentPath":["children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[],[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]]],"forbidden":"$undefined","unauthorized":"$undefined"}],["$","footer",null,{"className":"bg-gray-700  mt-1 py-4","children":["$","div",null,{"className":"container mx-auto flex justify-center","children":["$","span",null,{"className":"mx-auto text-neutral-200","children":"© 2025 GrmDevTips"}]}]}]]}]}]]}]]}],{"children":["posts",["$","$1","c",{"children":[null,["$","$L4",null,{"parallelRouterKey":"children","segmentPath":["children","posts","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["slug","2025-06-25-neovim","d"],["$","$1","c",{"children":[null,["$","$L4",null,{"parallelRouterKey":"children","segmentPath":["children","posts","children","$0:f:0:1:2:children:2:children:0","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":["__PAGE__",["$","$1","c",{"children":["$L6",[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/4639d7b613416f5d.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","$L7",null,{"children":"$L8"}]]}],{},null,false]},null,false]},null,false]},null,false],["$","$1","h",{"children":[null,["$","$1","uWUP4RRl1P5Z8JyGPuVz2",{"children":[["$","$L9",null,{"children":"$La"}],["$","$Lb",null,{"children":"$Lc"}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]]}],false]],"m":"$undefined","G":["$d","$undefined"],"s":false,"S":true}
+e:I[48173,["742","static/chunks/742-565a7562c8d1d87c.js","688","static/chunks/688-2ba1992c7a7e345a.js","858","static/chunks/app/posts/%5Bslug%5D/page-b06279caf317e001.js"],""]
+f:I[87970,["742","static/chunks/742-565a7562c8d1d87c.js","688","static/chunks/688-2ba1992c7a7e345a.js","858","static/chunks/app/posts/%5Bslug%5D/page-b06279caf317e001.js"],"Image"]
+10:I[85301,["742","static/chunks/742-565a7562c8d1d87c.js","688","static/chunks/688-2ba1992c7a7e345a.js","858","static/chunks/app/posts/%5Bslug%5D/page-b06279caf317e001.js"],"PostBody"]
+11:T1f7e,<hr>
+<p>🛠️ O <a href="https://github.com/nvim-lua/kickstart.nvim">Kickstart.nvim</a> é uma base moderna e minimalista para configurar o Neovim com suporte a LSP, autocompletar, navegação e muito mais. Neste guia, você vai aprender a instalar e personalizar seu setup com funcionalidades extras como Nerd Fonts, debug com ícones e o plugin <code>bufferline.nvim</code>.</p>
+<hr>
+<h2>✅ Requisitos iniciais</h2>
+<h3>📦 Linux</h3>
+<p>Instale os pacotes essenciais:</p>
+<ul>
+<li>Ubuntu:</li>
+</ul>
+<pre><code class="language-bash">sudo add-apt-repository ppa:neovim-ppa/unstable -y
+sudo apt update
+sudo apt install make gcc ripgrep zip unzip git xclip neovim fd-find wget curl wl-clipboard
+</code></pre>
+<ul>
+<li>Debian:</li>
+</ul>
+<pre><code class="language-bash">sudo apt update
+sudo apt install make gcc ripgrep zip unzip git xclip fd-find wget curl wl-clipboard
+</code></pre>
+<ul>
+<li>Agora instale o nvim:</li>
+</ul>
+<pre><code class="language-bash">curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz
+sudo rm -rf /opt/nvim-linux-x86_64
+sudo mkdir -p /opt/nvim-linux-x86_64
+sudo chmod a+rX /opt/nvim-linux-x86_64
+sudo tar -C /opt -xzf nvim-linux-x86_64.tar.gz
+
+# make it available in /usr/local/bin, distro installs to /usr/bin
+sudo ln -sf /opt/nvim-linux-x86_64/bin/nvim /usr/local/bin/
+</code></pre>
+<ul>
+<li>Fedora:</li>
+</ul>
+<pre><code class="language-bash">sudo dnf install -y make gcc ripgrep zip unzip git xclip neovim fd-find wget curl wl-clipboard
+</code></pre>
+<ul>
+<li>Arch:</li>
+</ul>
+<pre><code class="language-bash">sudo pacman -S --noconfirm --needed make gcc ripgrep zip unzip git xclip neovim fd-find wget curl wl-clipboard
+</code></pre>
+<p>🪟 Windows</p>
+<ul>
+<li>Instale o Chocolatey com:</li>
+</ul>
+<pre><code class="language-powershell">winget install --accept-source-agreements chocolatey.chocolatey
+</code></pre>
+<p>Depois, execute o terminal como administrador e rode:</p>
+<pre><code class="language-powershell">choco install -y neovim git ripgrep wget fd unzip gzip mingw make jq nodejs-lts luarocks llvm
+</code></pre>
+<p>🚀 Instalando o Kickstart.nvim
+Faça o clone do repositório:</p>
+<pre><code class="language-bash">git clone https://github.com/nvim-lua/kickstart.nvim ~/.config/nvim
+No Windows: %userprofile%\AppData\Local\nvim
+</code></pre>
+<h3>Personalizando:</h3>
+<p>🎨 Instalando Nerd Fonts com getnf</p>
+<pre><code class="language-bash">curl -fsSL https://raw.githubusercontent.com/getnf/getnf/main/install.sh | bash
+</code></pre>
+<p>Depois, execute:</p>
+<pre><code class="language-bash">getnf
+   # Se não trabalhar execute o caminho completo:
+~/.local/bin/getnf
+</code></pre>
+<p>Escolha uma fonte, como por exemplo a opção 9 - CascadiaMono. Após a instalação, altere a fonte do seu terminal para essa nova fonte.</p>
+<p>🧠 Estrutura do Kickstart: Pasta custom</p>
+<ul>
+<li>Edite init.lua em custom usando um editor de arquivo:</li>
+</ul>
+<pre><code class="language-bash"> ~/.config/nvim/lua/custom/plugins/init.lua
+</code></pre>
+<pre><code class="language-lua">return {
+  { 'akinsho/bufferline.nvim', version = '*', dependencies = 'nvim-tree/nvim-web-devicons' },
+}
+</code></pre>
+<p>📦 Configurando o plugin bufferline.nvim</p>
+<ul>
+<li>Crie o arquivo lua/custom/plugins/bufferline.lua com:</li>
+</ul>
+<pre><code class="language-lua">local status, bufferline = pcall(require, 'bufferline')
+if not status then
+  return
+end
+
+bufferline.setup {
+  options = {
+    mode = 'buffers',
+    buffer_close_icon = '',
+    color_icons = true,
+    show_close_icon = false,
+    close_command = 'bdelete! %d',
+    right_mouse_command = 'bdelete! %d',
+    offsets = {
+      {
+        filetype = 'NvimTree',
+        text = 'File Explorer',
+        highlight = 'Directory',
+        text_align = 'left',
+        separator = true,
+      },
+    },
+    separator_style = 'slant',
+    diagnostics = 'nvim_lsp',
+    hover = {
+      enabled = true,
+      delay = 200,
+      reveal = { 'close' },
+    },
+    diagnostics_indicator = function(count, level)
+      local icon = level:match 'error' and ' ' or ' '
+      return ' ' .. icon .. count
+    end,
+  },
+}
+
+vim.keymap.set('n', '&#x3C;Tab>', '&#x3C;Cmd>BufferLineCycleNext&#x3C;CR>', {})
+vim.keymap.set('n', '&#x3C;S-Tab>', '&#x3C;Cmd>BufferLineCyclePrev&#x3C;CR>', {})
+vim.keymap.set('n', '&#x3C;C-X>', '&#x3C;Cmd>bd&#x3C;CR>', {})
+
+return {}
+</code></pre>
+<p>🐞 Ativando ícones personalizados no debug</p>
+<ul>
+<li>Edite o arquivo lua/kickstart/plugins/debug.lua descomentando:</li>
+</ul>
+<pre><code class="language-lua">  -- Change breakpoint icons
+    -- vim.api.nvim_set_hl(0, 'DapBreak', { fg = '#e51400' })
+    -- vim.api.nvim_set_hl(0, 'DapStop', { fg = '#ffcc00' })
+    -- local breakpoint_icons = vim.g.have_nerd_font
+    --     and { Breakpoint = '', BreakpointCondition = '', BreakpointRejected = '', LogPoint = '', Stopped = '' }
+    --   or { Breakpoint = '●', BreakpointCondition = '⊜', BreakpointRejected = '⊘', LogPoint = '◆', Stopped = '⭔' }
+    -- for type, icon in pairs(breakpoint_icons) do
+    --   local tp = 'Dap' .. type
+    --   local hl = (type == 'Stopped') and 'DapStop' or 'DapBreak'
+    --   vim.fn.sign_define(tp, { text = icon, texthl = hl, numhl = hl })
+    -- end
+</code></pre>
+<ul>
+<li>Deixando conforme abaixo:</li>
+</ul>
+<pre><code class="language-lua">   -- Change breakpoint icons
+    vim.api.nvim_set_hl(0, 'DapBreak', { fg = '#e51400' })
+    vim.api.nvim_set_hl(0, 'DapStop', { fg = '#ffcc00' })
+    local breakpoint_icons = vim.g.have_nerd_font
+        and { Breakpoint = '', BreakpointCondition = '', BreakpointRejected = '', LogPoint = '', Stopped = '' }
+      or { Breakpoint = '●', BreakpointCondition = '⊜', BreakpointRejected = '⊘', LogPoint = '◆', Stopped = '⭔' }
+    for type, icon in pairs(breakpoint_icons) do
+      local tp = 'Dap' .. type
+      local hl = (type == 'Stopped') and 'DapStop' or 'DapBreak'
+      vim.fn.sign_define(tp, { text = icon, texthl = hl, numhl = hl })
+    end
+</code></pre>
+<p>🎨 Habilitar nerd fonts no kickstart.nvim</p>
+<ul>
+<li>Procure pela linha em init.lua: <code>vim.g.have_nerd_font = false</code></li>
+</ul>
+<pre><code class="language-lua">--Passe essa linha para true
+vim.g.have_nerd_font = true
+</code></pre>
+<p>🧠 Habilitando os extras:</p>
+<ul>
+<li>Descomente as linhas:</li>
+</ul>
+<pre><code class="language-lua">  -- require 'kickstart.plugins.debug',
+  -- require 'kickstart.plugins.indent_line',
+  -- require 'kickstart.plugins.lint',
+  -- require 'kickstart.plugins.autopairs',
+  -- require 'kickstart.plugins.neo-tree',
+  -- require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
+
+  -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
+  --    This is the easiest way to modularize your config.
+  --
+  --  Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
+  -- { import = 'custom.plugins' },
+</code></pre>
+<ul>
+<li>Deixando conforme abaixo:</li>
+</ul>
+<pre><code class="language-lua">   require 'kickstart.plugins.debug',
+   require 'kickstart.plugins.indent_line',
+   require 'kickstart.plugins.lint',
+   require 'kickstart.plugins.autopairs',
+   require 'kickstart.plugins.neo-tree',
+   require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
+
+  -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
+  --    This is the easiest way to modularize your config.
+  --
+  --  Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
+   { import = 'custom.plugins' },
+</code></pre>
+<ul>
+<li>Abra o nvim e os plugins serão instalados automaticamente, feche e abra novamente.</li>
+</ul>
+<p>📚 Referências
+Kickstart.nvim - https://github.com/nvim-lua/kickstart.nvim/blob/master/init.lua</p>
+<p>getnf - Nerd Font Installer - https://github.com/getnf/getnf</p>
+<p>bufferline.nvim - https://github.com/akinsho/bufferline.nvim</p>
+6:["$","main",null,{"children":["$","div",null,{"className":"container mx-auto px-5","children":[["$","div",null,{"className":"flex justify-between items-center mb-20 mt-8","children":[["$","h2",null,{"className":"text-2xl md:text-4xl font-bold tracking-tight md:tracking-tighter leading-tight","children":["$","$Le",null,{"href":"/","className":"hover:underline","children":"Blog"}]}],["$","$Le",null,{"href":"/","children":["$","p",null,{"className":"text-sm dark:text-neutral-200 hover:text-sky-700 dark:hover:text-sky-700 flex items-center","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","fill":"none","viewBox":"0 0 24 24","strokeWidth":2,"stroke":"currentColor","className":"w-4 h-4 mr-1","children":["$","path",null,{"strokeLinecap":"round","strokeLinejoin":"round","d":"M15 19l-7-7 7-7"}]}],"Voltar"]}]}]]}],["$","article",null,{"className":"mb-32","children":[[["$","h1",null,{"className":"text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-tight md:leading-none mb-12 text-center md:text-left","children":"Como personalizar o Kickstart.nvim"}],["$","div",null,{"className":"hidden md:block md:mb-12","children":["$","div",null,{"className":"flex items-center","children":[["$","$Lf",null,{"src":"/assets/blog/authors/glaulher.jpeg","width":48,"height":48,"className":" rounded-full mr-4","alt":"Glaulher Medeiros"}],["$","div",null,{"className":"text-xl font-bold","children":"Glaulher Medeiros"}]]}]}],["$","div",null,{"className":"mb-8 md:mb-16 sm:mx-0 flex items-center justify-center ","children":["$","div",null,{"className":"w-full max-w-[800px] max-h-[500px] ","children":["$","div",null,{"className":"sm:mx-0","children":["$","$Lf",null,{"src":"/assets/blog/post/nvimPersonalizacao.webp","alt":"Cover Image for Como personalizar o Kickstart.nvim","className":"object-contain object-center w-auto h-auto rounded-md shadow-sm ","width":800,"height":800,"priority":true}]}]}]}],["$","div",null,{"className":"max-w-2xl mx-auto","children":[["$","div",null,{"className":"block md:hidden mb-6","children":["$","div",null,{"className":"flex items-center","children":[["$","$Lf",null,{"src":"/assets/blog/authors/glaulher.jpeg","width":48,"height":48,"className":" rounded-full mr-4","alt":"Glaulher Medeiros"}],["$","div",null,{"className":"text-xl font-bold","children":"Glaulher Medeiros"}]]}]}],["$","div",null,{"className":"mb-6 text-lg","children":["$","time",null,{"children":"25 de junho de 2025"}]}]]}]],["$","$L10",null,{"content":"$11"}]]}]]}]}]
+c:[["$","meta","0",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+a:[["$","meta","0",{"charSet":"utf-8"}],["$","title","1",{"children":"Como personalizar o Kickstart.nvim | Meu blog sobre tecnologia utilizando Next.js and Markdown."}],["$","meta","2",{"name":"description","content":"Meu blog sobre tecnologia utilizando Next.js and Markdown."}],["$","meta","3",{"property":"og:title","content":"Como personalizar o Kickstart.nvim | Meu blog sobre tecnologia utilizando Next.js and Markdown."}],["$","meta","4",{"property":"og:description","content":"Meu blog sobre tecnologia utilizando Next.js and Markdown."}],["$","meta","5",{"property":"og:image","content":"https://glaulher.github.io/assets/blog/post/nvimPersonalizacao.webp"}],["$","meta","6",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","7",{"name":"twitter:title","content":"Como personalizar o Kickstart.nvim | Meu blog sobre tecnologia utilizando Next.js and Markdown."}],["$","meta","8",{"name":"twitter:description","content":"Meu blog sobre tecnologia utilizando Next.js and Markdown."}],["$","meta","9",{"name":"twitter:image","content":"https://glaulher.github.io/assets/blog/post/nvimPersonalizacao.webp"}]]
+8:null
