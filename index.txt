@@ -4,13 +4,620 @@
 4:I[15244,[],""]
 5:I[43866,[],""]
 6:I[96570,["742","static/chunks/742-565a7562c8d1d87c.js","974","static/chunks/app/page-5900c0aa15e61cfb.js"],"HomePostSection"]
-15:I[86213,[],"OutletBoundary"]
-17:I[86213,[],"MetadataBoundary"]
-19:I[86213,[],"ViewportBoundary"]
-1b:I[34835,[],""]
+16:I[86213,[],"OutletBoundary"]
+18:I[86213,[],"MetadataBoundary"]
+1a:I[86213,[],"ViewportBoundary"]
+1c:I[34835,[],""]
 :HL["/_next/static/media/e4af272ccee01ff0-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/_next/static/css/9a455a0bc55c7fd0.css","style"]
-7:T1bc3,
+7:T4fc5,
+---
+
+## 🛠️ Desenvolvendo em Java com Neovim: é possível?
+Muita gente acredita que programar em Java exige uma infraestrutura pesada e uma IDE robusta, como o IntelliJ. De fato, essas ferramentas oferecem recursos poderosos. Mas será que é possível ter uma experiência produtiva usando apenas o Neovim?
+
+Desde que passei a usar distribuições Linux no dia a dia, tenho experimentado o Neovim cada vez mais. VS Code e Neovim se tornaram meus editores preferidos e, ao estudar Java, decidi explorar a possibilidade de usá-lo também nessa linguagem. A complexidade do ecossistema Java e a dependência de ferramentas completas são justamente os principais desafios.
+
+Com os avanços do Neovim, do protocolo de servidor de linguagem (LSP) e do protocolo de depuração (DAP), é totalmente viável transformá-lo em um ambiente de desenvolvimento moderno para Java — com navegação de código, autocompletar, refatoração e até depuração.
+
+Neste post, vou mostrar como configurar o Neovim como uma verdadeira IDE para Java, utilizando jdtls, nvim-dap, springboot.nvim e outros plugins essenciais.
+
+---
+
+## ✅ Requisitos iniciais
+
+### ☕ Estruturando o Suporte a Java no Kickstart.nvim
+- Neste guia, estamos utilizando o [**Kickstart.nvim**](https://github.com/nvim-lua/kickstart.nvim), uma base altamente configurável para Neovim em Lua, para esse tutorial, é necessário ter instalado o java e o maven no sistema. Com o Kickstart.nvim, criamos um arquivo em custom/plugins/java.lua
+
+### 🚀 O que esse arquivo faz?
+- Dentro do java.lua, realizamos a integração de várias ferramentas e plugins para oferecer suporte completo a:
+✅ Linguagem via LSP (jdtls)
+✅ Framework Spring Boot via spring-boot.nvim
+✅ Depuração com nvim-dap
+✅ Testes Java com java-test
+✅ Anotações e suporte ao Lombok
+✅ Atalhos personalizados com which-key
+
+java.lua:
+
+```lua
+-- This is the same as in lspconfig.configs.jdtls, but avoids
+-- needing to require that when this module loads.
+local mason_registry = require 'mason-registry'
+
+-- Utility function to extend or override a config table, similar to the way
+-- that Plugin.opts works.
+---@param config table
+---@param custom function | table | nil
+local function extend_or_override(config, custom, ...)
+  if type(custom) == 'function' then
+    config = custom(config, ...) or config
+  elseif custom then
+    config = vim.tbl_deep_extend('force', config, custom) --[[@as table]]
+  end
+  return config
+end
+
+local function has_plugin(name)
+  local ok, _ = pcall(require, name)
+  return ok
+end
+
+return {
+
+  -- Add java to treesitter.
+  {
+    'nvim-treesitter/nvim-treesitter',
+    opts = { ensure_installed = { 'java' } },
+  },
+
+  --add springboot
+  {
+    'JavaHello/spring-boot.nvim',
+    ft = { 'java', 'yaml', 'jproperties' },
+    dependencies = {
+      'mfussenegger/nvim-jdtls', -- or nvim-java, nvim-lspconfig
+      'nvim-telescope/telescope.nvim', -- optional, for UI features like symbol picking. Other pickers (e.g., telescope.nvim) can also be used.
+    },
+    ---@type bootls.Config
+    ---@diagnostic disable-next-line: missing-fields
+    opts = {},
+  },
+  -- Ensure java debugger and test packages are installed.
+  {
+    'mfussenegger/nvim-dap',
+    optional = true,
+    opts = function()
+      -- Simple configuration to attach to remote java debug process
+      -- Taken directly from https://github.com/mfussenegger/nvim-dap/wiki/Java
+      local dap = require 'dap'
+      dap.configurations.java = {
+        {
+          type = 'java',
+          request = 'attach',
+          name = 'Debug (Attach) - Remote',
+          hostName = '127.0.0.1',
+          port = 5005,
+        },
+      }
+    end,
+    dependencies = {
+      {
+        'mason-org/mason.nvim',
+        opts = { ensure_installed = {} },
+      },
+    },
+  },
+
+  -- Configure nvim-lspconfig to install the server automatically via mason, but
+  -- defer actually starting it to our configuration of nvim-jtdls below.
+  {
+    'neovim/nvim-lspconfig',
+    dependencies = {
+      {
+        'mason-org/mason-lspconfig.nvim',
+
+        config = function()
+          require('mason-lspconfig').setup {
+            -- ensure_installed = { 'vscode-spring-boot-tools', 'jdtls' }, -- explicitly set to an empty table (Kickstar
+            ensure_installed = {},
+            automatic_enable = {
+              exclude = { 'jdtls' },
+            },
+          }
+        end,
+      },
+    },
+    opts = {
+      -- make sure mason installs the server
+      servers = {
+        jdtls = {},
+      },
+      setup = {
+        jdtls = function()
+          return true -- avoid duplicate servers
+        end,
+      },
+    },
+  },
+
+  -- Set up nvim-jdtls to attach to java files.
+  {
+    'mfussenegger/nvim-jdtls',
+    dependencies = { 'folke/which-key.nvim' },
+    ft = { 'java' },
+    opts = function()
+      --  local cmd = { vim.fn.exepath 'jdtls' }
+      local lombok_jar = vim.fn.expand '$MASON' .. '/share/jdtls/lombok.jar'
+
+      -- Verify the file actually exists
+      if vim.fn.filereadable(lombok_jar) == 0 then
+        vim.notify('lombok.jar not found at: ' .. lombok_jar, vim.log.levels.WARN)
+        lombok_jar = ''
+      end
+
+      -- Fallback configuration if lombok.jar isn't found
+      if lombok_jar == '' then
+        vim.notify('Using jdtls without lombok support', vim.log.levels.WARN)
+        return {
+          root_dir = require('lspconfig').util.root_pattern('.git', 'mvnw', 'gradlew'),
+          cmd = { vim.fn.exepath 'jdtls' },
+          -- other default configurations...
+        }
+      end
+
+      return {
+        -- How to find the root dir for a given filename. The default comes from
+        -- lspconfig which provides a function specifically for java projects.
+
+        root_dir = require('lspconfig').util.root_pattern('.git', 'mvnw', 'gradlew', 'pom.xml'),
+        -- How to find the project name for a given root dir.
+        project_name = function(root_dir)
+          return root_dir and vim.fs.basename(root_dir) or 'default'
+        end,
+
+        -- Where are the config and workspace dirs for a project?
+        jdtls_config_dir = function(project_name)
+          return vim.fn.stdpath 'cache' .. '/jdtls/' .. project_name .. '/config'
+        end,
+        jdtls_workspace_dir = function(project_name)
+          return vim.fn.stdpath 'cache' .. '/jdtls/' .. project_name .. '/workspace'
+        end,
+
+        -- How to run jdtls. This can be overridden to a full java command-line
+        -- if the Python wrapper script doesn't suffice.
+        --  cmd = cmd,
+        -- Command for starting jdtls with Lombok support
+        cmd = {
+          vim.fn.exepath 'jdtls',
+          string.format('--jvm-arg=-javaagent:%s', lombok_jar),
+        },
+        full_cmd = function(opts)
+          local fname = vim.api.nvim_buf_get_name(0)
+          local root_dir = opts.root_dir(fname)
+          local project_name = opts.project_name(root_dir)
+          local full_cmd = vim.deepcopy(opts.cmd)
+          if project_name then
+            vim.list_extend(full_cmd, {
+              '-configuration',
+              opts.jdtls_config_dir(project_name),
+              '-data',
+              opts.jdtls_workspace_dir(project_name),
+            })
+          end
+          return full_cmd
+        end,
+
+        -- These depend on nvim-dap, but can additionally be disabled by setting false here.
+        dap = { hotcodereplace = 'auto', config_overrides = {} },
+        -- Can set this to false to disable main class scan, which is a performance killer for large project
+        dap_main = {},
+        test = true,
+        settings = {
+          java = {
+            inlayHints = {
+              parameterNames = {
+                enabled = 'all',
+              },
+            },
+          },
+        },
+      }
+    end,
+    config = function(_, opts)
+      -- Find the extra bundles that should be passed on the jdtls command-line
+      -- if nvim-dap is enabled with java debug/test.
+      local bundles = {} ---@type string[]
+
+      --  vim.list_extend(bundles, require('spring_boot').java_extensions())
+      local addAll = function(target, insertion)
+        for _, value in pairs(insertion) do
+          table.insert(target, value)
+        end
+      end
+      if has_plugin 'spring_boot' then
+        vim.api.nvim_create_user_command('SpringBootSymbols', function(_)
+          require('telescope.builtin').lsp_workspace_symbols {}
+        end, { nargs = 0 })
+
+        local spring_boot = require 'spring_boot'
+        addAll(bundles, spring_boot.java_extensions())
+      end
+
+      if opts.dap and mason_registry.is_installed 'java-debug-adapter' then
+        local java_dbg_path = vim.fn.expand '$MASON' .. '/packages/java-debug-adapter'
+
+        local jar_patterns = {
+          java_dbg_path .. '/extension/server/com.microsoft.java.debug.plugin-*.jar',
+        }
+        -- java-test also depends on java-debug-adapter.
+        if opts.test and mason_registry.is_installed 'java-test' then
+          local java_test_path = vim.fn.expand '$MASON' .. '/packages/java-test'
+          vim.list_extend(jar_patterns, {
+            java_test_path .. '/extension/server/*.jar',
+          })
+        end
+        for _, jar_pattern in ipairs(jar_patterns) do
+          for _, bundle in ipairs(vim.split(vim.fn.glob(jar_pattern), '\n')) do
+            table.insert(bundles, bundle)
+          end
+        end
+      end
+      local function attach_jdtls()
+        local fname = vim.api.nvim_buf_get_name(0)
+        local root_dir = opts.root_dir(fname)
+
+        -- Configuration can be augmented and overridden by opts.jdtls
+        local config = extend_or_override({
+          cmd = opts.full_cmd(opts),
+          root_dir = root_dir,
+          init_options = {
+            bundles = bundles,
+          },
+          workspace_folders = {
+            {
+              name = opts.project_name(root_dir),
+              uri = 'file://' .. vim.fn.fnamemodify(root_dir, ':p'):gsub(' ', '%%20'),
+            },
+          },
+          settings = opts.settings,
+          -- enable CMP capabilities
+          capabilities = has_plugin 'cmp-nvim-lsp' and require('cmp_nvim_lsp').default_capabilities() or nil,
+        }, opts.jdtls)
+
+        -- Existing server will be reused if the root_dir matches.
+        require('jdtls').start_or_attach(config)
+        -- not need to require("jdtls.setup").add_commands(), start automatically adds commands
+      end
+
+      -- Attach the jdtls for each java buffer. HOWEVER, this plugin loads
+      -- depending on filetype, so this autocmd doesn't run for the first file.
+      -- For that, we call directly below.
+      vim.api.nvim_create_autocmd('FileType', {
+        pattern = { 'java' },
+        callback = attach_jdtls,
+      })
+
+      -- Setup keymap and dap after the lsp is fully attached.
+      -- https://github.com/mfussenegger/nvim-jdtls#nvim-dap-configuration
+      -- https://neovim.io/doc/user/lsp.html#LspAttach
+      vim.api.nvim_create_autocmd('LspAttach', {
+        callback = function(args)
+          local client = vim.lsp.get_client_by_id(args.data.client_id)
+          if client and client.name == 'jdtls' then
+            local wk = require 'which-key'
+            wk.add {
+              {
+                mode = 'n',
+                buffer = args.buf,
+                { '<leader>cx', group = 'extract' },
+                { '<leader>cxv', require('jdtls').extract_variable_all, desc = 'Extract Variable' },
+                { '<leader>cxc', require('jdtls').extract_constant, desc = 'Extract Constant' },
+                { '<leader>cgs', require('jdtls').super_implementation, desc = 'Goto Super' },
+                { '<leader>cgS', require('jdtls.tests').goto_subjects, desc = 'Goto Subjects' },
+                { '<leader>co', require('jdtls').organize_imports, desc = 'Organize Imports' },
+              },
+            }
+            wk.add {
+              {
+                mode = 'v',
+                buffer = args.buf,
+                { '<leader>cx', group = 'extract' },
+                {
+                  '<leader>cxm',
+                  [[<ESC><CMD>lua require('jdtls').extract_method(true)<CR>]],
+                  desc = 'Extract Method',
+                },
+                {
+                  '<leader>cxv',
+                  [[<ESC><CMD>lua require('jdtls').extract_variable_all(true)<CR>]],
+                  desc = 'Extract Variable',
+                },
+                {
+                  '<leader>cxc',
+                  [[<ESC><CMD>lua require('jdtls').extract_constant(true)<CR>]],
+                  desc = 'Extract Constant',
+                },
+              },
+            }
+
+            if has_plugin 'mason.nvim' then
+              if opts.dap and has_plugin 'nvim-dap' and mason_registry.is_installed 'java-debug-adapter' then
+                -- custom init for Java debugger
+                require('jdtls').setup_dap(opts.dap)
+                if opts.dap_main then
+                  require('jdtls.dap').setup_dap_main_class_configs(opts.dap_main)
+                end
+
+                -- Java Test require Java debugger to work
+                if opts.test and mason_registry.is_installed 'java-test' then
+                  -- custom keymaps for Java test runner (not yet compatible with neotest)
+                  wk.add {
+                    {
+                      mode = 'n',
+                      buffer = args.buf,
+                      { '<leader>t', group = 'test' },
+                      {
+                        '<leader>tt',
+                        function()
+                          require('jdtls.dap').test_class {
+                            config_overrides = type(opts.test) ~= 'boolean' and opts.test.config_overrides or nil,
+                          }
+                        end,
+                        desc = 'Run All Test',
+                      },
+                      {
+                        '<leader>tr',
+                        function()
+                          require('jdtls.dap').test_nearest_method {
+                            config_overrides = type(opts.test) ~= 'boolean' and opts.test.config_overrides or nil,
+                          }
+                        end,
+                        desc = 'Run Nearest Test',
+                      },
+                      { '<leader>tT', require('jdtls.dap').pick_test, desc = 'Run Test' },
+                    },
+                  }
+                end
+              end
+            end
+
+            -- User can set additional keymaps in opts.on_attach
+            if opts.on_attach then
+              opts.on_attach(args)
+            end
+          end
+        end,
+      })
+
+      -- Avoid race condition by calling attach the first time, since the autocmd won't fire.
+      attach_jdtls()
+    end,
+  },
+}
+
+```
+
+
+### 📦 Entedendo os componentes principais:
+- Treesitter Adicionamos suporte à linguagem Java para realce de sintaxe mais preciso:  
+
+```lua
+-- Não precisa copiar ja está declarado no java.lua.
+{
+  'nvim-treesitter/nvim-treesitter',
+  opts = { ensure_installed = { 'java' } },
+},
+``` 
+
+- 🎯 Spring Boot Integration
+Integramos o plugin spring-boot.nvim para melhorar a experiência com aplicações Spring Boot, com suporte a YAML e arquivos .properties.
+
+```lua
+-- Não precisa copiar ja está declarado no java.lua.
+{
+  'JavaHello/spring-boot.nvim',
+  ft = { 'java', 'yaml', 'jproperties' },
+  dependencies = {
+    'mfussenegger/nvim-jdtls',
+    'nvim-telescope/telescope.nvim',
+  },
+  opts = {},
+}
+```
+
+- 🧠 JDTLS – Java Language Server
+Configuramos o JDTLS como servidor LSP, com suporte ao Lombok, pastas de cache e inicialização via autocmd:
+
+```lua
+-- Não precisa copiar ja está declarado no java.lua.
+cmd = {
+  vim.fn.exepath 'jdtls',
+  string.format('--jvm-arg=-javaagent:%s', lombok_jar),
+}
+```
+
+O root do projeto é detectado com:
+
+```lua
+-- Não precisa copiar ja está declarado no java.lua.
+root_dir = require('lspconfig').util.root_pattern('.git', 'mvnw', 'gradlew', 'pom.xml')
+```
+
+- 🐞 Depuração com DAP
+Utilizamos o nvim-dap para depuração remota e testes com JDTLS:
+
+```lua
+-- Não precisa copiar ja está declarado no java.lua.
+dap.configurations.java = {
+  {
+    type = 'java',
+    request = 'attach',
+    name = 'Debug (Attach) - Remote',
+    hostName = '127.0.0.1',
+    port = 5005,
+  },
+}
+```
+
+- 🔡 Keymaps para produtividade
+Atalhos definidos com which-key.nvim:
+
+➜ <leader>cxv → Extrair variável
+
+➜ <leader>cxc → Extrair constante
+
+➜ <leader>cxm → Extrair método (modo visual)
+
+➜ <leader>co → Organizar imports
+
+➜ <leader>tt → Executar todos os testes da classe
+
+➜ <leader>tr → Executar o teste mais próximo
+
+➜ <leader>tT → Escolher qual teste rodar
+
+- 📁 Detecção automática de projetos
+Através de root_pattern, o Neovim reconhece o projeto com base em arquivos como:
+
+➜  .git
+
+➜  mvnw
+
+➜  gradlew
+
+➜  pom.xml
+
+## ➕Plus:
+
+### ⚙️ Springtime: Criando projetos Spring Boot
+Adicione ao init.lua dentro de custom/plugins:
+
+ ```lua
+  {
+    'javiorfo/nvim-springtime',
+    lazy = true,
+    cmd = { 'Springtime', 'SpringtimeUpdate' },
+    dependencies = {
+      'javiorfo/nvim-popcorn',
+      'javiorfo/nvim-spinetta',
+      'hrsh7th/nvim-cmp',
+    },
+    build = function()
+      require('springtime.core').update()
+    end,
+  }, 
+```
+### 🛠 ️Adicionar a instalação automática dos servidores:
+- Editar o init.lua principal na linha que contém:
+
+```lua
+ local ensure_installed = vim.tbl_keys(servers or {})
+      vim.list_extend(ensure_installed, {
+        'stylua', -- Used to format Lua code
+      })
+```
+
+- Deixando conforme abaixo :
+ 
+ ```lua
+  local ensure_installed = vim.tbl_keys(servers or {})
+      vim.list_extend(ensure_installed, {
+        'stylua', -- Used to format Lua code
+        'vscode-spring-boot-tools',
+        'jdtls',
+        'java-debug-adapter',
+        'java-test',
+        'google-java-format',
+        'sonarlint-language-server', -- Used to format java
+      })
+```
+
+
+### 🧹 SonarLint: Lint para Java
+Criar o arquivo `custom/plugins/sonarlint.lua`:
+
+
+```lua
+
+return {
+  'schrieveslaach/sonarlint.nvim',
+  dependencies = { 'neovim/nvim-lspconfig' },
+  config = function()
+    require('sonarlint').setup {
+      server = {
+        cmd = {
+          'sonarlint-language-server',
+          '-stdio',
+          '-analyzers',
+          vim.fn.expand(vim.fn.getenv 'MASON' .. '/share/sonarlint-analyzers/sonarjava.jar'),
+          vim.fn.expand(vim.fn.getenv 'MASON' .. '/share/sonarlint-analyzers/sonarcfamily.jar'),
+          vim.fn.expand(vim.fn.getenv 'MASON' .. '/share/sonarlint-analyzers/sonarpython.jar'),
+        },
+      },
+      filetypes = { 'java' },
+    }
+  end,
+}
+```
+
+### 🧼 Autoformatação com google-java-format
+No arquivo kickstart/plugins/conform.lua, adicione `java = { 'google-java-format' }`:
+
+```lua
+
+ formatters_by_ft = {
+        lua = { 'stylua' },
+        -- Conform can also run multiple formatters sequentially
+        -- python = { "isort", "black" },
+        --
+        -- You can use 'stop_after_first' to run the first available formatter from the list
+        -- javascript = { "prettierd", "prettier", stop_after_first = true },
+        java = { 'google-java-format' },
+      },
+```
+### ☕ Extras: Maven
+Para integração com o Maven, recomendamos o plugin maven.nvim, que permite executar comandos como compile, test, clean, entre outros, direto do Neovim.
+Edit o custom/plugins/init.lua adicionando o plugin:
+```lua
+{
+  "eatgrass/maven.nvim",
+  cmd = { "Maven", "MavenExec" },
+  dependencies = "nvim-lua/plenary.nvim",
+  config = function()
+    require('maven').setup({
+       executable = 'mvn',
+    })
+  end
+},
+```
+### 🧩 Resultado final
+
+![gif neovim](/assets/posts/java-nvim.gif)
+
+Com isso, você terá um ambiente Java completo dentro do Neovim:
+
+✅ Leve
+✅ Rápido
+✅ Produtivo
+✅ Com suporte total a LSP, testes, depuração, formatação e lint
+✅ Ideal para projetos Spring Boot, Maven ou Java puro
+
+📚 Referências
+- [**Kickstart.nvim**](https://github.com/nvim-lua/kickstart.nvim/blob/master/init.lua)
+
+- [**nvim-jdtls**](https://github.com/mfussenegger/nvim-jdtls)
+
+- [**spring-boot.nvim**](https://github.com/JavaHello/spring-boot.nvim)
+
+- [**nvim-springtime**](https://github.com/javiorfo/nvim-springtime)
+
+- [**sonarlint.nvim**](https://gitlab.com/schrieveslaach/sonarlint.nvim)
+
+- [**configuração do jdtls**](https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/plugins/extras/lang/java.lua)
+
+
+8:T1bc3,
 ---
 
 
@@ -239,7 +846,7 @@ vim.g.have_nerd_font = true
 📚 Referências:
 - [**Kickstart.nvim**](https://github.com/nvim-lua/kickstart.nvim/blob/master/init.lua)
 - [**getnf - Nerd Font Installer**](https://github.com/getnf/getnf)
-- [**bufferline.nvim**](https://github.com/akinsho/bufferline.nvim)8:Td67,
+- [**bufferline.nvim**](https://github.com/akinsho/bufferline.nvim)9:Td67,
 ---
 
 
@@ -377,7 +984,7 @@ Interface visual moderna com Starship
 
 
 
-9:Tbb6,
+a:Tbb6,
 ---
 
 Uso o zsh há bastante tempo principalmente por conta do autocompletar com sugestões inteligentes. No entanto, recentemente descobri um plugin incrível para o bash que resolve exatamente esse problema: o ble.sh.
@@ -507,7 +1114,7 @@ Você terá um terminal Bash com:
 
 - Experiência com auto-complete e Syntax highlighting no Bash
 
-- Ao teclar ctrl+r terá um menu com fzf bem bacana.😊a:Tf54,
+- Ao teclar ctrl+r terá um menu com fzf bem bacana.😊b:Tf54,
 ---
 
 📌 Corrigindo erro de libva no Fedora (Processadores Antigos - Driver i965)
@@ -614,7 +1221,7 @@ vainfo: Supported profile and entrypoints
 
 
 ```
-b:T3e0b,
+c:T3e0b,
 ---
 
 Tenho utilizado o Neovim como meu editor de código há um tempo.
@@ -1023,7 +1630,7 @@ Essa saída do comando `checkhealth` no meu sistema openSUSE ja com o java e nod
 O Kickstart.nvim oferece uma experiência mínima e otimizada, permitindo que você construa sua configuração sem dores de cabeça. Se você quer um ambiente leve, fácil de manter e pronto para desenvolvimento, vale a pena testar!
 
 🔗 Repositório oficial: [Kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim)
-c:Taa2,
+d:Taa2,
 ---
 
 Há algum tempo, eu mantinha um blog utilizando Next.js. Porém, quando o Next.js 13 foi lançado, precisei fazer algumas adaptações para hospedá-lo no GitHub Pages. Com o tempo, acabei deixando o projeto de lado, mas recentemente decidi retomá-lo e atualizar tudo para a versão mais recente.
@@ -1107,7 +1714,7 @@ Com essas melhorias, meu blog está atualizado, mais organizado e pronto para fu
 
 Até a próxima! 🚀
 
-d:T536,
+e:T536,
 ---
 
 O `npm (Node Package Manager)` é uma ferramenta importante para desenvolvedores de JavaScript que permite gerenciar e instalar dependências em projetos. Porém, gerenciar essas dependências pode se tornar uma tarefa complicada quando se tem muitas delas em um projeto. É aí que o `npx npm-check-updates` pode ajudar.
@@ -1131,7 +1738,7 @@ Instalará as novas versões das dependências.
 É importante ressaltar que a atualização de dependências pode causar problemas no projeto, especialmente quando se trata de dependências de versões muito diferentes. É sempre recomendado realizar testes após a atualização e verificar se tudo está funcionando corretamente.
 
 Em resumo, o `npx npm-check-updates -u` é uma ferramenta útil para gerenciar dependências em projetos `JavaScript`, permitindo atualizá-las de forma simples e rápida.
-e:T2969,
+f:T2969,
 ---
 
 A paginação é um recurso que permite dividir grandes conjuntos de dados em páginas facilitando a visualização e a navegação para o usuário, é amplamente utilizado em interfaces que precisam lidar com grandes volumes de dados.
@@ -1477,7 +2084,7 @@ A função `useMemo` é usada para armazenar em cache o resultado da lista de p�
 No final, o hook retorna a lista de páginas calculada.
 
 ![gif pagination](/assets/posts/paginate.gif)
-f:T468,
+10:T468,
 ---
 
 Debug como um humano , não um robô. Finalmente, um cliente REST que você vai adorar!
@@ -1503,7 +2110,7 @@ $ ./Insomnia-x.x.x.AppImage
 ```
 
 [![upload-image Insomnia](/assets/posts/Insomnia.png)](https://updates.insomnia.rest/downloads/release/latest?app=com.insomnia.app&source=website)
-10:T1778,
+11:T1778,
 ---
 
 Creating pages is an integral part of any framework. Today we'll be looking at three different types of pages that we can leverage in Next.js.
@@ -1694,7 +2301,7 @@ I hope you found this helpful article. You can also find the complete code on [G
 ### Thank you for reading, and let's connect!
 
 Thank you for reading my blog. Feel free to subscribe to my email newsletter and connect on [Facebook](https://www.facebook.com/DailyDevTipsBlog) or [Twitter](https://twitter.com/DailyDevTips1)
-11:T93e,
+12:T93e,
 ---
 
 <img src="/assets/img/sample/react-native/react-native.png" alt="react-native" style="width:200px; heigth:200px; ">
@@ -1780,7 +2387,7 @@ fontes:
 [Rocketseat](https://blog.rocketseat.com.br/utilizando-fontes-de-icones-no-react-native/){:target="\_blank" rel="noopener"}
 
 [github.com/oblador](https://github.com/oblador/react-native-vector-icons){:target="\_blank" rel="noopener"}
-12:T632,
+13:T632,
 ---
 
 O Node Version Manager é um script bash usado para gerenciar várias versões lançadas do Node.js. Plataformas: unix, macOS e windows WSL. Ele permite que você execute operações como instalar, desinstalar, alternar versão etc. Para instalar o nvm, use este script de instalação.
@@ -1837,7 +2444,7 @@ Fonte:
 [nodejs.org](https://nodejs.org/en/download/package-manager/){:target="\_blank" rel="noopener"}
 
 ​
-13:Tb85,
+14:Tb85,
 ---
 
 ![image]({{ "/assets/img/sample/react-reload/reload.png" | relative_url }})
@@ -1905,7 +2512,7 @@ fontes:
 [dev.to](https://dev.to/rubiin/ubuntu-increase-inotify-watcher-file-watch-limit-kf4){:target="\_blank" rel="noopener"}
 
 [stackoverflow](https://stackoverflow.com/questions/42189575/create-react-app-reload-not-working){:target="\_blank" rel="noopener"}
-14:T6bf,
+15:T6bf,
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Praesent elementum facilisis leo vel fringilla est ullamcorper eget. At imperdiet dui accumsan sit amet nulla facilities morbi tempus. Praesent elementum facilisis leo vel fringilla. Congue mauris rhoncus aenean vel. Egestas sed tempus urna et pharetra pharetra massa massa ultricies.
 
 Venenatis cras sed felis eget velit. Consectetur libero id faucibus nisl tincidunt. Gravida in fermentum et sollicitudin ac orci phasellus egestas tellus. Volutpat consequat mauris nunc congue nisi vitae. Id aliquet risus feugiat in ante metus dictum at tempor. Sed blandit libero volutpat sed cras. Sed odio morbi quis commodo odio aenean sed adipiscing. Velit euismod in pellentesque massa placerat. Mi bibendum neque egestas congue quisque egestas diam in arcu. Nisi lacus sed viverra tellus in. Nibh cras pulvinar mattis nunc sed. Luctus accumsan tortor posuere ac ut consequat semper viverra. Fringilla ut morbi tincidunt augue interdum velit euismod.
@@ -1913,7 +2520,7 @@ Venenatis cras sed felis eget velit. Consectetur libero id faucibus nisl tincidu
 ## Lorem Ipsum
 
 Tristique senectus et netus et malesuada fames ac turpis. Ridiculous mus mauris vitae ultricies leo integer malesuada nunc vel. In mollis nunc sed id semper. Egestas tellus rutrum tellus pellentesque. Phasellus vestibulum lorem sed risus ultricies tristique nulla. Quis blandit turpis cursus in hac habitasse platea dictumst quisque. Eros donec ac odio tempor orci dapibus ultrices. Aliquam sem et tortor consequat id porta nibh. Adipiscing elit duis tristique sollicitudin nibh sit amet commodo nulla. Diam vulputate ut pharetra sit amet. Ut tellus elementum sagittis vitae et leo. Arcu non odio euismod lacinia at quis risus sed vulputate.
-0:{"P":null,"b":"mwNw2Gb51VQWCORuvxcYn","p":"","c":["",""],"i":false,"f":[[["",{"children":["__PAGE__",{}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/9a455a0bc55c7fd0.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"en","children":[["$","head",null,{"children":[["$","link",null,{"rel":"apple-touch-icon","sizes":"180x180","href":"/favicon/apple-touch-icon.png"}],["$","link",null,{"rel":"icon","type":"image/png","sizes":"32x32","href":"/favicon/favicon-32x32.png"}],["$","link",null,{"rel":"icon","type":"image/png","sizes":"16x16","href":"/favicon/favicon-16x16.png"}],["$","link",null,{"rel":"manifest","href":"/favicon/site.webmanifest"}],["$","link",null,{"rel":"mask-icon","href":"/favicon/safari-pinned-tab.svg","color":"#000000"}],["$","link",null,{"rel":"shortcut icon","href":"/favicon/favicon.ico"}],["$","meta",null,{"name":"msapplication-TileColor","content":"#000000"}],["$","meta",null,{"name":"msapplication-config","content":"/favicon/browserconfig.xml"}],["$","meta",null,{"name":"theme-color","content":"#000"}],["$","link",null,{"rel":"alternate","type":"application/rss+xml","href":"/feed.xml"}]]}],["$","body",null,{"className":"bg-slate-100\n            dark:bg-gray-900\n            dark:from-gray-900\n            dark:to-gray-800 \n            bg-gradient-to-r \n            h-screen \n            __className_e8ce0c","children":["$","$L2",null,{"children":[["$","$L3",null,{}],["$","$L4",null,{"parallelRouterKey":"children","segmentPath":["children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[],[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]]],"forbidden":"$undefined","unauthorized":"$undefined"}],["$","footer",null,{"className":"bg-gray-700  mt-1 py-4","children":["$","div",null,{"className":"container mx-auto flex justify-center","children":["$","span",null,{"className":"mx-auto text-neutral-200","children":"© 2025 GrmDevTips"}]}]}]]}]}]]}]]}],{"children":["__PAGE__",["$","$1","c",{"children":[["$","main",null,{"children":["$","article",null,{"className":"container flex flex-col pt-6 sm:mx-2 md:mx-auto flex-1","children":["$","$L6",null,{"allPosts":[{"title":"Como personalizar o Kickstart.nvim","metaDesc":"Kickstart.nvim é uma base moderna e minimalista para configurar o Neovim com suporte a LSP, autocompletar, navegação e muito mais.","coverImage":"/assets/blog/post/nvimPersonalizacao.webp","author":{"name":"Glaulher Medeiros","picture":"/assets/blog/authors/glaulher.jpeg"},"ogImage":{"url":"/assets/blog/post/nvimPersonalizacao.webp"},"publishedDate":"2025-06-25T16:34:00Z","tags":["windows","linux","editor","lua"],"slug":"2025-06-25-neovim","content":"$7"},{"title":"Deixando o PowerShell com cara nova","metaDesc":"Deixando o PowerShell com cara nova: autosuggestions, syntax highlight e visual incrível","coverImage":"/assets/blog/post/PoweShell.webp","author":{"name":"Glaulher Medeiros","picture":"/assets/blog/authors/glaulher.jpeg"},"ogImage":{"url":"/assets/blog/post/PoweShell.webp"},"publishedDate":"2025-05-15T16:34:00Z","tags":["Windows"],"slug":"2025-05-12-powerShell-like-zsh","content":"$8"},{"title":"Deixando o Bash com cara nova","metaDesc":"Deixando o Bash com cara nova: ble.sh + Starship + Nerd Font","coverImage":"/assets/blog/post/Bash.webp","author":{"name":"Glaulher Medeiros","picture":"/assets/blog/authors/glaulher.jpeg"},"ogImage":{"url":"/assets/blog/post/Bash.webp"},"publishedDate":"2025-05-12T16:34:00Z","tags":["linux"],"slug":"2025-05-12-bash-like-zsh","content":"$9"},{"title":"Corrigindo erro de libva no Fedora","metaDesc":"Habilitar aceleração de video em processador antigo no Fedora","coverImage":"/assets/blog/post/driveI965.webp","author":{"name":"Glaulher Medeiros","picture":"/assets/blog/authors/glaulher.jpeg"},"ogImage":{"url":"/assets/blog/post/driveI965.webp"},"publishedDate":"2025-02-17T16:34:00Z","tags":["linux"],"slug":"2025-02-17-driveI965","content":"$a"},{"title":"Nvim como editor de código","metaDesc":"Kickstart.nvim, uma configuração mínima e eficiente mantida por TJ Devries","coverImage":"/assets/blog/post/nvim.webp","author":{"name":"Glaulher Medeiros","picture":"/assets/blog/authors/glaulher.jpeg"},"ogImage":{"url":"/assets/blog/post/nvim.webp"},"publishedDate":"2025-02-13T16:34:00Z","categories":["Blogging","Tutorial"],"tags":["nvim","lua","editor"],"slug":"2025-02-13-nvim","content":"$b"},{"title":"Atualizando meu blog com Next.js 15","metaDesc":"Criando um blog pessoal com nextjs e markdown","coverImage":"/assets/blog/post/Blog.webp","author":{"name":"Glaulher Medeiros","picture":"/assets/blog/authors/glaulher.jpeg"},"ogImage":{"url":"/assets/blog/post/Blog.png"},"publishedDate":"2025-02-11T16:34:00Z","categories":["Blogging","Tutorial"],"tags":["nextjs","markdown","react"],"slug":"2025-02-11-blog","content":"$c"},{"title":"npm-check-updates","metaDesc":"O npm (Node Package Manager) é uma ferramenta importante para desenvolvedores de JavaScript","coverImage":"/assets/blog/post/Npm-check-update.webp","author":{"name":"Glaulher Medeiros","picture":"/assets/blog/authors/glaulher.jpeg"},"ogImage":{"url":"/assets/blog/post/Npm-check-update.webp"},"publishedDate":"2023-04-01T16:34:00Z","tags":["nodejs","npm"],"slug":"2023-04-01-UpdatePackage","content":"$d"},{"title":"Componente de paginação em react","metaDesc":"A paginação é um recurso que permite dividir grandes conjuntos de dados em páginas","coverImage":"/assets/blog/post/PaginateBanner.webp","author":{"name":"Glaulher Medeiros","picture":"/assets/blog/authors/glaulher.jpeg"},"ogImage":{"url":"/assets/blog/post/PaginateBanner.webp"},"publishedDate":"2023-03-14T16:34:00Z","tags":["react","tutorial"],"slug":"2023-03-14-Pagination_","content":"$e"},{"title":"Insomnia em distros linux","metaDesc":"\tMuito mais que um cliente HTTP. Auxiliares avançados de autenticação, modelagem encadeamento","coverImage":"/assets/blog/post/InsomniaBanner.webp","author":{"name":"Glaulher Medeiros","picture":"/assets/blog/authors/glaulher.jpeg"},"ogImage":{"url":"/assets/blog/post/InsomniaBanner.webp"},"publishedDate":"2023-03-06T16:34:00Z","tags":["insomnia","rest","linux"],"slug":"2023-03-06-Insomnia","content":"$f"},{"title":"Next.js page options and how they work","metaDesc":"How to use pages in Next.js exploring the options","coverImage":"/assets/blog/post/22-09-2021.jpg","author":{"name":"Tim Neutkens","picture":"/assets/blog/authors/tim.jpeg"},"ogImage":{"url":"/assets/blog/post/22-09-2021.jpg"},"publishedDate":"2021-09-22T05:35:07.322Z","tags":["nextjs","react"],"slug":"2021-09-22-nextjs-page-options-and-how-they-work","content":"$10"},{"title":"React-native não carrega o app","metaDesc":"error Failed to install the app. Make sure you have the Android development environment set up","coverImage":"/assets/blog/post/22-09-2021.jpg","author":{"name":"Glaulher Medeiros","picture":"/assets/blog/authors/glaulher.jpeg"},"ogImage":{"url":"/assets/blog/post/22-09-2021.jpg"},"publishedDate":"2020-11-08T16:34:00Z","tags":["react","react-native","linux"],"slug":"2020-11-08-React-not-emul","content":"\n---\n\nMe deparei com esse problema, o yarn android não conseguia carregar o app no emulador e entregava a mensagem de erro:\"error Failed to install the app. Make sure you have the Android development environment set up\", ao tentar executar:\n\n```shell\ncd android && ./gradlew clean\n```\n\nme retornava que estava sem permissão:\n\nDei permissão:\n\n```shell\nchmod 777 -R gradlew\n```\n\ne ao executar yarn android o app carregou no emulador :)\n\nfontes:\n\n[stackoverflow](https://stackoverflow.com/questions/56891033/facing-issue-failed-to-install-the-app-make-sure-you-have-the-android-develop){:target=\"\\_blank\" rel=\"noopener\"}\n\n[github.com](https://github.com/facebook/react-native/issues/23306){:target=\"\\_blank\" rel=\"noopener\"}\n"},{"title":"Ícones no react-native com o react-native-vector-icons","metaDesc":"react-native-vector-icons, é uma forma de implementar icones no projeto de forma rápida e elegante","coverImage":"/assets/blog/post/22-09-2021.jpg","author":{"name":"Glaulher Medeiros","picture":"/assets/blog/authors/glaulher.jpeg"},"ogImage":{"url":"/assets/blog/post/22-09-2021.jpg"},"publishedDate":"2020-11-02T16:34:00Z","tags":["react","react-native","linux"],"slug":"2020-10-02-react-native-vector-icons","content":"$11"},{"title":"Gerenciador nvm no Linux","metaDesc":"O Node Version Manager é um script bash usado para gerenciar várias versões lançadas do Node.js","coverImage":"/assets/blog/post/22-09-2021.jpg","author":{"name":"Glaulher Medeiros","picture":"/assets/blog/authors/glaulher.jpeg"},"ogImage":{"url":"/assets/blog/post/22-09-2021.jpg"},"publishedDate":"2020-06-16T16:34:00Z","tags":["nodejs","linux"],"slug":"2020-06-16-nvm","content":"$12"},{"title":"React não recarrega a página ao salvar no linux","metaDesc":"Para resolver esse problema é preciso alterar o valor  de max_user_watches em inotify...","coverImage":"/assets/blog/post/22-09-2021.jpg","author":{"name":"Glaulher Medeiros","picture":"/assets/blog/authors/glaulher.jpeg"},"ogImage":{"url":"/assets/blog/post/22-09-2021.jpg"},"publishedDate":"2020-06-14T16:34:00Z","tags":["blog","tutorial","react","linux"],"slug":"2020-06-14-React-not-reload","content":"$13"},{"title":"Learn How to Pre-render Pages Using Static Generation with Next.js","metaDesc":"Lorem ipsum dolor sit amet, consectetur adipiscing elit.","coverImage":"/assets/blog/post/hello-world/cover.jpg","author":{"name":"Tim Neutkens","picture":"/assets/blog/authors/tim.jpeg"},"ogImage":{"url":"/assets/blog/post/hello-world/cover.jpg"},"publishedDate":"2020-03-16T05:35:07.322Z","slug":"hello-world","content":"$14"}]}]}]}],null,["$","$L15",null,{"children":"$L16"}]]}],{},null,false]},null,false],["$","$1","h",{"children":[null,["$","$1","WcRR3hy8PFEYtEXVA6TKU",{"children":[["$","$L17",null,{"children":"$L18"}],["$","$L19",null,{"children":"$L1a"}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]]}],false]],"m":"$undefined","G":["$1b","$undefined"],"s":false,"S":true}
-1a:[["$","meta","0",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
-18:[["$","meta","0",{"charSet":"utf-8"}],["$","title","1",{"children":"Blog Post-it"}],["$","meta","2",{"name":"description","content":"Meu blog sobre tecnologia utilizando Next.js and Markdown."}],["$","meta","3",{"property":"og:title","content":"Blog Post-it"}],["$","meta","4",{"property":"og:description","content":"Meu blog sobre tecnologia utilizando Next.js and Markdown."}],["$","meta","5",{"property":"og:image","content":"https://og-image.vercel.app/Next.js%20Blog%20Starter%20Example.png?theme=light&md=1&fontSize=100px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg"}],["$","meta","6",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","7",{"name":"twitter:title","content":"Blog Post-it"}],["$","meta","8",{"name":"twitter:description","content":"Meu blog sobre tecnologia utilizando Next.js and Markdown."}],["$","meta","9",{"name":"twitter:image","content":"https://og-image.vercel.app/Next.js%20Blog%20Starter%20Example.png?theme=light&md=1&fontSize=100px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg"}]]
-16:null
+0:{"P":null,"b":"QShCnhsISqPU10PowvAif","p":"","c":["",""],"i":false,"f":[[["",{"children":["__PAGE__",{}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/9a455a0bc55c7fd0.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"en","children":[["$","head",null,{"children":[["$","link",null,{"rel":"apple-touch-icon","sizes":"180x180","href":"/favicon/apple-touch-icon.png"}],["$","link",null,{"rel":"icon","type":"image/png","sizes":"32x32","href":"/favicon/favicon-32x32.png"}],["$","link",null,{"rel":"icon","type":"image/png","sizes":"16x16","href":"/favicon/favicon-16x16.png"}],["$","link",null,{"rel":"manifest","href":"/favicon/site.webmanifest"}],["$","link",null,{"rel":"mask-icon","href":"/favicon/safari-pinned-tab.svg","color":"#000000"}],["$","link",null,{"rel":"shortcut icon","href":"/favicon/favicon.ico"}],["$","meta",null,{"name":"msapplication-TileColor","content":"#000000"}],["$","meta",null,{"name":"msapplication-config","content":"/favicon/browserconfig.xml"}],["$","meta",null,{"name":"theme-color","content":"#000"}],["$","link",null,{"rel":"alternate","type":"application/rss+xml","href":"/feed.xml"}]]}],["$","body",null,{"className":"bg-slate-100\n            dark:bg-gray-900\n            dark:from-gray-900\n            dark:to-gray-800 \n            bg-gradient-to-r \n            h-screen \n            __className_e8ce0c","children":["$","$L2",null,{"children":[["$","$L3",null,{}],["$","$L4",null,{"parallelRouterKey":"children","segmentPath":["children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[],[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]]],"forbidden":"$undefined","unauthorized":"$undefined"}],["$","footer",null,{"className":"bg-gray-700  mt-1 py-4","children":["$","div",null,{"className":"container mx-auto flex justify-center","children":["$","span",null,{"className":"mx-auto text-neutral-200","children":"© 2025 GrmDevTips"}]}]}]]}]}]]}]]}],{"children":["__PAGE__",["$","$1","c",{"children":[["$","main",null,{"children":["$","article",null,{"className":"container flex flex-col pt-6 sm:mx-2 md:mx-auto flex-1","children":["$","$L6",null,{"allPosts":[{"title":"Java no Neovim","metaDesc":"Desenvolvendo em Java com Neovim: é possível?","coverImage":"/assets/blog/post/nvimjava.webp","author":{"name":"Glaulher Medeiros","picture":"/assets/blog/authors/glaulher.jpeg"},"ogImage":{"url":"/assets/blog/post/nvimjava.webp"},"publishedDate":"2025-07-12T16:34:00Z","tags":["editor","neovim","lua","java"],"slug":"2025-07-12-neovim-java","content":"$7"},{"title":"Como personalizar o Kickstart.nvim","metaDesc":"Kickstart.nvim é uma base moderna e minimalista para configurar o Neovim com suporte a LSP, autocompletar, navegação e muito mais.","coverImage":"/assets/blog/post/nvimPersonalizacao.webp","author":{"name":"Glaulher Medeiros","picture":"/assets/blog/authors/glaulher.jpeg"},"ogImage":{"url":"/assets/blog/post/nvimPersonalizacao.webp"},"publishedDate":"2025-06-25T16:34:00Z","tags":["windows","linux","editor","lua"],"slug":"2025-06-25-neovim","content":"$8"},{"title":"Deixando o PowerShell com cara nova","metaDesc":"Deixando o PowerShell com cara nova: autosuggestions, syntax highlight e visual incrível","coverImage":"/assets/blog/post/PoweShell.webp","author":{"name":"Glaulher Medeiros","picture":"/assets/blog/authors/glaulher.jpeg"},"ogImage":{"url":"/assets/blog/post/PoweShell.webp"},"publishedDate":"2025-05-15T16:34:00Z","tags":["Windows"],"slug":"2025-05-12-powerShell-like-zsh","content":"$9"},{"title":"Deixando o Bash com cara nova","metaDesc":"Deixando o Bash com cara nova: ble.sh + Starship + Nerd Font","coverImage":"/assets/blog/post/Bash.webp","author":{"name":"Glaulher Medeiros","picture":"/assets/blog/authors/glaulher.jpeg"},"ogImage":{"url":"/assets/blog/post/Bash.webp"},"publishedDate":"2025-05-12T16:34:00Z","tags":["linux"],"slug":"2025-05-12-bash-like-zsh","content":"$a"},{"title":"Corrigindo erro de libva no Fedora","metaDesc":"Habilitar aceleração de video em processador antigo no Fedora","coverImage":"/assets/blog/post/driveI965.webp","author":{"name":"Glaulher Medeiros","picture":"/assets/blog/authors/glaulher.jpeg"},"ogImage":{"url":"/assets/blog/post/driveI965.webp"},"publishedDate":"2025-02-17T16:34:00Z","tags":["linux"],"slug":"2025-02-17-driveI965","content":"$b"},{"title":"Nvim como editor de código","metaDesc":"Kickstart.nvim, uma configuração mínima e eficiente mantida por TJ Devries","coverImage":"/assets/blog/post/nvim.webp","author":{"name":"Glaulher Medeiros","picture":"/assets/blog/authors/glaulher.jpeg"},"ogImage":{"url":"/assets/blog/post/nvim.webp"},"publishedDate":"2025-02-13T16:34:00Z","categories":["Blogging","Tutorial"],"tags":["nvim","lua","editor"],"slug":"2025-02-13-nvim","content":"$c"},{"title":"Atualizando meu blog com Next.js 15","metaDesc":"Criando um blog pessoal com nextjs e markdown","coverImage":"/assets/blog/post/Blog.webp","author":{"name":"Glaulher Medeiros","picture":"/assets/blog/authors/glaulher.jpeg"},"ogImage":{"url":"/assets/blog/post/Blog.png"},"publishedDate":"2025-02-11T16:34:00Z","categories":["Blogging","Tutorial"],"tags":["nextjs","markdown","react"],"slug":"2025-02-11-blog","content":"$d"},{"title":"npm-check-updates","metaDesc":"O npm (Node Package Manager) é uma ferramenta importante para desenvolvedores de JavaScript","coverImage":"/assets/blog/post/Npm-check-update.webp","author":{"name":"Glaulher Medeiros","picture":"/assets/blog/authors/glaulher.jpeg"},"ogImage":{"url":"/assets/blog/post/Npm-check-update.webp"},"publishedDate":"2023-04-01T16:34:00Z","tags":["nodejs","npm"],"slug":"2023-04-01-UpdatePackage","content":"$e"},{"title":"Componente de paginação em react","metaDesc":"A paginação é um recurso que permite dividir grandes conjuntos de dados em páginas","coverImage":"/assets/blog/post/PaginateBanner.webp","author":{"name":"Glaulher Medeiros","picture":"/assets/blog/authors/glaulher.jpeg"},"ogImage":{"url":"/assets/blog/post/PaginateBanner.webp"},"publishedDate":"2023-03-14T16:34:00Z","tags":["react","tutorial"],"slug":"2023-03-14-Pagination_","content":"$f"},{"title":"Insomnia em distros linux","metaDesc":"\tMuito mais que um cliente HTTP. Auxiliares avançados de autenticação, modelagem encadeamento","coverImage":"/assets/blog/post/InsomniaBanner.webp","author":{"name":"Glaulher Medeiros","picture":"/assets/blog/authors/glaulher.jpeg"},"ogImage":{"url":"/assets/blog/post/InsomniaBanner.webp"},"publishedDate":"2023-03-06T16:34:00Z","tags":["insomnia","rest","linux"],"slug":"2023-03-06-Insomnia","content":"$10"},{"title":"Next.js page options and how they work","metaDesc":"How to use pages in Next.js exploring the options","coverImage":"/assets/blog/post/22-09-2021.jpg","author":{"name":"Tim Neutkens","picture":"/assets/blog/authors/tim.jpeg"},"ogImage":{"url":"/assets/blog/post/22-09-2021.jpg"},"publishedDate":"2021-09-22T05:35:07.322Z","tags":["nextjs","react"],"slug":"2021-09-22-nextjs-page-options-and-how-they-work","content":"$11"},{"title":"React-native não carrega o app","metaDesc":"error Failed to install the app. Make sure you have the Android development environment set up","coverImage":"/assets/blog/post/22-09-2021.jpg","author":{"name":"Glaulher Medeiros","picture":"/assets/blog/authors/glaulher.jpeg"},"ogImage":{"url":"/assets/blog/post/22-09-2021.jpg"},"publishedDate":"2020-11-08T16:34:00Z","tags":["react","react-native","linux"],"slug":"2020-11-08-React-not-emul","content":"\n---\n\nMe deparei com esse problema, o yarn android não conseguia carregar o app no emulador e entregava a mensagem de erro:\"error Failed to install the app. Make sure you have the Android development environment set up\", ao tentar executar:\n\n```shell\ncd android && ./gradlew clean\n```\n\nme retornava que estava sem permissão:\n\nDei permissão:\n\n```shell\nchmod 777 -R gradlew\n```\n\ne ao executar yarn android o app carregou no emulador :)\n\nfontes:\n\n[stackoverflow](https://stackoverflow.com/questions/56891033/facing-issue-failed-to-install-the-app-make-sure-you-have-the-android-develop){:target=\"\\_blank\" rel=\"noopener\"}\n\n[github.com](https://github.com/facebook/react-native/issues/23306){:target=\"\\_blank\" rel=\"noopener\"}\n"},{"title":"Ícones no react-native com o react-native-vector-icons","metaDesc":"react-native-vector-icons, é uma forma de implementar icones no projeto de forma rápida e elegante","coverImage":"/assets/blog/post/22-09-2021.jpg","author":{"name":"Glaulher Medeiros","picture":"/assets/blog/authors/glaulher.jpeg"},"ogImage":{"url":"/assets/blog/post/22-09-2021.jpg"},"publishedDate":"2020-11-02T16:34:00Z","tags":["react","react-native","linux"],"slug":"2020-10-02-react-native-vector-icons","content":"$12"},{"title":"Gerenciador nvm no Linux","metaDesc":"O Node Version Manager é um script bash usado para gerenciar várias versões lançadas do Node.js","coverImage":"/assets/blog/post/22-09-2021.jpg","author":{"name":"Glaulher Medeiros","picture":"/assets/blog/authors/glaulher.jpeg"},"ogImage":{"url":"/assets/blog/post/22-09-2021.jpg"},"publishedDate":"2020-06-16T16:34:00Z","tags":["nodejs","linux"],"slug":"2020-06-16-nvm","content":"$13"},{"title":"React não recarrega a página ao salvar no linux","metaDesc":"Para resolver esse problema é preciso alterar o valor  de max_user_watches em inotify...","coverImage":"/assets/blog/post/22-09-2021.jpg","author":{"name":"Glaulher Medeiros","picture":"/assets/blog/authors/glaulher.jpeg"},"ogImage":{"url":"/assets/blog/post/22-09-2021.jpg"},"publishedDate":"2020-06-14T16:34:00Z","tags":["blog","tutorial","react","linux"],"slug":"2020-06-14-React-not-reload","content":"$14"},{"title":"Learn How to Pre-render Pages Using Static Generation with Next.js","metaDesc":"Lorem ipsum dolor sit amet, consectetur adipiscing elit.","coverImage":"/assets/blog/post/hello-world/cover.jpg","author":{"name":"Tim Neutkens","picture":"/assets/blog/authors/tim.jpeg"},"ogImage":{"url":"/assets/blog/post/hello-world/cover.jpg"},"publishedDate":"2020-03-16T05:35:07.322Z","slug":"hello-world","content":"$15"}]}]}]}],null,["$","$L16",null,{"children":"$L17"}]]}],{},null,false]},null,false],["$","$1","h",{"children":[null,["$","$1","hA86Si0P2vHBPii7M1I-h",{"children":[["$","$L18",null,{"children":"$L19"}],["$","$L1a",null,{"children":"$L1b"}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]]}],false]],"m":"$undefined","G":["$1c","$undefined"],"s":false,"S":true}
+1b:[["$","meta","0",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+19:[["$","meta","0",{"charSet":"utf-8"}],["$","title","1",{"children":"Blog Post-it"}],["$","meta","2",{"name":"description","content":"Meu blog sobre tecnologia utilizando Next.js and Markdown."}],["$","meta","3",{"property":"og:title","content":"Blog Post-it"}],["$","meta","4",{"property":"og:description","content":"Meu blog sobre tecnologia utilizando Next.js and Markdown."}],["$","meta","5",{"property":"og:image","content":"https://og-image.vercel.app/Next.js%20Blog%20Starter%20Example.png?theme=light&md=1&fontSize=100px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg"}],["$","meta","6",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","7",{"name":"twitter:title","content":"Blog Post-it"}],["$","meta","8",{"name":"twitter:description","content":"Meu blog sobre tecnologia utilizando Next.js and Markdown."}],["$","meta","9",{"name":"twitter:image","content":"https://og-image.vercel.app/Next.js%20Blog%20Starter%20Example.png?theme=light&md=1&fontSize=100px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg"}]]
+17:null
