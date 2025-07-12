@@ -16,7 +16,7 @@ tags: [editor,neovim, lua, java]
 
 ---
 
-## 🛠️ Desenvolvendo em Java com Neovim: é possível?
+## 🛠️ Desenvolver em Java com Neovim: é possível?
 Muita gente acredita que programar em Java exige uma infraestrutura pesada e uma IDE robusta, como o IntelliJ. De fato, essas ferramentas oferecem recursos poderosos. Mas será que é possível ter uma experiência produtiva usando apenas o Neovim?
 
 Desde que passei a usar distribuições Linux no dia a dia, tenho experimentado o Neovim cada vez mais. VS Code e Neovim se tornaram meus editores preferidos e, ao estudar Java, decidi explorar a possibilidade de usá-lo também nessa linguagem. A complexidade do ecossistema Java e a dependência de ferramentas completas são justamente os principais desafios.
@@ -600,11 +600,11 @@ Edit o custom/plugins/init.lua adicionando o plugin:
 
 Com isso, você terá um ambiente Java completo dentro do Neovim:
 
-✅ Leve
-✅ Rápido
-✅ Produtivo
-✅ Com suporte total a LSP, testes, depuração, formatação e lint
-✅ Ideal para projetos Spring Boot, Maven ou Java puro
+- ✅ Leve
+- ✅ Rápido
+- ✅ Produtivo
+- ✅ Com suporte total a LSP, testes, depuração, formatação e lint
+- ✅ Ideal para projetos Spring Boot, Maven ou Java puro
 
 📚 Referências
 - [**Kickstart.nvim**](https://github.com/nvim-lua/kickstart.nvim/blob/master/init.lua)
