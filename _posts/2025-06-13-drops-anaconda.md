@@ -54,7 +54,7 @@ sudo pacman -S libxcomposite libxdamage libxfixes libxrandr libxrender libxtst l
 ```
 ## 4. Instalar o Anaconda
 
-Baixe a versão do anaconda para o linux em https://www.anaconda.com/download/success e dentro do distrobox execute:
+Baixe a versão do anaconda para o linux em [**Anaconda**](https://www.anaconda.com/download/success) e dentro do distrobox execute:
 
 ```bash
 cd Downloads
