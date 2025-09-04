@@ -48,21 +48,22 @@ const __dirname = dirname(__filename);
 
 const compat = new FlatCompat({
   baseDirectory: __dirname,
-  recommendedConfig: { rules: {} }, // necessário para versões recentes
+  recommendedConfig: { rules: {} },
 });
 
 const eslintConfig = [
   ...compat.config({
     extends: [
-      'eslint:recommended',                  // Regras recomendadas do ESLint
-      'plugin:react/recommended',            // Regras para React
-      'plugin:react-hooks/recommended',      // Regras para Hooks do React
-      'plugin:@typescript-eslint/recommended', // Regras para TypeScript
-      'plugin:jsx-a11y/recommended',         // Regras de acessibilidade
-      'plugin:import/errors',                // Regras para import/export
+      'eslint:recommended',
+      'plugin:react/recommended',
+      'plugin:react-hooks/recommended',
+      'plugin:@typescript-eslint/recommended',
+      'plugin:jsx-a11y/recommended',
+      'plugin:import/errors',
       'plugin:import/warnings',
-      'plugin:prettier/recommended',         // Integra ESLint + Prettier
+      'plugin:prettier/recommended',
     ],
+
     plugins: [
       'react',
       'react-hooks',
@@ -71,10 +72,14 @@ const eslintConfig = [
       'import',
       'prettier',
     ],
+
     rules: {
-      'react/react-in-jsx-scope': 'off',         // React 17+ não precisa importar React
-      'react/prop-types': 'off',                 // TS já faz tipagem
+      // Regras React/TS personalizadas
+      'react/react-in-jsx-scope': 'off', // React 17+
+      'react/prop-types': 'off', // se usar TS
       '@typescript-eslint/explicit-function-return-type': 'off',
+
+      // Prettier
       'prettier/prettier': [
         'error',
         {
@@ -98,15 +103,19 @@ export default eslintConfig;
 ## 3️⃣ O que cada plugin faz
 
 
-| Plugin/Extend                           | Função                                                                                                   |
-|----------------------------------------|--------------------------------------------------------------------------------------------------------|
-| `eslint:recommended`                    | Ativa as regras recomendadas do ESLint, como evitar variáveis não usadas, uso correto de operadores, etc. |
-| `plugin:react/recommended`              | Fornece regras específicas para React, garantindo boas práticas em componentes, props e JSX.            |
-| `plugin:react-hooks/recommended`        | Garante o uso correto dos Hooks do React, evitando erros comuns como dependências faltando no `useEffect`. |
-| `plugin:@typescript-eslint/recommended`| Adiciona regras específicas do TypeScript, como tipagem correta de funções e variáveis.                 |
-| `plugin:jsx-a11y/recommended`           | Ajuda a tornar seu app acessível, como adicionar labels em formulários e textos alternativos em imagens.|
-| `plugin:import/errors` + `plugin:import/warnings` | Evita problemas em importações e exportações, como arquivos faltando ou importações duplicadas.        |
-| `plugin:prettier/recommended`           | Integra o Prettier ao ESLint, permitindo que regras de formatação sejam aplicadas automaticamente.      |
+- **eslint:recommended**	Ativa as regras recomendadas do ESLint, como evitar variáveis não usadas, uso correto de operadores, etc.
+
+- **plugin:react/recommended**	Fornece regras específicas para React, garantindo boas práticas em componentes, props e JSX.
+
+- **plugin:react-hooks/recommended**	Garante o uso correto dos Hooks do React, evitando erros comuns como dependências faltando no useEffect.
+
+- **plugin:@typescript-eslint/recommended**	Adiciona regras específicas do TypeScript, como tipagem correta de funções e variáveis.
+
+- **plugin:jsx-a11y/recommended**	Ajuda a tornar seu app acessível, como adicionar labels em formulários e textos alternativos em imagens.
+
+- **:import/errors + plugin:import/warnings**	Evita problemas em importações e exportações, como arquivos faltando ou importações duplicadas.
+
+- **plugin:prettier/recommended**	Integra o Prettier ao ESLint, permitindo que regras de formatação sejam aplicadas automaticamente.     
 
 
 
