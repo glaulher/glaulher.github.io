@@ -1,0 +1,133 @@
+1:"$Sreact.fragment"
+2:I[78534,["742","static/chunks/742-565a7562c8d1d87c.js","177","static/chunks/app/layout-c2fa79d5b2cde0df.js"],"Providers"]
+3:I[6538,["742","static/chunks/742-565a7562c8d1d87c.js","177","static/chunks/app/layout-c2fa79d5b2cde0df.js"],"WrapperHeader"]
+4:I[15244,[],""]
+5:I[43866,[],""]
+7:I[86213,[],"OutletBoundary"]
+9:I[86213,[],"MetadataBoundary"]
+b:I[86213,[],"ViewportBoundary"]
+d:I[34835,[],""]
+:HL["/_next/static/media/e4af272ccee01ff0-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/css/9a455a0bc55c7fd0.css","style"]
+:HL["/_next/static/css/4639d7b613416f5d.css","style"]
+0:{"P":null,"b":"2EX-nojp0c7bxhGfRv250","p":"","c":["","posts","2025-09-04-drops-prettier-eslint"],"i":false,"f":[[["",{"children":["posts",{"children":[["slug","2025-09-04-drops-prettier-eslint","d"],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/9a455a0bc55c7fd0.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"en","children":[["$","head",null,{"children":[["$","link",null,{"rel":"apple-touch-icon","sizes":"180x180","href":"/favicon/apple-touch-icon.png"}],["$","link",null,{"rel":"icon","type":"image/png","sizes":"32x32","href":"/favicon/favicon-32x32.png"}],["$","link",null,{"rel":"icon","type":"image/png","sizes":"16x16","href":"/favicon/favicon-16x16.png"}],["$","link",null,{"rel":"manifest","href":"/favicon/site.webmanifest"}],["$","link",null,{"rel":"mask-icon","href":"/favicon/safari-pinned-tab.svg","color":"#000000"}],["$","link",null,{"rel":"shortcut icon","href":"/favicon/favicon.ico"}],["$","meta",null,{"name":"msapplication-TileColor","content":"#000000"}],["$","meta",null,{"name":"msapplication-config","content":"/favicon/browserconfig.xml"}],["$","meta",null,{"name":"theme-color","content":"#000"}],["$","link",null,{"rel":"alternate","type":"application/rss+xml","href":"/feed.xml"}]]}],["$","body",null,{"className":"bg-slate-100\n            dark:bg-gray-900\n            dark:from-gray-900\n            dark:to-gray-800 \n            bg-gradient-to-r \n            h-screen \n            __className_e8ce0c","children":["$","$L2",null,{"children":[["$","$L3",null,{}],["$","$L4",null,{"parallelRouterKey":"children","segmentPath":["children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[],[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]]],"forbidden":"$undefined","unauthorized":"$undefined"}],["$","footer",null,{"className":"bg-gray-700  mt-1 py-4","children":["$","div",null,{"className":"container mx-auto flex justify-center","children":["$","span",null,{"className":"mx-auto text-neutral-200","children":"© 2025 GrmDevTips"}]}]}]]}]}]]}]]}],{"children":["posts",["$","$1","c",{"children":[null,["$","$L4",null,{"parallelRouterKey":"children","segmentPath":["children","posts","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["slug","2025-09-04-drops-prettier-eslint","d"],["$","$1","c",{"children":[null,["$","$L4",null,{"parallelRouterKey":"children","segmentPath":["children","posts","children","$0:f:0:1:2:children:2:children:0","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":["__PAGE__",["$","$1","c",{"children":["$L6",[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/4639d7b613416f5d.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","$L7",null,{"children":"$L8"}]]}],{},null,false]},null,false]},null,false]},null,false],["$","$1","h",{"children":[null,["$","$1","a5bs39c4W-Ss8MQ21ODAq",{"children":[["$","$L9",null,{"children":"$La"}],["$","$Lb",null,{"children":"$Lc"}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]]}],false]],"m":"$undefined","G":["$d","$undefined"],"s":false,"S":true}
+e:I[48173,["742","static/chunks/742-565a7562c8d1d87c.js","688","static/chunks/688-2ba1992c7a7e345a.js","858","static/chunks/app/posts/%5Bslug%5D/page-b06279caf317e001.js"],""]
+f:I[87970,["742","static/chunks/742-565a7562c8d1d87c.js","688","static/chunks/688-2ba1992c7a7e345a.js","858","static/chunks/app/posts/%5Bslug%5D/page-b06279caf317e001.js"],"Image"]
+10:I[85301,["742","static/chunks/742-565a7562c8d1d87c.js","688","static/chunks/688-2ba1992c7a7e345a.js","858","static/chunks/app/posts/%5Bslug%5D/page-b06279caf317e001.js"],"PostBody"]
+11:T13f3,<hr>
+<h2>📌 Como configurar ESLint + Prettier no Vite com React e TypeScript</h2>
+<p>Se você está começando um projeto com Vite + React + TypeScript, manter o código limpo e consistente é essencial. Nesse post, vamos configurar ESLint e Prettier juntos, explicando cada plugin e como ele ajuda a manter a qualidade do seu código.</p>
+<hr>
+<h2>1️⃣ Instale as dependências</h2>
+<pre><code class="language-bash">
+npm install --save-dev eslint prettier @eslint/eslintrc \
+@typescript-eslint/parser @typescript-eslint/eslint-plugin \
+eslint-plugin-react eslint-plugin-react-hooks eslint-plugin-jsx-a11y \
+eslint-plugin-import eslint-plugin-prettier
+
+</code></pre>
+<hr>
+<h2>2️⃣ Crie o arquivo eslint.config.mjs no root do projeto</h2>
+<pre><code class="language-bash">
+import { dirname } from 'path';
+import { fileURLToPath } from 'url';
+import { FlatCompat } from '@eslint/eslintrc';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+const compat = new FlatCompat({
+  baseDirectory: __dirname,
+  recommendedConfig: { rules: {} }, // necessário para versões recentes
+});
+
+const eslintConfig = [
+  ...compat.config({
+    extends: [
+      'eslint:recommended',                  // Regras recomendadas do ESLint
+      'plugin:react/recommended',            // Regras para React
+      'plugin:react-hooks/recommended',      // Regras para Hooks do React
+      'plugin:@typescript-eslint/recommended', // Regras para TypeScript
+      'plugin:jsx-a11y/recommended',         // Regras de acessibilidade
+      'plugin:import/errors',                // Regras para import/export
+      'plugin:import/warnings',
+      'plugin:prettier/recommended',         // Integra ESLint + Prettier
+    ],
+    plugins: [
+      'react',
+      'react-hooks',
+      '@typescript-eslint',
+      'jsx-a11y',
+      'import',
+      'prettier',
+    ],
+    rules: {
+      'react/react-in-jsx-scope': 'off',         // React 17+ não precisa importar React
+      'react/prop-types': 'off',                 // TS já faz tipagem
+      '@typescript-eslint/explicit-function-return-type': 'off',
+      'prettier/prettier': [
+        'error',
+        {
+          trailingComma: 'all',
+          printWidth: 80,
+          tabWidth: 2,
+          arrowParens: 'always',
+          singleQuote: true,
+          semi: true,
+          endOfLine: 'auto',
+        },
+      ],
+    },
+  }),
+];
+
+export default eslintConfig;
+
+</code></pre>
+<h2>3️⃣ O que cada plugin faz</h2>
+<p>| Plugin/Extend                           | Função                                                                                                   |
+|----------------------------------------|--------------------------------------------------------------------------------------------------------|
+| <code>eslint:recommended</code>                    | Ativa as regras recomendadas do ESLint, como evitar variáveis não usadas, uso correto de operadores, etc. |
+| <code>plugin:react/recommended</code>              | Fornece regras específicas para React, garantindo boas práticas em componentes, props e JSX.            |
+| <code>plugin:react-hooks/recommended</code>        | Garante o uso correto dos Hooks do React, evitando erros comuns como dependências faltando no <code>useEffect</code>. |
+| <code>plugin:@typescript-eslint/recommended</code>| Adiciona regras específicas do TypeScript, como tipagem correta de funções e variáveis.                 |
+| <code>plugin:jsx-a11y/recommended</code>           | Ajuda a tornar seu app acessível, como adicionar labels em formulários e textos alternativos em imagens.|
+| <code>plugin:import/errors</code> + <code>plugin:import/warnings</code> | Evita problemas em importações e exportações, como arquivos faltando ou importações duplicadas.        |
+| <code>plugin:prettier/recommended</code>           | Integra o Prettier ao ESLint, permitindo que regras de formatação sejam aplicadas automaticamente.      |</p>
+<h2>4️⃣ Configuração do editor</h2>
+<p>tenha os plugins prettier e eslint instalados no editor para o funcionamento da configuração</p>
+<p>Exemplo de configuração no settings do vscode:</p>
+<pre><code class="language-json">{
+  {   
+    //copie sem os comentário para não dar erro no json
+    
+    // Formata automaticamente ao salvar
+    "editor.formatOnSave": true,
+    
+    // ESLint vai validar esses tipos de arquivos
+    "eslint.validate": [
+      "javascript",
+      "javascriptreact",
+      "typescript",
+      "typescriptreact"
+    ],
+
+    // Aplica ESLint fix automaticamente ao salvar para todos os tipos de arquivo do projeto
+     
+    "[javascript, javascriptreact, typescript, typescriptreact]": {
+      "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": "explicit"
+      },
+      // Define o Prettier como o formatador padrão
+      "editor.defaultFormatter": "esbenp.prettier-vscode",
+    },   
+  }
+}
+
+</code></pre>
+<h2>🧩 Conclusão</h2>
+<p>Com essa configuração, seu projeto Vite + React + TypeScript fica pronto para desenvolvimento, mantendo código limpo, consistente e acessível.</p>
+6:["$","main",null,{"children":["$","div",null,{"className":"container mx-auto px-5","children":[["$","div",null,{"className":"flex justify-between items-center mb-20 mt-8","children":[["$","h2",null,{"className":"text-2xl md:text-4xl font-bold tracking-tight md:tracking-tighter leading-tight","children":["$","$Le",null,{"href":"/","className":"hover:underline","children":"Blog"}]}],["$","$Le",null,{"href":"/","children":["$","p",null,{"className":"text-sm dark:text-neutral-200 hover:text-sky-700 dark:hover:text-sky-700 flex items-center","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","fill":"none","viewBox":"0 0 24 24","strokeWidth":2,"stroke":"currentColor","className":"w-4 h-4 mr-1","children":["$","path",null,{"strokeLinecap":"round","strokeLinejoin":"round","d":"M15 19l-7-7 7-7"}]}],"Voltar"]}]}]]}],["$","article",null,{"className":"mb-32","children":[[["$","h1",null,{"className":"text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-tight md:leading-none mb-12 text-center md:text-left","children":"ESLint + Prettier no Vite"}],["$","div",null,{"className":"hidden md:block md:mb-12","children":["$","div",null,{"className":"flex items-center","children":[["$","$Lf",null,{"src":"/assets/blog/authors/glaulher.jpeg","width":48,"height":48,"className":" rounded-full mr-4","alt":"Glaulher Medeiros"}],["$","div",null,{"className":"text-xl font-bold","children":"Glaulher Medeiros"}]]}]}],["$","div",null,{"className":"mb-8 md:mb-16 sm:mx-0 flex items-center justify-center ","children":["$","div",null,{"className":"w-full max-w-[800px] max-h-[500px] ","children":["$","div",null,{"className":"sm:mx-0","children":["$","$Lf",null,{"src":"/assets/blog/post/DropsDicas.png","alt":"Cover Image for ESLint + Prettier no Vite","className":"object-contain object-center w-auto h-auto rounded-md shadow-sm ","width":800,"height":800,"priority":true}]}]}]}],["$","div",null,{"className":"max-w-2xl mx-auto","children":[["$","div",null,{"className":"block md:hidden mb-6","children":["$","div",null,{"className":"flex items-center","children":[["$","$Lf",null,{"src":"/assets/blog/authors/glaulher.jpeg","width":48,"height":48,"className":" rounded-full mr-4","alt":"Glaulher Medeiros"}],["$","div",null,{"className":"text-xl font-bold","children":"Glaulher Medeiros"}]]}]}],["$","div",null,{"className":"mb-6 text-lg","children":["$","time",null,{"children":"4 de setembro de 2025"}]}]]}]],["$","$L10",null,{"content":"$11"}]]}]]}]}]
+c:[["$","meta","0",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+a:[["$","meta","0",{"charSet":"utf-8"}],["$","title","1",{"children":"ESLint + Prettier no Vite | Meu blog sobre tecnologia utilizando Next.js and Markdown."}],["$","meta","2",{"name":"description","content":"Meu blog sobre tecnologia utilizando Next.js and Markdown."}],["$","meta","3",{"property":"og:title","content":"ESLint + Prettier no Vite | Meu blog sobre tecnologia utilizando Next.js and Markdown."}],["$","meta","4",{"property":"og:description","content":"Meu blog sobre tecnologia utilizando Next.js and Markdown."}],["$","meta","5",{"property":"og:image","content":"https://glaulher.github.io/assets/blog/post/DropsDicas.png"}],["$","meta","6",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","7",{"name":"twitter:title","content":"ESLint + Prettier no Vite | Meu blog sobre tecnologia utilizando Next.js and Markdown."}],["$","meta","8",{"name":"twitter:description","content":"Meu blog sobre tecnologia utilizando Next.js and Markdown."}],["$","meta","9",{"name":"twitter:image","content":"https://glaulher.github.io/assets/blog/post/DropsDicas.png"}]]
+8:null
