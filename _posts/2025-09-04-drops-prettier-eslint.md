@@ -29,7 +29,8 @@ Se você está começando um projeto com Vite + React + TypeScript, manter o có
 npm install --save-dev eslint prettier @eslint/eslintrc \
 @typescript-eslint/parser @typescript-eslint/eslint-plugin \
 eslint-plugin-react eslint-plugin-react-hooks eslint-plugin-jsx-a11y \
-eslint-plugin-import eslint-plugin-prettier
+eslint-plugin-import eslint-plugin-prettier \
+eslint-import-resolver-typescript eslint-import-resolver-node
 
 ```
 
@@ -73,6 +74,13 @@ const eslintConfig = [
       'prettier',
     ],
 
+      settings: {
+      'import/resolver': {
+        typescript: true,
+        node: true,
+      },
+    },
+
     rules: {
       // Regras React/TS personalizadas
       'react/react-in-jsx-scope': 'off', // React 17+
@@ -115,7 +123,9 @@ export default eslintConfig;
 
 - **:import/errors + plugin:import/warnings**	Evita problemas em importações e exportações, como arquivos faltando ou importações duplicadas.
 
-- **plugin:prettier/recommended**	Integra o Prettier ao ESLint, permitindo que regras de formatação sejam aplicadas automaticamente.     
+- **plugin:prettier/recommended**	Integra o Prettier ao ESLint, permitindo que regras de formatação sejam aplicadas automaticamente.  
+
+- **eslint-import-resolver-node + eslint-import-resolver-typescript** Garante que o ESLint consiga verificar se os imports que você escreveu realmente existem no ambiente.
 
 
 
