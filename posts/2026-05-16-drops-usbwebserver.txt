@@ -10,11 +10,11 @@ d:I[34835,[],""]
 :HL["/_next/static/media/e4af272ccee01ff0-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/_next/static/css/380f7834fbdabad7.css","style"]
 :HL["/_next/static/css/4639d7b613416f5d.css","style"]
-0:{"P":null,"b":"UwVQYfyGRyoi4bF3qKQBY","p":"","c":["","posts","2026-05-16-drops-usbwebserver"],"i":false,"f":[[["",{"children":["posts",{"children":[["slug","2026-05-16-drops-usbwebserver","d"],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/380f7834fbdabad7.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"en","children":[["$","head",null,{"children":[["$","link",null,{"rel":"apple-touch-icon","sizes":"180x180","href":"/favicon/apple-touch-icon.png"}],["$","link",null,{"rel":"icon","type":"image/png","sizes":"32x32","href":"/favicon/favicon-32x32.png"}],["$","link",null,{"rel":"icon","type":"image/png","sizes":"16x16","href":"/favicon/favicon-16x16.png"}],["$","link",null,{"rel":"manifest","href":"/favicon/site.webmanifest"}],["$","link",null,{"rel":"mask-icon","href":"/favicon/safari-pinned-tab.svg","color":"#000000"}],["$","link",null,{"rel":"shortcut icon","href":"/favicon/favicon.ico"}],["$","meta",null,{"name":"msapplication-TileColor","content":"#000000"}],["$","meta",null,{"name":"msapplication-config","content":"/favicon/browserconfig.xml"}],["$","meta",null,{"name":"theme-color","content":"#000"}],["$","link",null,{"rel":"alternate","type":"application/rss+xml","href":"/feed.xml"}]]}],["$","body",null,{"className":"bg-slate-100\n            dark:bg-gray-900\n            dark:from-gray-900\n            dark:to-gray-800 \n            bg-gradient-to-r \n            h-screen \n            __className_f367f3","children":["$","$L2",null,{"children":[["$","$L3",null,{}],["$","$L4",null,{"parallelRouterKey":"children","segmentPath":["children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[],[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]]],"forbidden":"$undefined","unauthorized":"$undefined"}],["$","footer",null,{"className":"bg-gray-700  mt-1 py-4","children":["$","div",null,{"className":"container mx-auto flex justify-center","children":["$","span",null,{"className":"mx-auto text-neutral-200","children":"© 2025 GrmDevTips"}]}]}]]}]}]]}]]}],{"children":["posts",["$","$1","c",{"children":[null,["$","$L4",null,{"parallelRouterKey":"children","segmentPath":["children","posts","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["slug","2026-05-16-drops-usbwebserver","d"],["$","$1","c",{"children":[null,["$","$L4",null,{"parallelRouterKey":"children","segmentPath":["children","posts","children","$0:f:0:1:2:children:2:children:0","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":["__PAGE__",["$","$1","c",{"children":["$L6",[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/4639d7b613416f5d.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","$L7",null,{"children":"$L8"}]]}],{},null,false]},null,false]},null,false]},null,false],["$","$1","h",{"children":[null,["$","$1","23S4pFX3CW-YpgCV5hwQg",{"children":[["$","$L9",null,{"children":"$La"}],["$","$Lb",null,{"children":"$Lc"}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]]}],false]],"m":"$undefined","G":["$d","$undefined"],"s":false,"S":true}
+0:{"P":null,"b":"Fdw3UszZMmTss7uGjpvd0","p":"","c":["","posts","2026-05-16-drops-usbwebserver"],"i":false,"f":[[["",{"children":["posts",{"children":[["slug","2026-05-16-drops-usbwebserver","d"],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/380f7834fbdabad7.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"en","children":[["$","head",null,{"children":[["$","link",null,{"rel":"apple-touch-icon","sizes":"180x180","href":"/favicon/apple-touch-icon.png"}],["$","link",null,{"rel":"icon","type":"image/png","sizes":"32x32","href":"/favicon/favicon-32x32.png"}],["$","link",null,{"rel":"icon","type":"image/png","sizes":"16x16","href":"/favicon/favicon-16x16.png"}],["$","link",null,{"rel":"manifest","href":"/favicon/site.webmanifest"}],["$","link",null,{"rel":"mask-icon","href":"/favicon/safari-pinned-tab.svg","color":"#000000"}],["$","link",null,{"rel":"shortcut icon","href":"/favicon/favicon.ico"}],["$","meta",null,{"name":"msapplication-TileColor","content":"#000000"}],["$","meta",null,{"name":"msapplication-config","content":"/favicon/browserconfig.xml"}],["$","meta",null,{"name":"theme-color","content":"#000"}],["$","link",null,{"rel":"alternate","type":"application/rss+xml","href":"/feed.xml"}]]}],["$","body",null,{"className":"bg-slate-100\n            dark:bg-gray-900\n            dark:from-gray-900\n            dark:to-gray-800 \n            bg-gradient-to-r \n            h-screen \n            __className_f367f3","children":["$","$L2",null,{"children":[["$","$L3",null,{}],["$","$L4",null,{"parallelRouterKey":"children","segmentPath":["children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[],[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]]],"forbidden":"$undefined","unauthorized":"$undefined"}],["$","footer",null,{"className":"bg-gray-700  mt-1 py-4","children":["$","div",null,{"className":"container mx-auto flex justify-center","children":["$","span",null,{"className":"mx-auto text-neutral-200","children":"© 2025 GrmDevTips"}]}]}]]}]}]]}]]}],{"children":["posts",["$","$1","c",{"children":[null,["$","$L4",null,{"parallelRouterKey":"children","segmentPath":["children","posts","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["slug","2026-05-16-drops-usbwebserver","d"],["$","$1","c",{"children":[null,["$","$L4",null,{"parallelRouterKey":"children","segmentPath":["children","posts","children","$0:f:0:1:2:children:2:children:0","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":["__PAGE__",["$","$1","c",{"children":["$L6",[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/4639d7b613416f5d.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","$L7",null,{"children":"$L8"}]]}],{},null,false]},null,false]},null,false]},null,false],["$","$1","h",{"children":[null,["$","$1","-A56AMp8oU3OeppJ_vT1S",{"children":[["$","$L9",null,{"children":"$La"}],["$","$Lb",null,{"children":"$Lc"}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]]}],false]],"m":"$undefined","G":["$d","$undefined"],"s":false,"S":true}
 e:I[48173,["742","static/chunks/742-565a7562c8d1d87c.js","688","static/chunks/688-2ba1992c7a7e345a.js","858","static/chunks/app/posts/%5Bslug%5D/page-b06279caf317e001.js"],""]
 f:I[87970,["742","static/chunks/742-565a7562c8d1d87c.js","688","static/chunks/688-2ba1992c7a7e345a.js","858","static/chunks/app/posts/%5Bslug%5D/page-b06279caf317e001.js"],"Image"]
 10:I[85301,["742","static/chunks/742-565a7562c8d1d87c.js","688","static/chunks/688-2ba1992c7a7e345a.js","858","static/chunks/app/posts/%5Bslug%5D/page-b06279caf317e001.js"],"PostBody"]
-11:T2296,<hr>
+11:T22ec,<hr>
 <h2>🖥️ Como atualizar USBWebserver com Apache 2.4.67, PHP 8.5.6 e MariaDB 11.4.10</h2>
 <p>O USBWebserver é uma solução portátil excelente para desenvolvimento local. Recentemente atualizei todas as ferramentas para as versões mais recentes e troquei o MySQL pelo MariaDB. Neste post mostro o passo a passo completo.</p>
 <hr>
@@ -155,15 +155,52 @@ lang=Portuguese
 <hr>
 <h2>8️⃣ Verifique os executáveis (resumo)</h2>
 <p>Antes de iniciar, confira se os nomes das pastas e executáveis estão no padrão que o USBWebserver espera:</p>
-<p>| Local                          | Obrigatório                    | Como obter                          |
-| ------------------------------ | ------------------------------ | ----------------------------------- |
-| <code>apache2/bin/httpd.exe</code>        | Servidor Apache                | Já vem no zip                       |
-| <code>apache2/bin/httpd_usbwv8.exe</code> | <strong>Gerenciamento USBWebserver</strong> | <code>copy httpd.exe httpd_usbwv8.exe</code>   |
-| <code>php/php8apache2_4.dll</code>        | Módulo PHP                     | Já vem no zip                       |
-| <code>mysql/bin/mariadbd.exe</code>       | Servidor MariaDB               | Já vem no zip                       |
-| <code>mysql/bin/mysqld.exe</code>         | Compatibilidade MySQL          | <code>copy mariadbd.exe mysqld.exe</code>      |
-| <code>mysql/bin/mysqld_usbwv8.exe</code>  | <strong>Gerenciamento USBWebserver</strong> | <code>copy mysqld.exe mysqld_usbwv8.exe</code> |
-| <code>phpmyadmin/</code>                  | Interface web                  | Só renomear a pasta                 |</p>
+<table>
+<thead>
+<tr>
+<th>Local</th>
+<th>Obrigatório</th>
+<th>Como obter</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>apache2/bin/httpd.exe</code></td>
+<td>Servidor Apache</td>
+<td>Já vem no zip</td>
+</tr>
+<tr>
+<td><code>apache2/bin/httpd_usbwv8.exe</code></td>
+<td><strong>Gerenciamento USBWebserver</strong></td>
+<td><code>copy httpd.exe httpd_usbwv8.exe</code></td>
+</tr>
+<tr>
+<td><code>php/php8apache2_4.dll</code></td>
+<td>Módulo PHP</td>
+<td>Já vem no zip</td>
+</tr>
+<tr>
+<td><code>mysql/bin/mariadbd.exe</code></td>
+<td>Servidor MariaDB</td>
+<td>Já vem no zip</td>
+</tr>
+<tr>
+<td><code>mysql/bin/mysqld.exe</code></td>
+<td>Compatibilidade MySQL</td>
+<td><code>copy mariadbd.exe mysqld.exe</code></td>
+</tr>
+<tr>
+<td><code>mysql/bin/mysqld_usbwv8.exe</code></td>
+<td><strong>Gerenciamento USBWebserver</strong></td>
+<td><code>copy mysqld.exe mysqld_usbwv8.exe</code></td>
+</tr>
+<tr>
+<td><code>phpmyadmin/</code></td>
+<td>Interface web</td>
+<td>Só renomear a pasta</td>
+</tr>
+</tbody>
+</table>
 <blockquote>
 <p>⚠️ Os executáveis com sufixo <code>_usbwv8</code> são <strong>obrigatórios</strong>. O USBWebserver os utiliza para iniciar/parar os serviços. Sem eles, o programa não funciona.</p>
 </blockquote>
@@ -171,9 +208,9 @@ lang=Portuguese
 <h2>9️⃣ Testando o ambiente</h2>
 <p>Inicie o USBWebserver e acesse:</p>
 <ol>
-<li><strong>Apache</strong>: http://localhost — deve mostrar a página inicial</li>
+<li><strong>Apache</strong>: <a href="http://localhost">http://localhost</a> — deve mostrar a página inicial</li>
 <li><strong>PHP</strong>: crie um <code>info.php</code> na pasta <code>root/</code> com <code>&#x3C;?php phpinfo(); ?></code> e acesse</li>
-<li><strong>phpMyAdmin</strong>: http://localhost/phpmyadmin</li>
+<li><strong>phpMyAdmin</strong>: <a href="http://localhost/phpmyadmin">http://localhost/phpmyadmin</a></li>
 <li><strong>MariaDB</strong>: Verifique a versão no phpMyAdmin ou via linha de comando:</li>
 </ol>
 <pre><code class="language-bash">mysql\bin\mysql.exe -V
@@ -182,12 +219,32 @@ lang=Portuguese
 <hr>
 <h2>🧩 Conclusão</h2>
 <p>Com essas etapas seu USBWebserver estará rodando com as versões mais recentes:</p>
-<p>| Componente | Versão  |
-| ---------- | ------- |
-| Apache     | 2.4.67  |
-| PHP        | 8.5.6   |
-| MariaDB    | 11.4.10 |
-| phpMyAdmin | 5.2.3   |</p>
+<table>
+<thead>
+<tr>
+<th>Componente</th>
+<th>Versão</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Apache</td>
+<td>2.4.67</td>
+</tr>
+<tr>
+<td>PHP</td>
+<td>8.5.6</td>
+</tr>
+<tr>
+<td>MariaDB</td>
+<td>11.4.10</td>
+</tr>
+<tr>
+<td>phpMyAdmin</td>
+<td>5.2.3</td>
+</tr>
+</tbody>
+</table>
 <p>Tudo portátil, funcionando como antes, mas com desempenho e segurança atualizados.</p>
 6:["$","main",null,{"children":["$","div",null,{"className":"container mx-auto px-5","children":[["$","div",null,{"className":"flex justify-between items-center mb-20 mt-8","children":[["$","h2",null,{"className":"text-2xl md:text-4xl font-bold tracking-tight md:tracking-tighter leading-tight","children":["$","$Le",null,{"href":"/","className":"hover:underline","children":"Blog"}]}],["$","$Le",null,{"href":"/","children":["$","p",null,{"className":"text-sm dark:text-neutral-200 hover:text-sky-700 dark:hover:text-sky-700 flex items-center","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","fill":"none","viewBox":"0 0 24 24","strokeWidth":2,"stroke":"currentColor","className":"w-4 h-4 mr-1","children":["$","path",null,{"strokeLinecap":"round","strokeLinejoin":"round","d":"M15 19l-7-7 7-7"}]}],"Voltar"]}]}]]}],["$","article",null,{"className":"mb-32","children":[[["$","h1",null,{"className":"text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-tight md:leading-none mb-12 text-center md:text-left","children":"USBWebserver: Apache 2.4.67, PHP 8.5.6 e MariaDB 11.4.10"}],["$","div",null,{"className":"hidden md:block md:mb-12","children":["$","div",null,{"className":"flex items-center","children":[["$","$Lf",null,{"src":"/assets/blog/authors/glaulher.jpeg","width":48,"height":48,"className":" rounded-full mr-4","alt":"Glaulher Medeiros"}],["$","div",null,{"className":"text-xl font-bold","children":"Glaulher Medeiros"}]]}]}],["$","div",null,{"className":"mb-8 md:mb-16 sm:mx-0 flex items-center justify-center ","children":["$","div",null,{"className":"w-full max-w-[800px] max-h-[500px] ","children":["$","div",null,{"className":"sm:mx-0","children":["$","$Lf",null,{"src":"/assets/blog/post/usbwebserver-banner.jpg","alt":"Cover Image for USBWebserver: Apache 2.4.67, PHP 8.5.6 e MariaDB 11.4.10","className":"object-contain object-center w-auto h-auto rounded-md shadow-sm ","width":800,"height":800,"priority":true}]}]}]}],["$","div",null,{"className":"max-w-2xl mx-auto","children":[["$","div",null,{"className":"block md:hidden mb-6","children":["$","div",null,{"className":"flex items-center","children":[["$","$Lf",null,{"src":"/assets/blog/authors/glaulher.jpeg","width":48,"height":48,"className":" rounded-full mr-4","alt":"Glaulher Medeiros"}],["$","div",null,{"className":"text-xl font-bold","children":"Glaulher Medeiros"}]]}]}],["$","div",null,{"className":"mb-6 text-lg","children":["$","time",null,{"children":"16 de maio de 2026"}]}]]}]],["$","$L10",null,{"content":"$11"}]]}]]}]}]
 c:[["$","meta","0",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
