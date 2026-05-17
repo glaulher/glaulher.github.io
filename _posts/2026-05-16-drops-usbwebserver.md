@@ -11,7 +11,7 @@ ogImage:
   url: '/assets/blog/post/usbwebserver-banner.jpg'
 
 publishedDate: '2026-05-16T10:00:00Z'
-tags: [apache, php, mariadb, mysql, usbwebserver, windows]
+tags: [apache, php, mariadb, mysql, windows]
 ---
 
 ---
