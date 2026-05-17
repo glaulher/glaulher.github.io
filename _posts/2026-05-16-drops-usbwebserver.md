@@ -205,15 +205,15 @@ lang=Portuguese
 
 Antes de iniciar, confira se os nomes das pastas e executáveis estão no padrão que o USBWebserver espera:
 
-| Local                          | Obrigatório                    | Como obter                          |
-| ------------------------------ | ------------------------------ | ----------------------------------- |
-| `apache2/bin/httpd.exe`        | Servidor Apache                | Já vem no zip                       |
-| `apache2/bin/httpd_usbwv8.exe` | **Gerenciamento USBWebserver** | `copy httpd.exe httpd_usbwv8.exe`   |
-| `php/php8apache2_4.dll`        | Módulo PHP                     | Já vem no zip                       |
-| `mysql/bin/mariadbd.exe`       | Servidor MariaDB               | Já vem no zip                       |
-| `mysql/bin/mysqld.exe`         | Compatibilidade MySQL          | `copy mariadbd.exe mysqld.exe`      |
-| `mysql/bin/mysqld_usbwv8.exe`  | **Gerenciamento USBWebserver** | `copy mysqld.exe mysqld_usbwv8.exe` |
-| `phpmyadmin/`                  | Interface web                  | Só renomear a pasta                 |
+| Local | Obrigatório | Como obter |
+|---|---|---|
+| `apache2/bin/httpd.exe` | Servidor Apache | Já vem no zip |
+| `apache2/bin/httpd_usbwv8.exe` | **Gerenciamento USBWebserver** | `copy httpd.exe httpd_usbwv8.exe` |
+| `php/php8apache2_4.dll` | Módulo PHP | Já vem no zip |
+| `mysql/bin/mariadbd.exe` | Servidor MariaDB | Já vem no zip |
+| `mysql/bin/mysqld.exe` | Compatibilidade MySQL | `copy mariadbd.exe mysqld.exe` |
+| `mysql/bin/mysqld_usbwv8.exe` | **Gerenciamento USBWebserver** | `copy mysqld.exe mysqld_usbwv8.exe` |
+| `phpmyadmin/` | Interface web | Só renomear a pasta |
 
 > ⚠️ Os executáveis com sufixo `_usbwv8` são **obrigatórios**. O USBWebserver os utiliza para iniciar/parar os serviços. Sem eles, o programa não funciona.
 
@@ -239,11 +239,11 @@ mysql\bin\mysql.exe -V
 
 Com essas etapas seu USBWebserver estará rodando com as versões mais recentes:
 
-| Componente | Versão  |
-| ---------- | ------- |
-| Apache     | 2.4.67  |
-| PHP        | 8.5.6   |
-| MariaDB    | 11.4.10 |
-| phpMyAdmin | 5.2.3   |
+| Componente | Versão |
+|---|---|
+| Apache | 2.4.67 |
+| PHP | 8.5.6 |
+| MariaDB | 11.4.10 |
+| phpMyAdmin | 5.2.3 |
 
 Tudo portátil, funcionando como antes, mas com desempenho e segurança atualizados.
