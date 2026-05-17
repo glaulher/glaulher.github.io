@@ -27,9 +27,5 @@
 }
 
 .markdown th {
-  @apply bg-gray-100 dark:bg-gray-800 font-semibold;
-}
-
-.markdown tr:nth-child(even) {
-  @apply bg-gray-50 dark:bg-gray-900;
+  @apply font-semibold;
 }
