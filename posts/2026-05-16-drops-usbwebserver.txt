@@ -1,0 +1,195 @@
+1:"$Sreact.fragment"
+2:I[78534,["742","static/chunks/742-565a7562c8d1d87c.js","177","static/chunks/app/layout-3fe86a089e8e680a.js"],"Providers"]
+3:I[6538,["742","static/chunks/742-565a7562c8d1d87c.js","177","static/chunks/app/layout-3fe86a089e8e680a.js"],"WrapperHeader"]
+4:I[15244,[],""]
+5:I[43866,[],""]
+7:I[86213,[],"OutletBoundary"]
+9:I[86213,[],"MetadataBoundary"]
+b:I[86213,[],"ViewportBoundary"]
+d:I[34835,[],""]
+:HL["/_next/static/media/e4af272ccee01ff0-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/css/380f7834fbdabad7.css","style"]
+:HL["/_next/static/css/4639d7b613416f5d.css","style"]
+0:{"P":null,"b":"KId96mcara30ga7jucCjc","p":"","c":["","posts","2026-05-16-drops-usbwebserver"],"i":false,"f":[[["",{"children":["posts",{"children":[["slug","2026-05-16-drops-usbwebserver","d"],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/380f7834fbdabad7.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"en","children":[["$","head",null,{"children":[["$","link",null,{"rel":"apple-touch-icon","sizes":"180x180","href":"/favicon/apple-touch-icon.png"}],["$","link",null,{"rel":"icon","type":"image/png","sizes":"32x32","href":"/favicon/favicon-32x32.png"}],["$","link",null,{"rel":"icon","type":"image/png","sizes":"16x16","href":"/favicon/favicon-16x16.png"}],["$","link",null,{"rel":"manifest","href":"/favicon/site.webmanifest"}],["$","link",null,{"rel":"mask-icon","href":"/favicon/safari-pinned-tab.svg","color":"#000000"}],["$","link",null,{"rel":"shortcut icon","href":"/favicon/favicon.ico"}],["$","meta",null,{"name":"msapplication-TileColor","content":"#000000"}],["$","meta",null,{"name":"msapplication-config","content":"/favicon/browserconfig.xml"}],["$","meta",null,{"name":"theme-color","content":"#000"}],["$","link",null,{"rel":"alternate","type":"application/rss+xml","href":"/feed.xml"}]]}],["$","body",null,{"className":"bg-slate-100\n            dark:bg-gray-900\n            dark:from-gray-900\n            dark:to-gray-800 \n            bg-gradient-to-r \n            h-screen \n            __className_f367f3","children":["$","$L2",null,{"children":[["$","$L3",null,{}],["$","$L4",null,{"parallelRouterKey":"children","segmentPath":["children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[],[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]]],"forbidden":"$undefined","unauthorized":"$undefined"}],["$","footer",null,{"className":"bg-gray-700  mt-1 py-4","children":["$","div",null,{"className":"container mx-auto flex justify-center","children":["$","span",null,{"className":"mx-auto text-neutral-200","children":"© 2025 GrmDevTips"}]}]}]]}]}]]}]]}],{"children":["posts",["$","$1","c",{"children":[null,["$","$L4",null,{"parallelRouterKey":"children","segmentPath":["children","posts","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["slug","2026-05-16-drops-usbwebserver","d"],["$","$1","c",{"children":[null,["$","$L4",null,{"parallelRouterKey":"children","segmentPath":["children","posts","children","$0:f:0:1:2:children:2:children:0","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":["__PAGE__",["$","$1","c",{"children":["$L6",[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/4639d7b613416f5d.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","$L7",null,{"children":"$L8"}]]}],{},null,false]},null,false]},null,false]},null,false],["$","$1","h",{"children":[null,["$","$1","kpyBwV7L4cZKY5blVQEWk",{"children":[["$","$L9",null,{"children":"$La"}],["$","$Lb",null,{"children":"$Lc"}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]]}],false]],"m":"$undefined","G":["$d","$undefined"],"s":false,"S":true}
+e:I[48173,["742","static/chunks/742-565a7562c8d1d87c.js","688","static/chunks/688-2ba1992c7a7e345a.js","858","static/chunks/app/posts/%5Bslug%5D/page-b06279caf317e001.js"],""]
+f:I[87970,["742","static/chunks/742-565a7562c8d1d87c.js","688","static/chunks/688-2ba1992c7a7e345a.js","858","static/chunks/app/posts/%5Bslug%5D/page-b06279caf317e001.js"],"Image"]
+10:I[85301,["742","static/chunks/742-565a7562c8d1d87c.js","688","static/chunks/688-2ba1992c7a7e345a.js","858","static/chunks/app/posts/%5Bslug%5D/page-b06279caf317e001.js"],"PostBody"]
+11:T2296,<hr>
+<h2>🖥️ Como atualizar USBWebserver com Apache 2.4.67, PHP 8.5.6 e MariaDB 11.4.10</h2>
+<p>O USBWebserver é uma solução portátil excelente para desenvolvimento local. Recentemente atualizei todas as ferramentas para as versões mais recentes e troquei o MySQL pelo MariaDB. Neste post mostro o passo a passo completo.</p>
+<hr>
+<h2>✅ Versões utilizadas</h2>
+<ul>
+<li><strong>Apache 2.4.67</strong> (Win64) — Apache Lounge VS18</li>
+<li><strong>PHP 8.5.6</strong> (ZTS Visual C++ 2022 x64)</li>
+<li><strong>MariaDB 11.4.10</strong> (substitui o MySQL)</li>
+<li><strong>phpMyAdmin 5.2.3</strong></li>
+</ul>
+<hr>
+<h2>1️⃣ Faça backup de tudo</h2>
+<p>Antes de começar, copie toda a pasta do USBWebserver para um local seguro:</p>
+<pre><code class="language-bash"># Crie uma cópia de segurança
+xcopy C:\USBWebserver C:\USBWebserver_backup /E /I
+</code></pre>
+<p>Os arquivos de configuração originais ficam em <code>settings/</code>:</p>
+<ul>
+<li><code>httpd.conf</code> — configuração do Apache</li>
+<li><code>php.ini</code> — configuração do PHP</li>
+<li><code>my.ini</code> — configuração do MariaDB/MySQL</li>
+<li><code>usbwebserver.ini</code> — config geral da ferramenta</li>
+</ul>
+<hr>
+<h2>2️⃣ Baixe as versões mais recentes</h2>
+<h3>Apache 2.4.67</h3>
+<p>Acesse o <a href="https://www.apachelounge.com/download/">Apache Lounge</a> e baixe o pacote <code>httpd-2.4.67-win64-VS18.zip</code>.</p>
+<h3>PHP 8.5.6</h3>
+<p>Acesse <a href="https://windows.php.net/download/">windows.php.net</a> e baixe o <strong>Thread Safe (ZTS)</strong> x64:</p>
+<pre><code class="language-bash"># Link direto (exemplo)
+https://windows.php.net/downloads/releases/php-8.5.6-Win32-vs17-x64.zip
+</code></pre>
+<h3>MariaDB 11.4.10</h3>
+<p>Acesse <a href="https://mariadb.org/download/">mariadb.org/download</a> e baixe o ZIP para Windows x64:</p>
+<pre><code class="language-bash"># Link direto (exemplo)
+https://archive.mariadb.org/mariadb-11.4.10/winx64-packages/mariadb-11.4.10-winx64.zip
+</code></pre>
+<hr>
+<h2>3️⃣ Substituindo o Apache</h2>
+<ol>
+<li>Apague a pasta <code>apache2/</code> do USBWebserver</li>
+<li>Extraia o conteúdo do <code>httpd-2.4.67-win64-VS18.zip</code></li>
+<li><strong>Renomeie a pasta extraída para <code>apache2</code></strong> e cole no USBWebserver</li>
+<li>Copie o <code>settings/httpd.conf</code> para <code>apache2/conf/httpd.conf</code></li>
+<li><strong>Duplique o executável com o sufixo <code>_usbwv8</code></strong>:</li>
+</ol>
+<pre><code class="language-bash">copy apache2\bin\httpd.exe apache2\bin\httpd_usbwv8.exe
+</code></pre>
+<blockquote>
+<p>⚠️ O USBWebserver inicia o Apache usando o executável <code>httpd_usbwv8.exe</code>. Sem essa cópia renomeada, o programa não consegue gerenciar o serviço.</p>
+</blockquote>
+<p>O <code>httpd.conf</code> do USBWebserver usa placeholders que são substituídos automaticamente:</p>
+<pre><code class="language-apache">Define SRVROOT "c:/Apache24"
+ServerRoot "{path}/apache2"
+Listen {port}
+ServerName localhost:{port}
+DocumentRoot "{rootdir}"
+
+# Configuração do PHP
+LoadModule php_module "{path}/php/php8apache2_4.dll"
+AddType application/x-httpd-php .php
+PHPIniDir "{path}/php"
+</code></pre>
+<hr>
+<h2>4️⃣ Substituindo o PHP</h2>
+<ol>
+<li>Apague a pasta <code>php/</code> do USBWebserver</li>
+<li>Extraia o conteúdo do <code>php-8.5.6-Win32-vs17-x64.zip</code></li>
+<li><strong>Renomeie a pasta extraída para <code>php</code></strong> e cole no USBWebserver</li>
+<li>Copie o <code>settings/php.ini</code> para <code>php/php.ini</code></li>
+</ol>
+<blockquote>
+<p>⚠️ O <code>httpd.conf</code> carrega o PHP via <code>php8apache2_4.dll</code>. O PHP 8.5.6 já fornece essa DLL com o mesmo nome, então não precisa renomear. Verifique se o arquivo <code>php/php8apache2_4.dll</code> existe.</p>
+</blockquote>
+<p>Verifique se o <code>php.ini</code> tem as extensões necessárias descomentadas:</p>
+<pre><code class="language-ini">extension=curl
+extension=gd
+extension=mbstring
+extension=mysqli
+extension=openssl
+extension=pdo_mysql
+</code></pre>
+<p>E o <code>extension_dir</code> apontando para o local correto:</p>
+<pre><code class="language-ini">extension_dir = "{path}\php\ext\"
+</code></pre>
+<hr>
+<h2>5️⃣ Substituindo o MySQL pelo MariaDB</h2>
+<p>Essa é a etapa mais importante. O MariaDB é compatível com MySQL, então você pode usar a mesma pasta <code>mysql/</code>.</p>
+<ol>
+<li>Apague a pasta <code>mysql/</code> do USBWebserver</li>
+<li>Extraia o <code>mariadb-11.4.10-winx64.zip</code></li>
+<li><strong>Renomeie a pasta extraída para <code>mysql</code></strong> e cole no USBWebserver</li>
+<li>Copie o <code>settings/my.ini</code> para <code>mysql/my.ini</code></li>
+<li><strong>Garanta o <code>mysqld.exe</code> e duplique com o sufixo <code>_usbwv8</code></strong>:</li>
+</ol>
+<pre><code class="language-bash">REM Se mysqld.exe não existir, copie de mariadbd.exe
+copy mysql\bin\mariadbd.exe mysql\bin\mysqld.exe
+
+REM Duplique com o sufixo _usbwv8 (obrigatório)
+copy mysql\bin\mysqld.exe mysql\bin\mysqld_usbwv8.exe
+</code></pre>
+<blockquote>
+<p>⚠️ <strong>ATENÇÃO:</strong> O USBWebserver gerencia o banco usando o executável <code>mysqld_usbwv8.exe</code>.</p>
+</blockquote>
+<p>O <code>my.ini</code> básico:</p>
+<pre><code class="language-ini">[mysqld]
+port = 3306
+sql_mode=NO_ENGINE_SUBSTITUTION,STRICT_TRANS_TABLES
+</code></pre>
+<p>O USBWebserver inicia o banco via <code>mysql\bin\mysqld_usbwv8.exe</code>, e com essa etapa o MariaDB funcionará perfeitamente.</p>
+<hr>
+<h2>6️⃣ Atualizando o phpMyAdmin</h2>
+<ol>
+<li>Apague a pasta <code>phpmyadmin/</code></li>
+<li>Baixe a versão mais recente em <a href="https://www.phpmyadmin.net/downloads/">phpmyadmin.net</a></li>
+<li><strong>Renomeie a pasta extraída para <code>phpmyadmin</code></strong> e cole no USBWebserver</li>
+</ol>
+<blockquote>
+<p>⚠️ O USBWebserver espera a pasta <code>phpmyadmin/</code>. O nome dos executáveis do phpMyAdmin (arquivos PHP) não precisa ser alterado.</p>
+</blockquote>
+<p>O alias já está configurado no <code>httpd.conf</code>:</p>
+<pre><code class="language-apache">Alias /phpmyadmin "{path}/phpmyadmin/"
+</code></pre>
+<hr>
+<h2>7️⃣ Verificando as configurações</h2>
+<h3>usbwebserver.ini</h3>
+<pre><code class="language-ini">[apache]
+port=80
+[mysql]
+port=3306
+[algemeen]
+slocal=0
+hide=0
+local=0
+root={path}/root
+lang=Portuguese
+</code></pre>
+<hr>
+<h2>8️⃣ Verifique os executáveis (resumo)</h2>
+<p>Antes de iniciar, confira se os nomes das pastas e executáveis estão no padrão que o USBWebserver espera:</p>
+<p>| Local                          | Obrigatório                    | Como obter                          |
+| ------------------------------ | ------------------------------ | ----------------------------------- |
+| <code>apache2/bin/httpd.exe</code>        | Servidor Apache                | Já vem no zip                       |
+| <code>apache2/bin/httpd_usbwv8.exe</code> | <strong>Gerenciamento USBWebserver</strong> | <code>copy httpd.exe httpd_usbwv8.exe</code>   |
+| <code>php/php8apache2_4.dll</code>        | Módulo PHP                     | Já vem no zip                       |
+| <code>mysql/bin/mariadbd.exe</code>       | Servidor MariaDB               | Já vem no zip                       |
+| <code>mysql/bin/mysqld.exe</code>         | Compatibilidade MySQL          | <code>copy mariadbd.exe mysqld.exe</code>      |
+| <code>mysql/bin/mysqld_usbwv8.exe</code>  | <strong>Gerenciamento USBWebserver</strong> | <code>copy mysqld.exe mysqld_usbwv8.exe</code> |
+| <code>phpmyadmin/</code>                  | Interface web                  | Só renomear a pasta                 |</p>
+<blockquote>
+<p>⚠️ Os executáveis com sufixo <code>_usbwv8</code> são <strong>obrigatórios</strong>. O USBWebserver os utiliza para iniciar/parar os serviços. Sem eles, o programa não funciona.</p>
+</blockquote>
+<hr>
+<h2>9️⃣ Testando o ambiente</h2>
+<p>Inicie o USBWebserver e acesse:</p>
+<ol>
+<li><strong>Apache</strong>: http://localhost — deve mostrar a página inicial</li>
+<li><strong>PHP</strong>: crie um <code>info.php</code> na pasta <code>root/</code> com <code>&#x3C;?php phpinfo(); ?></code> e acesse</li>
+<li><strong>phpMyAdmin</strong>: http://localhost/phpmyadmin</li>
+<li><strong>MariaDB</strong>: Verifique a versão no phpMyAdmin ou via linha de comando:</li>
+</ol>
+<pre><code class="language-bash">mysql\bin\mysql.exe -V
+# Saída: mysql from 11.4.10-MariaDB
+</code></pre>
+<hr>
+<h2>🧩 Conclusão</h2>
+<p>Com essas etapas seu USBWebserver estará rodando com as versões mais recentes:</p>
+<p>| Componente | Versão  |
+| ---------- | ------- |
+| Apache     | 2.4.67  |
+| PHP        | 8.5.6   |
+| MariaDB    | 11.4.10 |
+| phpMyAdmin | 5.2.3   |</p>
+<p>Tudo portátil, funcionando como antes, mas com desempenho e segurança atualizados.</p>
+6:["$","main",null,{"children":["$","div",null,{"className":"container mx-auto px-5","children":[["$","div",null,{"className":"flex justify-between items-center mb-20 mt-8","children":[["$","h2",null,{"className":"text-2xl md:text-4xl font-bold tracking-tight md:tracking-tighter leading-tight","children":["$","$Le",null,{"href":"/","className":"hover:underline","children":"Blog"}]}],["$","$Le",null,{"href":"/","children":["$","p",null,{"className":"text-sm dark:text-neutral-200 hover:text-sky-700 dark:hover:text-sky-700 flex items-center","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","fill":"none","viewBox":"0 0 24 24","strokeWidth":2,"stroke":"currentColor","className":"w-4 h-4 mr-1","children":["$","path",null,{"strokeLinecap":"round","strokeLinejoin":"round","d":"M15 19l-7-7 7-7"}]}],"Voltar"]}]}]]}],["$","article",null,{"className":"mb-32","children":[[["$","h1",null,{"className":"text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-tight md:leading-none mb-12 text-center md:text-left","children":"USBWebserver: Apache 2.4.67, PHP 8.5.6 e MariaDB 11.4.10"}],["$","div",null,{"className":"hidden md:block md:mb-12","children":["$","div",null,{"className":"flex items-center","children":[["$","$Lf",null,{"src":"/assets/blog/authors/glaulher.jpeg","width":48,"height":48,"className":" rounded-full mr-4","alt":"Glaulher Medeiros"}],["$","div",null,{"className":"text-xl font-bold","children":"Glaulher Medeiros"}]]}]}],["$","div",null,{"className":"mb-8 md:mb-16 sm:mx-0 flex items-center justify-center ","children":["$","div",null,{"className":"w-full max-w-[800px] max-h-[500px] ","children":["$","div",null,{"className":"sm:mx-0","children":["$","$Lf",null,{"src":"/assets/blog/post/usbwebserver-banner.jpg","alt":"Cover Image for USBWebserver: Apache 2.4.67, PHP 8.5.6 e MariaDB 11.4.10","className":"object-contain object-center w-auto h-auto rounded-md shadow-sm ","width":800,"height":800,"priority":true}]}]}]}],["$","div",null,{"className":"max-w-2xl mx-auto","children":[["$","div",null,{"className":"block md:hidden mb-6","children":["$","div",null,{"className":"flex items-center","children":[["$","$Lf",null,{"src":"/assets/blog/authors/glaulher.jpeg","width":48,"height":48,"className":" rounded-full mr-4","alt":"Glaulher Medeiros"}],["$","div",null,{"className":"text-xl font-bold","children":"Glaulher Medeiros"}]]}]}],["$","div",null,{"className":"mb-6 text-lg","children":["$","time",null,{"children":"16 de maio de 2026"}]}]]}]],["$","$L10",null,{"content":"$11"}]]}]]}]}]
+c:[["$","meta","0",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+a:[["$","meta","0",{"charSet":"utf-8"}],["$","title","1",{"children":"USBWebserver: Apache 2.4.67, PHP 8.5.6 e MariaDB 11.4.10 | Meu blog sobre tecnologia utilizando Next.js and Markdown."}],["$","meta","2",{"name":"description","content":"Meu blog sobre tecnologia utilizando Next.js and Markdown."}],["$","meta","3",{"property":"og:title","content":"USBWebserver: Apache 2.4.67, PHP 8.5.6 e MariaDB 11.4.10 | Meu blog sobre tecnologia utilizando Next.js and Markdown."}],["$","meta","4",{"property":"og:description","content":"Meu blog sobre tecnologia utilizando Next.js and Markdown."}],["$","meta","5",{"property":"og:image","content":"https://glaulher.github.io/assets/blog/post/usbwebserver-banner.jpg"}],["$","meta","6",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","7",{"name":"twitter:title","content":"USBWebserver: Apache 2.4.67, PHP 8.5.6 e MariaDB 11.4.10 | Meu blog sobre tecnologia utilizando Next.js and Markdown."}],["$","meta","8",{"name":"twitter:description","content":"Meu blog sobre tecnologia utilizando Next.js and Markdown."}],["$","meta","9",{"name":"twitter:image","content":"https://glaulher.github.io/assets/blog/post/usbwebserver-banner.jpg"}]]
+8:null
